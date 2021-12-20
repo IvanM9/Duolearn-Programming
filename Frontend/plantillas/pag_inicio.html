@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/disenio.css">
+
+    <title>Duolearn Programming</title>
+</head>
+<body>
+    <!--Barra de navegación superior--> 
+    <div id="barra_superior">
+        <header id="encabezado">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <img src="../../imagenes/logo.png" alt="Logo_DuoLearn" width="30" height="24" class="d-inline-block align-text-top">
+                <a class="navbar-brand" href="#">Duolearn</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarprincipal">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="registro.html">Iniciar sesión </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Información</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>        
+        </header>
+    </div>
+
+    <!--Encabezado del Contenido principal-->  
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-11">
+                <h1 id="titulo_principal">DuoLearn Porgramming</h1><br/>
+                <h2 id="subtitulo_principal">¡La forma más divertida, fácil y efectiva de aprender programación!</h2><br/>
+                <p id="info">En este curso, aprenderás las bases y lo fundamental del lenguaje de programación que decidas aprender. Cada curso cuenta con 9 módulos; dentro de cada módulo encontrarás diferentes actividades muy intuitivas y efectivas, para que puedas aprender de una manera divertida, completa los módulos y gana puntos que se iran acumulando en tu progreso.</p> 
+                <p>Chequea los módulos que contienen los lenguajes de programación que tiene a disposición DuoLearn Programming:</p><br/>
+            </div>
+        </div>
+    
+        <!--Cuerpo del contenido principal-->
+        <div >
+            <div id="columnaC" class="col-6">
+                <form>
+                    <img id="logoC" src="../../imagenes/logo_c_sharp.png" alt="Logo_C">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <b>Módulo 1:</b> Varibles y tipos de datos </button>
+                                </h2>
+                            </div>
+    
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    En C #, existen diferentes tipos de variables (definidas con diferentes palabras clave) las cuales se aprenderán en este curso, tenemos algunas, por ejemplo:
+                                    <ul>
+                                        <li><code>int</code> - almacena enteros (números enteros), sin decimales, como 123 o -123.</li>
+                                        <li><code>double</code> - almacena números de punto flotante, con decimales, como 19,99 o -19,99.</li>
+                                        <li><code>char</code>- almacena caracteres individuales, como 'a' o 'B'. Los valores de caracteres están rodeados por comillas simples.</li>
+                                        <li><code>string</code>- almacena texto, como "Hola mundo". Los valores de cadena están rodeados por comillas dobles.</li>
+                                        <li><code>bool</code> - almacena valores con dos estados: verdadero o falso.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <b>Modulo 2:</b> If/else</button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    La estructura if ... else recibe como parámetro una expresión que devuelve un valor booleano, como una expresión de comparación. Si la condición se cumple, el bloque de código correspondiente se ejecuta.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 3:</b> Ciclos de repetición</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Aprenderás a la estructura y como funcionan los diferentes ciclos de repetición con los que cuenta C# como por ejemplo: While, Do..While y for. Son estructuras de repetición las cuales se cumplen si la condición planteada es verdadera.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 4:</b> Funciones y Procedimientos</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    En C# a las funciones o procedimientos se le conocen con el nombre de métodos. En el ámbito de la programación, una función es un tipo de subalgoritmo, es el término para describir una secuencia de órdenes que hacen una tarea específica de una aplicación más grande.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 5:</b> Vectores</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Un vector (o arreglo unidimensional) es una estructura de datos en la cual se almacena un conjunto de datos de un mismo tipo. Es decir que un arreglo es una lista de n elementos que posee varias características. En este módulo aprenderás como crearlos, operar con ellos, etc.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 6:</b> Matrices</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Una matriz es una estructura de datos que permite almacenar un conjunto de datos del mismo tipo.Con un único nombre se define la matriz y por medio de DOS sub índices (fila y columna) hacemos referencia a cada elemento de la misma. El módulo está pensado en aprender a crearlas y operar con ellas.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 7:</b> Caracteres y cadenas</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                   En este módulo aprenderas los elementos y funciones que se necesitan para las cadenas, las operaciones que se pueden hacer con cadenas como: Seprar texto, deletrear, quitar espacios, convertir a mayúsculas, minúsculas, etc.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 8:</b> Archivos de texto</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                   Este módulo muestra ejercicios básicos y las estructuras necesarias para crear archivos de texto, las actividades en este módulo incluyen la detección de errores y completar códigos.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 9:</b> Aprobación de conocimientos</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                   Luego de haber cursado por los 8 modulos anteriores, el módulo 9 aprobará todos los conocimientos aprendidos, mediante ejercicios con todos los temas que se han planteado para este curso, las actividades contienen un esfuerzo un poco mayor.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <div id="columnaJava" class="col-6">
+                <form>
+                    <img id="logoJava" src="../../imagenes/java_logo.png" alt="Logo_Java">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <b>Módulo 1:</b> Tipos de variables y datos </button>
+                                </h2>
+                            </div>
+    
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Java contiene varios tipos de variables algunas de las que se verán en este módulo son:
+                                    <ul>
+                                        <li><code>Numéricas</code> - Son de tipo: byte, short, int, long, double, float</li>
+                                        <li><code>Booleanas</code> - True y False.</li>
+                                        <li><code>Caracteres</code>- Char y String.</li>
+                                        <li><code>Locales</code>- son variables temporales cuyo ámbito de visibilidad es el método sobre el que están definidas.</li>
+                                        <li><code>De clase</code> - aquellas variables que están precedidas del modificador static.</li>
+                                        <li><code>De instancia</code> - están definidas dentro de un objeto pero que no tienen un modificador de estáticas.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <b>Módulo 2:</b> Operadores aritméticos</button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Los operadores aritméticos en Java son los operadores que nos permiten realizar operaciones matemáticas: suma, resta, multiplicación, división y resto. Por ello, el módulo ofrece diferentes tipos de ejercicios usando todos los operadores disponible, con una complejidad media.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Módulo 3:</b> Estructuras condicionales</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    El flujo de ejecución en Java es lineal por lo que se va ejecutando línea a línea en el orden en el que se va leyendo por lo que las sentencias para controlar el flujo de ejecución son la base ya que permiten ejecutar partes del código en base a condiciones (if, if else, el operador ternario ?: y switch), que se ejecuten un número determinado de veces.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Módulo 4:</b> Estructuras repetitivas</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    En este módulo aprenderás cómo se utilizan las estructuras de control repetitivas en Java (también conocidas como ciclos o bucles). Los ejercicios planteados incluyen varios de los ciclos de repetición que se aprendern en Java.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Módulo 5:</b> Vectores</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Los arrays en Java son suficientes para guardar tipos básicos de datos, y objetos de una determinada clase cuyo número se conoce de antemano. Algunas veces deseamos guardar objetos en un array pero no sabemos cuantos objetos vamos a guardar. La clase Vector proporciona todo esto, y se aprenderá a como usarla correctamente.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Módulo 6:</b> Matrices</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Un array en Java puede tener más de una dimensión. El caso más general son los arrays bidimensionales también llamados matrices o tablas. La dimensión de un array la determina el número de índices necesarios para acceder a sus elementos. El módulo, plantea ejercicios didácticos con problemas y estructuras de las matrices.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Módulo 7:</b> Cadenas</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    En este módulo aprenderas los elementos y funciones que se necesitan para las cadenas, las operaciones que se pueden hacer con cadenas como: Seprar texto, deletrear, quitar espacios, convertir a mayúsculas, minúsculas, etc.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Módulo 8:</b> Conversión de datos</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    En este módulo aprenderas como convertir datos de varios tipos, en especial usando el método parse, el cual se lo plantea con variosejercicios que tienen complejidad baja e intermedia.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <b>Modulo 9:</b> Aprobación de conocimientos</button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                   Luego de haber cursado por los 8 modulos anteriores, el módulo 9 aprobará todos los conocimientos aprendidos, mediante ejercicios con todos los temas que se han planteado para este curso, las actividades contienen un esfuerzo un poco mayor.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>

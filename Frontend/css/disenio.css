@@ -1,0 +1,27 @@
+
+#titulo_principal{
+    text-align: center;
+    color:goldenrod;
+}
+#subtitulo_principal{   
+    color:seagreen;
+}
+#info{
+    text-align: justify;
+}
+
+#columnaC{
+    float:left;
+}
+
+#columnaJava{
+    float: right;
+}
+
+#logoC{
+    width: 125px;
+}
+
+#logoJava{
+    width: 200px;
+}
