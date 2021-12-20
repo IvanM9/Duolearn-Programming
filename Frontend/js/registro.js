@@ -1,4 +1,5 @@
 var Datos;
+// Evento de click para verificar que los campos no estén vacios
 $("#boton").click(() => {
     Datos = {
         "Nombres": $("#nombres").val(),
@@ -22,6 +23,7 @@ $("#boton").click(() => {
         alert("Faltan campos por llenar");
 });
 
+// Se verifica que los campos recibidos no estén vacios
 const verficarCampos = () => {
     let completos = true;
     for (const x in Datos) {

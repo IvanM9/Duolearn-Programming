@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,30 +10,35 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Duolearn</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- Barra de navegación -->
+  <div id="barra_superior">
+    <header id="encabezado">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+        <img src="../imagenes/logo.png" alt="Logo_DuoLearn" width="30" height="24"
+          class="d-inline-block align-text-top">
+        <a class="navbar-brand" href="index.html">Duolearn</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="login.html">Iniciar sesión </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Información</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Aprender</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
   <br />
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-6">
+  <!-- Formulario -->
+  <div class="container-fluid w-75 mt-3">
+    <div class="row align-items-stretch justify-content-lg-center">
+      <div class="col bg-white p-2 rounded-end col-md-8">
         <h1 class="text-align">Registro</h1>
 
         <form>
@@ -46,7 +52,7 @@
           </div>
           <div class="form-group">
             <label for="InputCountry">País</label>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="form-control" id="inputGroupSelect01">
               <option selected></option>
               <option value="Ecuador">Ecuador</option>
               <option value="Colombia">Colombia</option>
@@ -69,6 +75,10 @@
             <label for="InputPassword1">Ingrese nuevamente la contraseña</label>
             <input type="password" class="form-control" id="InputPassword2" />
           </div>
+          <div class="form-text">
+            <a href="login.html" target="_blank" rel="noopener noreferrer">Ya tengo una cuenta</a>
+          </div>
+          <br>
           <button id="boton" type="button" class="btn btn-primary">
             Registrar
           </button>
