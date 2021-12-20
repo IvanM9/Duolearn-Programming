@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <TITLe>INICIO DE SESION</TITLe>
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <script src="jquery.js"></script>
+
+        <style>
+            body{
+                background-color: linear-gradient(to right,#51f3ff #51ff8b);
+            }
+            #boton_iniciar{
+                display: grid;
+            }
+            #tittle{
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 300%;
+                background-color: #0d67dd;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid w-75 mt-3 rounded-circle">
+            <div class="row align-items-stretch justify-content-lg-center">
+                
+                <div class="col bg-white p-2 rounded-end col-md-8">
+                    <div class="text-end">
+
+                    </div>
+                    <h2 class="fw-bold text-center py-4 text-light rounded" id="tittle">BIENVENIDO</h2>
+                    <form action="">
+                        <div class="mb-4">
+                            <label for="correo" class="form-label">Correo:</label>
+                            <input type="email" name="correo" value="" id="correo" class="form-control"  placeholder="email@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" name="password" value="" id="password" class="form-control"  placeholder="Ingrese su contraseña">
+                        </div>
+                        <div class="mb-4 form-check">
+                            <input class="form-check-input" type="checkbox" id="politica">
+                            <label class="form-check-label" for="politica">Mantener mi sesión iniciada</label>
+                        </div>
+                        <div class="mb-4" id="boton_iniciar">
+                            <button id="btn_enviar" type="button" class="btn btn-primary">Iniciar Sesion</button>
+                        </div>
+                        <div class="my-3">
+                            <span>¿Aún no tienes cuenta? <a href="">Registrate aquí</a></span><br>
+                            <span><a href="">Recuperar contraseña</a></span>
+                        </div>
+
+                    </form>
+
+                    <div class="container w-100 my-2">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                Iniciar Sesion
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-outline-primary w-100 my-1">
+                                    <DIV class="row align-items-center">
+                                        <div class="col-2 d-none d-md-block">
+                                            <img src="facebook.png" width="30" alt="">
+                                        </div>
+                                        <div class="col-12 col-md-10 text-center">
+                                            Facebook
+                                        </div>
+                                    </DIV>
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-outline-danger w-100 my-1">
+                                    <DIV class="row align-items-center">
+                                        <div class="col-2 d-none d-md-block">
+                                            <img src="google.png" width="30" alt="">
+                                        </div>
+                                        <div class="col-12 col-md-10 text-center">
+                                            Google
+                                        </div>
+                                    </DIV>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/jquery.js"></script>
+    </body>
+</html>
