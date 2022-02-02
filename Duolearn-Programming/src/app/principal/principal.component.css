@@ -1,0 +1,765 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4{
+    color: #1d273b;
+    font-weight: 300;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.contenedor1{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+h1{
+    font-size:  50px;
+}
+
+.iniciar-sesion{
+    margin: 28px, 0, 0 0;
+    width: 130px;
+    display: inline-block;
+    background: green;
+    text-align: center;
+    color: white;
+    padding: 12px 0;
+    text-decoration: none;
+    font-weight: 400;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 8px 32px rgba(53, 245, 15, 0.46);
+}
+
+.iniciar-sesion:hover{
+    box-shadow: 0 4px 10px rgba(17, 68, 34, 0.26);
+}
+
+/*------------------------------------------------Header--------------------------------------------*/
+header::before{
+    content: "";
+    display: block;
+    margin-bottom: 80px;
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    background: rgb(5, 196, 88);
+    border-bottom: 1px solid transparent;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: ease-in-out 0.5s; /*Para que la animación al ocultarse y mostrar el menu, no sea tan brusca*/
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.nav .logo{
+    height: 70px;
+}
+
+.nav .logo img{
+    height: 90%;
+    vertical-align: top;
+}
+
+.opciones-menu{
+    font-weight: 300;
+    transition: ease-in-out 0.5s;
+}
+
+.nav .opciones-menu a{
+    color: white;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.menu{
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    z-index: 100;
+    cursor: pointer;
+    display: none;
+    /*transition: color 0.5s ease-in;*/
+}
+
+.menu > i{
+    font-size: 25px;
+    line-height: 80px;
+}
+
+/*--------------------------------------------Presentación------------------------------------*/
+.contenido-header{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenido-header > img{
+    width: 450px;
+    animation: ease-in animacion 1.5s;
+}
+
+@keyframes animacion {
+    0%{
+        transform: scale(0);
+    }100%{
+        transform: scale(1);
+    }
+}
+
+.textos-header{
+    margin: 0 0 0  30px;
+}
+
+.contenido-header{
+    font-weight: 100;
+    margin-top: 14px;
+    color: #5D6678;
+}
+
+.contenido-header a{
+    margin: 28px, 0, 0 0;
+    width: 130px;
+    display: inline-block;
+    background: yellowgreen;
+    text-align: center;
+    color: white;
+    padding: 12px 0;
+    text-decoration: none;
+    font-weight: 400;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 8px 32px rgba(53, 245, 15, 0.46);
+}
+
+.titulo{
+    font-size: 50px;
+    text-align: center;
+}
+
+/*----------------------------------------Beneficios--------------------------------------*/
+.beneficios{
+    background: lightgoldenrodyellow;
+}
+
+.contenedor-beneficios{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    justify-content: space-around;
+}
+
+.elemento{
+    width: 30%;
+    background: lightgreen;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    padding: 45px 30px 60px 30px;
+    transition: 0,5s;
+}
+
+/*Cuando pasemos el mouse sobre cada bloque*/
+.elemento:hover{
+    box-shadow: 0 4px 10px rgba(17, 29, 68, .26);
+}
+
+.elemento>i{
+    font-size: 40px;
+    background: lightblue;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(31, 98, 222, 0.56);
+}
+
+.elemento>h3{
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: 700;
+}
+
+.elemento>p{
+    font-weight: 300;
+    margin-top: 15PX;
+    padding-bottom: 20PX;
+}
+
+.elemento>a{
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.elemento>a:hover{
+    color: darkgreen;
+    transition: color .6;
+}
+
+/*--------------------------------------Experiencias-----------------------------------*/
+.historia-{
+    /*width: 100%;*/
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.historia- > img{
+    width: 450px;
+    animation: ease-in animacion 1.5s;
+}
+
+@keyframes animacion {
+    0%{
+        transform: scale(0);
+    }100%{
+        transform: scale(1);
+    }
+}
+
+.textos-historia{
+    margin: 0 0 0  30px;
+}
+
+.historia-{
+    font-weight: 100;
+    margin-top: 14px;
+    color: #5D6678;
+}
+
+.historia- a{
+    margin: 28px, 0, 0 0;
+    width: 130px;
+    display: inline-block;
+    background: yellowgreen;
+    text-align: center;
+    color: white;
+    padding: 12px 0;
+    text-decoration: none;
+    font-weight: 400;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 8px 32px rgba(53, 245, 15, 0.46);
+}
+
+.textos-historia>h1{
+    text-align: center;
+}
+
+.textos-historia>p{
+    text-align: center;
+}
+
+.textos-historia>a{
+    margin-left: 35%;
+}
+
+/*-------------------------------Modulos------------------------------*/
+.lenguajes-modulos{
+    background:lightblue;
+    padding-top: 30px;
+}
+
+.conten-lenguajes-modulos{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.numeros{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.numeros .numero{
+    width: 45%;
+    background: rgba(255, 255, 255, .50);
+    border-radius: 15px;
+    padding: 40px 35px;
+    margin-bottom: 20px;
+}
+
+.numeros .numero h4{
+    color: black;
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.numeros .numero p{
+    font-weight: 300;
+}
+
+.lenguaje-modulos-textos{
+    width: 57%;
+    margin-top: 11%;
+}
+
+.lenguaje-modulos-textos h4{
+    font-size: 40px;
+    text-align: center;
+}
+
+.lenguaje-modulos-textos p{
+    font-weight: 300;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.lenguaje-modulos-textos>a{
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid yellowgreen;
+    padding: 10px 0;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+    background: yellowgreen;
+    box-shadow: 0 8px 32px rgba(53, 245, 15, 0.46);
+    margin-left: 33%;
+}
+
+.lenguaje-modulos-textos>a:hover{
+    box-shadow: 0 4px 10px rgba(17, 29, 68, .26);
+}
+
+/*-------------------------Resultados-------------------------*/
+.resultados{
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultados>img{
+    width: 460px;
+}
+
+.caja-resultados{
+    margin: 30px 30px 0 0;
+}
+
+.caja-resultados h4{
+    font-size: 24px;
+    background: cornsilk;
+    width: 390px;
+    border-radius: 15px;
+    padding: 10px 0 10px 15px;
+    margin-bottom: 10px;
+}
+
+.caja-resultados i{
+    color:darkgreen;
+    font-size: 20px;
+}
+
+.caja-resultados>h4:hover{
+    box-shadow: 0 4px 10px rgba(17, 29, 68, .26);
+}
+
+/*--------------------------------Footer--------------------------*/
+footer{
+    background: darkgrey;
+    padding: 60x 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.columnaFooter{
+    width: 20%;
+}
+
+.columnaFooter h4{
+    color: #1d273b;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+.columnaFooter img{
+    padding-top: 10px;
+    width: 60%;
+    padding-block-end: 10px;
+}
+
+.columnaFooter a{
+    display: block;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color .3 ease-in-out;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.columnaFooter a:hover{
+    color: darkgreen;
+}
+
+.redes-sociales i{
+    font-size: 20px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    line-height: 36px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    text-align: center;
+    transition: all ease-in-out .3;
+    margin-right: 10px;
+}
+
+.redes-sociales i:hover{
+    color:white;
+    background: green;
+    border-color: green;
+}
+
+/*-------------------Modificando el sitio para que ses adaptable a moviles----------------*/
+@media screen and (max-width: 800px){
+
+    /*---------------Menu------------*/
+    .opciones-menu>a{
+        font-size: 8px;
+    }
+
+
+    /*----------------------------Introduccion-----------------------*/
+    .titulo{
+        font-size: 45px;
+    }
+
+    .textos-header h1{
+        text-align: center;
+    }
+
+    .textos-header p{
+        text-align: center;
+    }
+
+    .textos-header a{
+        margin-left: 40%;
+    }
+
+    .contenido-header{
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 720px;
+    }
+
+    .contenido-header img{
+        width: 350px;
+    }
+
+    .textos-header{
+        margin: 0;
+    }
+
+    /*------------------------------Beneficios----------------------------*/
+    .elemento{
+        width: 45%;
+    }
+
+    .historia-{
+        height: 720px;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .historia->img{
+        width: 350px;
+    }
+
+    .historia- h1{
+        font-size: 45px;
+    }
+
+    .historia- a{
+        margin-left: 38%;
+    }
+
+    .elemento{
+        width: 95%;
+    }
+
+    /*--------------------------Modulos--------------------------*/
+    .conten-lenguajes-modulos{
+        flex-direction: column-reverse;
+    }
+
+    .lenguaje-modulos-textos{
+        margin-bottom: 60px;
+    }
+
+    .numeros{
+        width: 100%;
+    }
+
+    .conten-lenguajes-modulos{
+        width: 100%;
+    }
+
+    .lenguaje-modulos-textos>h4{
+        margin-left: 40%;
+        width: 100%;
+    }
+
+    .lenguaje-modulos-textos>p{
+        margin-left: 40%;
+        width: 100%;
+    }
+
+    .lenguaje-modulos-textos>a{
+        margin-left:72%;
+        
+    }
+
+    /*------------------------Resultados--------------------*/
+    .resultados{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .caja-resultados{
+        margin: 0 0 40px 0;
+    }
+
+    .caja-resultados>h4{
+        width: 550px;
+    }
+
+    .resultados img{
+        width: 350px;
+    }
+
+    .resultados h4{
+        width: 500px;
+    }
+
+    /*---------------------------Footer----------------------*/
+    footer{
+        justify-content: space-evenly;
+    }
+
+    .columnaFooter{
+        width: 40%;
+        margin-bottom: 40px;
+    }
+
+    .columnaFooter img{
+        padding-top: 15px;
+        width: 150px;
+        margin-left: 50px;
+    }
+
+    #Acerca{
+        margin-left: 80px;
+    }
+
+    #Sociales{
+        margin-left: -80px;
+    }
+}
+
+
+@media screen and (max-width: 600px){
+    .titulo{
+        font-size: 35px;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+    .contenido-header{
+        height: 650px;
+    }
+
+    .nav{
+        padding: 0 10px;
+    }
+
+    .contenido-header img{
+        width: 230px;
+    }
+
+    .textos-header a{
+        margin-left: 30%;
+    }
+
+    .opciones-menu{
+        /*display: none;*/
+        position: fixed;
+        background: #56ab2f;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #a8e063, #56ab2f); 
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        top: 0;
+        right: 0;
+        width: 110%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        clip-path: circle(0.0% at 100% 0);
+    }
+
+    .iniciar-sesion{
+        width: 80%;
+    }
+
+    .opciones-menu>a{
+        margin: 28px, 0, 0 0;
+        width: 200px;
+        /*display: inline-block;*/
+        background: green;
+        text-align: center;
+        color: white;
+        padding: 12px 0;
+        text-decoration: none;
+        font-weight: 400;
+        border-radius: 5px;
+        font-size: 14px;
+        box-shadow: 0 8px 32px rgba(53, 245, 15, 0.46);
+    }
+
+    .nav .menudos{
+        -webkit-clip-path: circle(141.2% at 100% 0);
+        clip-path: circle(141.2% at 100% 0);
+    }
+
+    .nav .opciones-menu a{
+        color: white;
+        font-size: 18px;
+    }
+
+    .menu{
+        display: block;
+    }
+
+    .logo{
+        margin-top: 7px;
+    }
+
+    /*---------------------Beneficios----------------*/
+    .elemento{
+        width: 95%;
+    }
+
+    /*----------------------Experiencias-----------------------*/
+    .textos-historia h1{
+        font-size: 40px;
+        margin-left: -30px;
+    }
+
+    .textos-historia p{
+        margin-left: -30px;
+    }
+
+    .textos-historia a{
+        margin-left: 100px;
+    }
+
+    .historia-{
+        font-weight: 100%;
+    }
+
+    /*--------------------Modulos----------------------*/
+    .numeros .numero{
+        width: 90%;
+    }
+
+    .lenguaje-modulos-textos h4{
+        font-size: 35px;
+        margin-left: 30px;
+        width: 350px;
+    }
+
+    .lenguaje-modulos-textos p{
+        margin-left: 30px;
+        width: 350px;
+    }
+
+    .lenguaje-modulos-textos a{
+        margin-left: 55%;
+    }
+
+    .numeros .numero>h4{
+        font-size: 28px;
+    }
+
+    /*-------------------------Resultados--------------------------*/
+    .resultados>img{
+        width: 240px;
+    }
+
+    .caja-resultados>h4{
+        width: 160%;
+        font-size: 20px;
+        margin-left: -15%;
+    }
+
+    /*----------------------Footer---------------------*/
+    .columnaFooter{
+        width: 95%;
+    }
+
+    .columnaFooter>img{
+        width: 90px;
+        margin-left: 38%;
+    }
+
+    #Preguntas{
+        margin-left: 2%;
+        text-align: center;
+    }
+
+    #Acerca{
+        margin-left: 2%;
+        text-align: center;
+    }
+
+    #Sociales{
+        margin-left: 2%;
+        text-align: center;
+    }
+}

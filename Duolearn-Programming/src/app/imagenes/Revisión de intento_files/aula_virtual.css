@@ -1,0 +1,441 @@
+.principal {
+    height: auto;
+    /*max-height: 350px;*/
+    width: 24%;
+    max-width: 24%;
+    min-width: 23%;
+    float: left;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    background-color: white;
+    border: #D8D8D8 1px solid;
+    padding-bottom: 5px;
+}
+
+.principal:hover {
+    box-shadow: 1px 1px 1px 1px #bbb;
+    -moz-box-shadow: 1px 1px 1px 1px #bbb;
+    -webkit-box-shadow: 1px 1px 1px 1px #bbb;
+    -o-box-shadow: 1px 1px 1px 1px #bbb;
+    transform: translate(2px, -8px);
+    -moz-transform: translate(2px, -8px);
+    -webkit-transform: translate(2px, -8px);
+    -o-transform: translate(2px, -8px);
+}
+
+.encabezado {
+    height: 85px;
+    max-height: 85px;
+    padding: 12px 10px 15px 10px;
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    border: none;
+    font: bold 100%/normal Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: -webkit-linear-gradient(45deg, rgba(0,0,0,0.0980392) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0,0,0,0.0980392) 0), -webkit-linear-gradient(45deg, rgba(0,0,0,0.0980392) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.0980392) 75%, rgba(0,0,0,0.0980392) 0), rgb(255, 255, 255);
+    background: -moz-linear-gradient(45deg, rgba(0,0,0,0.0980392) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.0980392) 75%, rgba(0,0,0,0.0980392) 0), -moz-linear-gradient(45deg, rgba(0,0,0,0.0980392) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.0980392) 75%, rgba(0,0,0,0.0980392) 0), rgb(255, 255, 255);
+    background: linear-gradient(45deg, rgba(0,0,0,0.0980392) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.0980392) 75%, rgba(0,0,0,0.0980392) 0), linear-gradient(45deg, rgba(0,0,0,0.0980392) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.0980392) 75%, rgba(0,0,0,0.0980392) 0), rgb(255, 255, 255);
+    background-position: 0 0, 40px 40px;
+    background-origin: padding-box;
+    -webkit-background-origin: padding-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-size: 80px 80px;
+    -moz-background-size: 80px 80px;
+    background-size: 80px 80px;
+}
+
+.encabezado:hover {
+    box-shadow: 1px 1px 3px 1px #E6E6E6;
+    -webkit-box-shadow: 1px 1px 3px 1px #E6E6E6;
+    -moz-box-shadow: 1px 1px 3px 1px #E6E6E6;
+    cursor:pointer;
+}
+
+.curso:hover {
+    color: #FF00FF;
+    text-decoration:underline;
+}
+.alumnos:hover {
+    color: #FF00FF;
+    text-decoration:underline;
+}
+
+.contenedor1 {
+    padding: 8px 0px 2px 8px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.contenedor1 .me:hover {
+    box-shadow: 1px 2px 1px #0f74a8;
+    -webkit-box-shadow: 1px 2px 1px #0f74a8;
+    -moz-box-shadow: 1px 2px 1px #0f74a8;
+    transform: translate(0.5px, 1px);
+    -moz-transform: translate(0.5px, 1px);
+    -webkit-transform: translate(0.5px, 1px);
+    /*background-color: #f8f9ff;*/
+}
+
+.contenedor1 .me-encabezado {
+    border: #CCD1D1 1px solid;
+    text-align: center;
+    box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -moz-box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -webkit-box-shadow: 1px 2px 3px 1px #E6E6E6;
+}
+
+.contenedor1 .me-detalle {
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor1 .me-detalle div {
+    padding: 3px 4px 3px 4px;
+    text-align: center;
+    border: #CCD1D1 1px solid;
+    box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -moz-box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -webkit-box-shadow: 1px 2px 3px 1px #E6E6E6;
+}
+
+.contenedor1 .boton_color{
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.contenedor4{
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.contenedor4 div{
+    align-self: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 5px 1px;
+    border: #f3f3f3 1px solid;
+    text-align: center;
+    box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -moz-box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -webkit-box-shadow: 1px 2px 3px 1px #E6E6E6;
+}
+
+.contenedor4 i{
+    font-size: 20px;
+}
+.tabla tr td {
+    /*box-shadow: 1px 2px 3px 1px #ecf0f1;*/
+    transform: translate(1px, 2px);
+}
+
+.tabla tr td:hover {
+    border: #CCD1D1 1px solid;
+    box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -webkit-box-shadow: 1px 2px 3px 1px #E6E6E6;
+    -moz-box-shadow: 1px 2px 3px 1px #E6E6E6;
+    transform: translate(2px, -2px);
+    -moz-transform: translate(2px, -2px);
+    -webkit-transform: translate(2px, -2px);
+}
+/*adactativa*/
+
+@media screen and (max-width: 700px) {
+    .principal {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+    }
+    .cont-virt-description span img {
+        width: 40px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .principal {
+        width: 48% !important;
+        max-width: 48% !important;
+        min-width: 48%;
+    }
+    .cont-virt-description span img {
+        width: 40px;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .principal {
+        width: 48%;
+        max-width: 48%;
+        min-width: 48%;
+    }
+}
+@media screen and (max-width: 1500px) and (min-width: 1250px) {
+    .principal {
+        width: 32.33%;
+        max-width: 32.33%;
+        min-width: 32.33%;
+    }
+}
+@media screen and (max-width: 1800px) and (min-width: 1500px) {
+    .principal {
+        width: 24%;
+        max-width: 24%;
+        min-width: 24%;
+    }
+}
+@media screen and (max-width: 2200px) and (min-width: 1800px) {
+    .principal {
+        width: 24%;
+        max-width: 24%;
+        min-width: 24%;
+    }
+}
+@media screen and (max-width: 2600px) and (min-width: 2200px) {
+    .principal {
+        width: 19%;
+        max-width: 19%;
+        min-width: 19%;
+    }
+}
+@media screen and (max-width: 3000px) and (min-width: 2600px) {
+    .principal {
+        width: 15%;
+        max-width: 15%;
+        min-width: 15%;
+    }
+}
+
+/*planificacion clase*/
+.fa fa-folder-open{background-position:-408px -120px;width:16px;}
+.contenido_silabo li {
+    list-style-type:none;
+    margin: 0;
+    padding:10px 5px 0 5px;
+    position:relative
+}
+.contenido_silabo li::before, .contenido_silabo li::after {
+    content:'';
+    left:-20px;
+    position:absolute;
+    right:auto
+}
+.contenido_silabo li::before {
+    border-left:1px solid #999;
+    bottom:50px;
+    height:100%;
+    top:0;
+    width:1px
+}
+.contenido_silabo li::after {
+    border-top:1px solid #999;
+    height:20px;
+    top:25px;
+    width:25px
+}
+.contenido_silabo li span {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border:1px solid #999;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    display:inline-block;
+    padding:3px 8px;
+    text-decoration:none
+}
+.contenido_silabo li.parent_li>span {
+    cursor:pointer
+}
+.contenido_silabo>ul>li::before, .contenido_silabo>ul>li::after {
+    border:0
+}
+.contenido_silabo li:last-child::before {
+    height:30px
+}
+.contenido_silabo li.parent_li>span:hover, .contenido_silabo li.parent_li>span:hover+ul li span {
+    background:#eee;
+    border:1px solid #94a0b4;
+    color:#000
+}
+
+.bloque{
+    background-color: white;
+    border: #D8D8D8 1px solid;
+    margin-bottom: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    /*-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
+    /*-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
+    /*box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)*/
+}
+/*.bloque:hover {*/
+/*    box-shadow: 1px 1px 3px 1px #bbb;*/
+/*}*/
+
+.recurso_style {
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.panelbody .paletacolor{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #D8DFE5;
+    padding: 3px;
+    border-radius: 5px;
+}
+.panelbody .paletacolor .color{
+    width: 32px;
+    height: 32px;
+    border: 1px solid #E6E6E6;
+    padding: 2px;
+    float: left;
+}
+
+.panelbody .paletacolor .color a{
+    width: 100%;
+    height: 100%;
+}
+
+.panelbody .paletacolor .color:hover{
+    box-shadow: 1px 1px 3px 1px #bbb;
+}
+
+/*****************************************************************************/
+/*               Estilos de planificacion de clases profesor                  /
+/*****************************************************************************/
+
+.tareas {
+    width: 94%;
+    padding: 10px 5px 5px 5px;
+    margin-left: 30px;
+    /*border: 1px solid #d5d5d5;*/
+}
+
+.tareas div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 5px 5px 1px 10px;
+    vertical-align: middle;
+}
+.tareas .cont-virt-tarea{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: #eeeeee 0.5px solid;
+    /*-webkit-box-shadow: -4px 1px 10px -1px rgba(173,171,173,1);*/
+    /*-moz-box-shadow: -4px 1px 10px -1px rgba(173,171,173,1);*/
+    /*box-shadow: -4px 1px 10px -1px rgba(173,171,173,1);*/
+}
+
+.cont-virt-tarea .cont-virt-description {
+    padding: 5px 2px 3px 2px;
+    width: 80%;
+    height: auto;
+}
+
+.tareas .cont-virt-tarea .boton_edicion {
+    padding: 5px;
+    width: 20%;
+    justify-content: flex-end;
+}
+
+div .boton_edicion .nav > li > a:hover {
+    background-color: transparent;
+    color: #08c;
+}
+
+div .boton_edicion .nav li.dropdown.open a .caret{
+    border-top-color: #005580;
+    border-bottom-color: #005580;
+    /*opacity: 1;*/
+}
+/*.tareas .cont-virt-tarea:hover{*/
+/*    -webkit-box-shadow: 0px 1px 4px 2px #D3D3D3;*/
+/*    -moz-box-shadow: 0px 1px 4px 2px #D3D3D3;*/
+/*    box-shadow: 0px 1px 4px 2px #D3D3D3;*/
+/*    border-radius: 5px;*/
+/*    padding:5px 10px 6px 15px;*/
+/*}*/
+div .boton_edicion .nav li.dropdown.open a:hover .caret{
+    border-top-color: #005580;
+    border-bottom-color: #005580;
+}
+
+.itemcalselect{
+    background-color: rgba(26,211,85,0.1) !important;
+    color: #0000ee;
+    font-weight: bold;
+}
+
+.recurso-plan{
+    width: 94%;
+    padding: 10px 5px 10px 5px;
+    margin-left: 30px;
+}
+
+.recurso-plan div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.recurso-plan .cont-recurso-plan{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px 5px 8px 10px;
+    -webkit-box-shadow: -4px 1px 10px -1px rgba(173,171,173,1);
+    -moz-box-shadow: -4px 1px 10px -1px rgba(173,171,173,1);
+    box-shadow: -4px 1px 10px -1px rgba(173,171,173,1);
+}
+
+.recurso-plan div .descripcion {
+    padding: 5px 2px 3px 2px;
+    width: 80%;
+    height: auto;
+}
+
+.recurso-plan div .boton_edicion {
+    padding: 2px;
+    width: 25%;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.recurso-plan .cont-recurso-plan:hover{
+    -webkit-box-shadow: 0px 1px 4px 2px #D3D3D3;
+    -moz-box-shadow: 0px 1px 4px 2px #D3D3D3;
+    box-shadow: 0px 1px 4px 2px #D3D3D3;
+    border-radius: 5px;
+    padding:5px 10px 6px 15px;
+}
+
+.tema_portada{
+    background-color: #336699;
+    padding: 25px 5px 10px 5px;
+    border-radius: 5px;
+    height: 160px;
+    width: 100%;
+}
+/*****************************************************************************/
+/*               Estilos de aula virtual estudiantes                          /
+/*****************************************************************************/
+.contenedor-boton-est{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedor-boton-est>div{
+    padding: 10px 15px 0px 0px;
+}

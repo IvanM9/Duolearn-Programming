@@ -1,0 +1,13 @@
+body {
+    background-color: linear-gradient(to right, #51f3ff #51ff8b);
+}
+
+#boton_iniciar {
+    display: grid;
+}
+
+#tittle {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 300%;
+    background-color: #0d67dd;
+}
