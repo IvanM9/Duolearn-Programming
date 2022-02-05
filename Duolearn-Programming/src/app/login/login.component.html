@@ -2,42 +2,42 @@
     <div class="forms-container">
         <div class="ingresar-login-registrarse">
 
-            <form action="" class="ingresar-login-form">
+            <form [formGroup]="form_login" (ngSubmit)="login()" action="" class="ingresar-login-form">
                 <h2 class="title">Iniciar Sesión</h2>
                 <div class="entrada-texto">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Usuario">
+                    <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario">
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Contraseña">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
                 </div>
                 <br/>
                 <i><p>¿Olvidaste tu contraseña? Restablecela <a href="">Aquí</a> </p></i>
                 <input (click)="MostrarElegirLenguaje()" type="button" value="ingresar" class="btn ingresar">
             </form>
 
-            <form action="" class="ingresar-registro-form">
+            <form [formGroup]="form_registro" class="ingresar-registro-form" (ngSubmit)="registro_user()">
                 <h2 class="title">Registrarse</h2>
                 <div class="entrada-texto">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Correo electrónico">
+                    <input type="text" class="form-control" formControlName="correo" placeholder="Correo electrónico">
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-phone-square-alt"></i>
-                    <input type="text" placeholder="Teléfono celular">
+                    <input type="text" class="form-control" formControlName="celular" placeholder="Teléfono celular">
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Usuario">
+                    <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario">
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Contraseña">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
                 </div>
                 <br/>
                 <i><p>Si tienes una cuenta, inicia sesión con tus credenciales</p></i>
-                <input (click)="MostrarElegirLenguaje()" type="button" value="Registrarme" class="btn ingresar" id="boton-ingresar">
+                <button type="submit" class="btn ingresar" id="boton-ingresar">Registrarme</button>
             </form>
 
         </div>

@@ -1,12 +1,12 @@
 <!--Menu, encabezado-->
-<div (scroll)="menuArriba()">
+<div>
   <header>
-    <nav>
+    <nav #navegacion>
       <section class="contenedor nav">
         <div class="logo">
           <img src="../../assets/imagenes/logo_pag_principal.png" alt="Logo-principal">
         </div>
-        <div class="opciones-menu">
+        <div class="opciones-menu" #opcionesmenu>
           <a href="#Introduccion" onclick=abrirCerrar()><i class="fas fa-home"> Inicio</i></a>
           <a href="#Beneficios"><i class="fas fa-layer-group"> Beneficios</i></a>
           <a href="#Experiencia"><i class="fas fa-star"> Experiencias</i></a>
@@ -15,7 +15,7 @@
           <a class="iniciar-sesion" routerLink="/login"><i class="fas fa-sign-in-alt"> Iniciar sesión</i></a>
         </div>
 
-        <div class="menu" [ngStyle]="{'color':semaforo==true? '#ffff':'#000'}" (click)="abrir()">
+        <div class="menu" #menu>
           <i class="fas fa-bars"></i>
         </div>
       </section>
