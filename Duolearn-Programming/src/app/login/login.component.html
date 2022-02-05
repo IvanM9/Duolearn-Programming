@@ -1,94 +1,69 @@
+<div class="container">
+    <div class="forms-container">
+        <div class="ingresar-login-registrarse">
 
-    <div id="barra_superior">
-        <header id="encabezado">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
-                <img src="../imagenes/logo.png" alt="Logo_DuoLearn" width="30" height="24"
-                  class="d-inline-block align-text-top">
-                <a class="navbar-brand" href="index.html">Duolearn</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="login.html">Iniciar sesión </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Información</a>
-                    </li>
-                  </ul>
+            <form action="" class="ingresar-login-form">
+                <h2 class="title">Iniciar Sesión</h2>
+                <div class="entrada-texto">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Usuario">
                 </div>
-              </nav>
-        
-        </header>
-    </div>
-
-    <div class="container-fluid w-75 mt-3 rounded-circle">
-        <div class="row align-items-stretch justify-content-lg-center">
-
-            <div class="col bg-white p-2 rounded-end col-md-8">
-                <div class="text-end">
-
+                <div class="entrada-texto">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Contraseña">
                 </div>
-                <h2 class="fw-bold text-center py-4 text-light rounded" id="tittle">BIENVENIDO</h2>
-                <form action="">
-                    <div class="mb-4">
-                        <label for="correo" class="form-label">Correo:</label>
-                        <input type="email" name="correo" value="" id="correo" class="form-control"
-                            placeholder="email@example.com">
-                    </div>
-                    <div class="mb-4">
-                        <label for="password" class="form-label">Contraseña:</label>
-                        <input type="password" name="password" value="" id="password" class="form-control"
-                            placeholder="Ingrese su contraseña">
-                    </div>
-                    <div class="mb-4 form-check">
-                        <input class="form-check-input" type="checkbox" id="politica">
-                        <label class="form-check-label" for="politica">Mantener mi sesión iniciada</label>
-                    </div>
-                    <div class="mb-4" id="boton_iniciar">
-                        <button id="btn_enviar" type="button" class="btn btn-primary">Iniciar Sesion</button>
-                    </div>
-                    <div class="my-3">
-                        <span>¿Aún no tienes cuenta? <a href="registro.html">Registrate aquí</a></span><br>
-                        <span><a href="">Recuperar contraseña</a></span>
-                    </div>
+                <br/>
+                <i><p>¿Olvidaste tu contraseña? Restablecela <a href="">Aquí</a> </p></i>
+                <input (click)="MostrarElegirLenguaje()" type="button" value="ingresar" class="btn ingresar">
+            </form>
 
-                </form>
-
-                <div class="container w-100 my-2">
-                    <div class="row text-center">
-                        <div class="col-12">
-                            Iniciar Sesion
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn btn-outline-primary w-100 my-1">
-                                <DIV class="row align-items-center">
-                                    <div class="col-2 d-none d-md-block">
-                                        <img src="../imagenes/facebook.png" width="30" alt="">
-                                    </div>
-                                    <div class="col-12 col-md-10 text-center">
-                                        Facebook
-                                    </div>
-                                </DIV>
-                            </button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-outline-danger w-100 my-1">
-                                <DIV class="row align-items-center">
-                                    <div class="col-2 d-none d-md-block">
-                                        <img src="../imagenes/google.png" width="30" alt="">
-                                    </div>
-                                    <div class="col-12 col-md-10 text-center">
-                                        Google
-                                    </div>
-                                </DIV>
-                            </button>
-                        </div>
-                    </div>
+            <form action="" class="ingresar-registro-form">
+                <h2 class="title">Registrarse</h2>
+                <div class="entrada-texto">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Correo electrónico">
                 </div>
-            </div>
+                <div class="entrada-texto">
+                    <i class="fas fa-phone-square-alt"></i>
+                    <input type="text" placeholder="Teléfono celular">
+                </div>
+                <div class="entrada-texto">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Usuario">
+                </div>
+                <div class="entrada-texto">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Contraseña">
+                </div>
+                <br/>
+                <i><p>Si tienes una cuenta, inicia sesión con tus credenciales</p></i>
+                <input (click)="MostrarElegirLenguaje()" type="button" value="Registrarme" class="btn ingresar" id="boton-ingresar">
+            </form>
+
         </div>
     </div>
+
+    <div class="paneles-container">
+        <div class="panel panel-izquierdo">
+            <div class="content">
+                <h3>¿No tienes una cuenta?</h3>
+                <br/>
+                <p>Registrate ahora, es totalmente gratis!. Llena nuestro formulario y tendrás una cuenta en nuestra página.</p>
+                <button class="btn transparente" id="btn-registrarse">Registrarme</button>
+            </div>
+            <img src="../../assets/imagenes/img-registrarse.svg" class="image" id="imagen-registrarse" alt="imagen-de-registro">
+        </div>
+
+
+        <div class="panel panel-derecho">
+            <div class="content">
+                <h3>¿Ya creaste una cuenta?</h3>
+                <br/>
+                <p>Si ya creaste una cuenta en nuestra página, inicia sesión con tus credenciales.</p>
+                <button class="btn transparente" id="btn-ingresar2">Ingresar</button>
+            </div>
+
+            <img src="../../assets/imagenes/img-loguearse.svg" class="image" alt="imagen-de-login">
+        </div>
+    </div>
+</div>

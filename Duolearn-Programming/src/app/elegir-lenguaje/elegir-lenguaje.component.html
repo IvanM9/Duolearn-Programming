@@ -1,9 +1,11 @@
-    <form action="pagina-aprendizaje.php" method="post"> <!--Post me envia los datos de forma oculta-->
+<div id="cuerpo">
+    <form>
+        <!--Post me envia los datos de forma oculta-->
         <div class="container">
 
             <div class="header" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1300">
                 <div class="logo">
-                    <img src="/imagenes/logo_pag_principal.png" alt="Logo-principal">
+                    <img src="../../assets/imagenes/logo_pag_principal.png" alt="Logo-principal">
                     <h6>DuoLearn Programming</h6>
                 </div>
             </div>
@@ -14,12 +16,13 @@
             </div>
 
 
-            <div class="elegir-curso" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1300">
-                <a href="dashboard.html">
-                    <img class="img-java" src="../../imagenes/logo-java.jpg" alt="" />
+            <div class="elegir-curso" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+                data-aos-duration="1300">
+                <a routerLink="/dashboard">
+                    <img class="img-java" src="../../assets/imagenes/logo-java.jpg" alt="" />
                 </a>
-                <a href="dashboard.html">
-                    <img class="img-csharp" src="../../imagenes/logo-csharp.png" alt="" />
+                <a routerLink="/dashboard">
+                    <img class="img-csharp" src="../../assets/imagenes/logo-csharp.png" alt="" />
                 </a>
             </div>
 
@@ -32,9 +35,4 @@
         </div>
     </form>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!--Script para las animaciones de las secciones-->
-    <script>
-        AOS.init();
-    </script>
+</div>
