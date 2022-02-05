@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="contenedor" #container>
     <div class="forms-container">
         <div class="ingresar-login-registrarse">
 
@@ -49,7 +49,7 @@
                 <h3>¿No tienes una cuenta?</h3>
                 <br/>
                 <p>Registrate ahora, es totalmente gratis!. Llena nuestro formulario y tendrás una cuenta en nuestra página.</p>
-                <button class="btn transparente" id="btn-registrarse">Registrarme</button>
+                <button class="btn transparente" (click)="registro()" id="btn-registrarse">Registrarme</button>
             </div>
             <img src="../../assets/imagenes/img-registrarse.svg" class="image" id="imagen-registrarse" alt="imagen-de-registro">
         </div>
@@ -60,7 +60,7 @@
                 <h3>¿Ya creaste una cuenta?</h3>
                 <br/>
                 <p>Si ya creaste una cuenta en nuestra página, inicia sesión con tus credenciales.</p>
-                <button class="btn transparente" id="btn-ingresar2">Ingresar</button>
+                <button class="btn transparente" (click)="ingres()" id="btn-ingresar2">Ingresar</button>
             </div>
 
             <img src="../../assets/imagenes/img-loguearse.svg" class="image" alt="imagen-de-login">

@@ -4,7 +4,6 @@
     --color-dark: #1D2231; 
     --text-grey: #8390A2;
 }
-
 *{
     padding: 0;
     margin: 0;
@@ -455,6 +454,3 @@ tr td:last-child{
         justify-content: center;
     }
 }
-
-
-
