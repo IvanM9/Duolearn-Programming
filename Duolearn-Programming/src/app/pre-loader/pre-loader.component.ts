@@ -1,6 +1,7 @@
 import { R3BoundTarget } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import {  Router } from '@angular/router';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-pre-loader',
@@ -9,24 +10,29 @@ import { RouterLink } from '@angular/router';
 })
 export class PreLoaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ruta:Router ) { }
 
   ngOnInit(): void {
+    Aos.init();
   }
 
-  /* window.addEventListener('load',()=>{
-    contenedorLoader = document.querySelector('.contenedorLoader')
+  
+   MostrarDashBoard(){
+    this.ruta.navigateByUrl("dashboard");
+  } 
+  contenedorLoader:any;
+  
+  cargando(){
+    this.contenedorLoader = document.querySelector('.contenedorLoader')
     //contenedorLoader.style.opacity =0;
-    contenedorLoader.style.visibility = ''
-    setTimeout(MostrarDashBoard, 3000);
-  })
+    this.contenedorLoader.style.visibility = ''
+    setTimeout(this.MostrarDashBoard, 3000);
+  }
 
-  function MostrarDashBoard(){
-    ruta: RouterLink;
-    ruta ='../plantillas/dashboard.html';
+  MostrarElegirLenguaje() {
     
-  } */
-
+    this.ruta.navigateByUrl("/login");
+  }
 
   
 }

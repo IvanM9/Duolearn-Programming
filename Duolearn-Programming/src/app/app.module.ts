@@ -7,8 +7,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { PreLoaderComponent } from './pre-loader/pre-loader.component';
-import { RegistroComponent } from './registro/registro.component';
 import { ElegirLenguajeComponent } from './elegir-lenguaje/elegir-lenguaje.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
+import { InstruccionesComponent } from './instrucciones/instrucciones.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { ElegirLenguajeComponent } from './elegir-lenguaje/elegir-lenguaje.compo
     PrincipalComponent,
     LoginComponent,
     PreLoaderComponent,
-    RegistroComponent,
-    ElegirLenguajeComponent
+    ElegirLenguajeComponent,
+    PreguntasComponent,
+    InstruccionesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

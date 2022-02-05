@@ -1,20 +1,21 @@
-  <!--Menu, encabezado-->
+<!--Menu, encabezado-->
+<div (scroll)="menuArriba()">
   <header>
     <nav>
       <section class="contenedor nav">
         <div class="logo">
-          <img src="../imagenes/logo_pag_principal.png" alt="Logo-principal">
+          <img src="../../assets/imagenes/logo_pag_principal.png" alt="Logo-principal">
         </div>
         <div class="opciones-menu">
           <a href="#Introduccion" onclick=abrirCerrar()><i class="fas fa-home"> Inicio</i></a>
           <a href="#Beneficios"><i class="fas fa-layer-group"> Beneficios</i></a>
           <a href="#Experiencia"><i class="fas fa-star"> Experiencias</i></a>
           <a href="#Modulos"><i class="fas fa-book-open"> Módulos</i></a>
-          <a href="#Resultados"><i class="fas fa-poll"> Resultados</i></a> 
-          <a class="iniciar-sesion" router-link="login"><i class="fas fa-sign-in-alt"> Iniciar sesión</i></a>        
+          <a href="#Resultados"><i class="fas fa-poll"> Resultados</i></a>
+          <a class="iniciar-sesion" routerLink="/login"><i class="fas fa-sign-in-alt"> Iniciar sesión</i></a>
         </div>
 
-        <div class="menu" >
+        <div class="menu" [ngStyle]="{'color':semaforo==true? '#ffff':'#000'}" (click)="abrir()">
           <i class="fas fa-bars"></i>
         </div>
       </section>
@@ -25,10 +26,12 @@
       <section class="contenido-header">
         <section class="textos-header">
           <h1>¡La forma más fácil y divertida de aprender programación!</h1>
-          <p>DuoLearn es una plataforma web, desarrollada para el aprendizaje de lenguajes de programación, se caracteriza por la facilidad y la metodología de enseñanza; muy practica para personas que quieran aprender desde cero. ¡Anímate y aprende!</p>
+          <p>DuoLearn es una plataforma web, desarrollada para el aprendizaje de lenguajes de programación, se
+            caracteriza por la facilidad y la metodología de enseñanza; muy practica para personas que quieran aprender
+            desde cero. ¡Anímate y aprende!</p>
           <a href="#">Empezar ahora ▶</a>
         </section>
-        <img src="../imagenes/presentacion.svg" alt="Aprendizaje"> 
+        <img src="../../assets/imagenes/presentacion.svg" alt="Aprendizaje">
       </section>
     </div>
   </header>
@@ -41,43 +44,55 @@
         <div class="elemento" data-aos="zoom-in-right" data-aos-duration="1600">
           <i class="fab fa-leanpub"></i>
           <h3>Conocimiento teórico</h3>
-          <p>DuoLearn está pensado para personas que quieran aprender programación desde cero. Por ello, todos los módulos de la plataforma cuenta con teoría básica, para que de esta manera, se pueda comprender la sintaxis de los lenguajes.</p>
+          <p>DuoLearn está pensado para personas que quieran aprender programación desde cero. Por ello, todos los
+            módulos de la plataforma cuenta con teoría básica, para que de esta manera, se pueda comprender la sintaxis
+            de los lenguajes.</p>
           <a href="#"> Leer más ▶</a>
         </div>
 
         <div class="elemento" data-aos="zoom-in-right" data-aos-duration="1600">
           <i class="far fa-file-code"></i>
           <h3>Escribir y Leer Código</h3>
-          <p>Cuando se tome todo el curso, un beneficio garantizado es la lectura y escritura de código, ya que todos los modulos, de cualquier lenguaje que se esté aprendiendo, cuenta con ejercicios de lectura de código o de escritura, como los famosos ejercicios de completar.</p>
-          <a href="#">  Leer más ▶</a>
+          <p>Cuando se tome todo el curso, un beneficio garantizado es la lectura y escritura de código, ya que todos
+            los modulos, de cualquier lenguaje que se esté aprendiendo, cuenta con ejercicios de lectura de código o de
+            escritura, como los famosos ejercicios de completar.</p>
+          <a href="#"> Leer más ▶</a>
         </div>
 
         <div class="elemento" data-aos="zoom-in-right" data-aos-duration="1600">
           <i class="far fa-window-restore"></i>
           <h3>Módulos de aprendizaje</h3>
-          <p>Cada curso disponible dentro de esta plataforma de aprendizaje, cuenta con 9 módulos. Estos módulos poseen temas distintos, de esta manera se busca que las personas, puedan abarcar de la manera más completa posible, el lenguaje seleccionado.</p>
-          <a href="#">  Leer más ▶</a>
+          <p>Cada curso disponible dentro de esta plataforma de aprendizaje, cuenta con 9 módulos. Estos módulos poseen
+            temas distintos, de esta manera se busca que las personas, puedan abarcar de la manera más completa posible,
+            el lenguaje seleccionado.</p>
+          <a href="#"> Leer más ▶</a>
         </div>
 
         <div class="elemento" data-aos="zoom-in-right" data-aos-duration="1600">
           <i class="fas fa-chart-bar"></i>
           <h3>Revisar estadísticas</h3>
-          <p>Cuando se vayan completando los ejercicios que están dentro de cada módulo de aprendizaje, el usuario irá ganando ciertos puntos. Esta puntación puede ser visualizada en un grafico de barras para ir midiendo el progreso diariamente.</p>
-          <a href="#">  Leer más ▶</a>
+          <p>Cuando se vayan completando los ejercicios que están dentro de cada módulo de aprendizaje, el usuario irá
+            ganando ciertos puntos. Esta puntación puede ser visualizada en un grafico de barras para ir midiendo el
+            progreso diariamente.</p>
+          <a href="#"> Leer más ▶</a>
         </div>
 
         <div class="elemento" data-aos="zoom-in-right" data-aos-duration="1600">
           <i class="fas fa-medal"></i>
           <h3>Obtén premios</h3>
-          <p>Lo recomendable es terminar todas las lecciones o ejercicios que están planteados dentro de cada módulo. Por ello, al completarse cada uno, se establecen premios o puntuaciones adicionales por cada módulo completado.</p>
-          <a href="#">  Leer más ▶</a>
+          <p>Lo recomendable es terminar todas las lecciones o ejercicios que están planteados dentro de cada módulo.
+            Por ello, al completarse cada uno, se establecen premios o puntuaciones adicionales por cada módulo
+            completado.</p>
+          <a href="#"> Leer más ▶</a>
         </div>
 
         <div class="elemento" data-aos="zoom-in-right" data-aos-duration="1600">
           <i class="fas fa-comments"></i>
           <h3>Foros de discusión</h3>
-          <p>DuoLearn es una plataforma que permite interactuar con otros usuarios. Muchas veces, hay usuarios un poco expertos, y comparten sus conocimientos con los demás, por esa razón tenemos a disposición un foro de discusión para debatir temas.</p>
-          <a href="#">  Leer más ▶</a>
+          <p>DuoLearn es una plataforma que permite interactuar con otros usuarios. Muchas veces, hay usuarios un poco
+            expertos, y comparten sus conocimientos con los demás, por esa razón tenemos a disposición un foro de
+            discusión para debatir temas.</p>
+          <a href="#"> Leer más ▶</a>
         </div>
       </div>
     </div>
@@ -85,12 +100,13 @@
 
   <!--Sección de la historia y lo que se logra al terminar el curso-->
   <section class="historia- contenedor" id="Experiencia">
-      <section class="textos-historia">
-        <h1>Comparte tus conocimientos ✅</h1>
-        <p>DuoLearn te permite compartir tus logros en tus redes sociales. Esto también ayuda a que más usuarios se unan a nuestra comunidad.</p>
-        <a href="#">Empezar ahora ▶</a>
-      </section>
-      <img src="../imagenes/experiencias.svg" alt="Experiencias" data-aos="fade-left" data-aos-duration="1600"> 
+    <section class="textos-historia">
+      <h1>Comparte tus conocimientos ✅</h1>
+      <p>DuoLearn te permite compartir tus logros en tus redes sociales. Esto también ayuda a que más usuarios se unan a
+        nuestra comunidad.</p>
+      <a href="#">Empezar ahora ▶</a>
+    </section>
+    <img src="../../assets/imagenes/experiencias.svg" alt="Experiencias" data-aos="fade-left" data-aos-duration="1600">
   </section>
 
 
@@ -110,14 +126,16 @@
         </div>
         <div class="numero" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1600">
           <h4>Correciones</h4>
-          <p>DuoLearn desarrolla la lógica por lo que, los ejercicios para detectar errores y corregirlos, son ideales.</p>
+          <p>DuoLearn desarrolla la lógica por lo que, los ejercicios para detectar errores y corregirlos, son ideales.
+          </p>
         </div>
         <div class="numero" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1600">
           <h4>Soluciones</h4>
-          <p>Los módulos también cuentan con ejercicios donde solo hay que dar resultados obtenidos, al ejecutar ciertas lineas de código.</p>
+          <p>Los módulos también cuentan con ejercicios donde solo hay que dar resultados obtenidos, al ejecutar ciertas
+            lineas de código.</p>
         </div>
       </section>
-      
+
       <!--Sección del texto-->
       <section class="lenguaje-modulos-textos">
         <h4>Ejercicios contenidos en los módulos</h4>
@@ -129,7 +147,8 @@
 
   <!--Sección de los resultados de aprendizaje-->
   <section class="contenedor1 resultados" id="Resultados">
-    <img src="../imagenes/resultados.svg" alt="Resultados-Aprendizaje" data-aos="fade-right" data-aos-duration="1600">
+    <img src="../../assets/imagenes/resultados.svg" alt="Resultados-Aprendizaje" data-aos="fade-right"
+      data-aos-duration="1600">
     <div class="caja-resultados">
       <h4><i class="far fa-check-circle"></i> Escribir tu propio código.</h4>
       <h4><i class="far fa-check-circle"></i> Entender código de otros.</h4>
@@ -142,7 +161,7 @@
   <!--Sección del pie de página/-->
   <footer>
     <div class="columnaFooter">
-      <img src="../imagenes/logo_pag_principal.png" alt="Logo" data-aos="fade-right" data-aos-duration="1600">
+      <img src="../../assets/imagenes/logo_pag_principal.png" alt="Logo" data-aos="fade-right" data-aos-duration="1600">
     </div>
     <div class="columnaFooter" id="Preguntas">
       <h4>Preguntas</h4>
@@ -166,7 +185,4 @@
     </div>
   </footer>
 
-  <!--Script para las animaciones de las secciones-->
-  <script>
-    AOS.init();
-  </script>
+</div>

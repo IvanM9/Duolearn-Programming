@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(5, 196, 88);  /*Puede ser una img luego lo pensamos bien */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    width: 940px;
+    background-color: #fff;
+    /*box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2); /*Podriamos quitarla para tener efecto 3D*/
+    min-height: 350px;
+    padding: 80px 90px;
+    border-radius: 15px;
+    display: flex;
+}
+
+/*---------------------------------------Paneles, derecho e izquierdo---------------------------*/
+.panel-izquierdo, 
+.panel-derecho{
+    width: 50%;
+}
+
+.panel-izquierdo img{
+    width: 250px;
+    height: 250px;
+    margin-top: 40px;
+}
+
+.panel-derecho h1{
+    color: black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.panel-derecho h2{
+    color: gray;
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.panel-derecho ul{
+    margin-top: 5px;
+}
+
+.panel-derecho ul li{
+    margin-top: 6px;
+}
+
+.panel-derecho a{
+    margin-top: 40px;
+    background-color:  rgb(5, 196, 88);
+    border-radius: 40px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 15px 0;
+}
