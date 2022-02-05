@@ -1,0 +1,227 @@
+    <div class="contenedorLoader">
+        <div class="loader">
+            
+        </div>
+    </div>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar" data-aos="fade-right">
+        <div class="sidebar-brand">
+            <h2><span class="fas fa-graduation-cap"></span><span>Duolearn</span></h2>
+        </div>
+        
+        <!--Opciones del menú lateral-->
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="" class="active"> <span class="fas fa-home"></span>
+                    <span>Tablero</span> </a>
+                </li>
+                <li>
+                    <a href=""> <span class="fas fa-chart-bar"></span>
+                    <span>Estadísticas</span></a>
+                </li>
+                <li>
+                    <a href=""> <span class="fas fa-users"></span>
+                    <span>Usuarios</span></a>
+                </li>
+                <li>
+                    <a href=""> <span class="fas fa-comments"></span>
+                    <span>Foro Discusión</span></a>
+                </li>
+                <li>
+                    <a href=""> <span class="fas fa-crown"></span>
+                    <span>Coronas</span></a>
+                </li>
+                <li>
+                    <a href=""> <span class="fas fa-sign-out-alt"></span>
+                    <span>Cerrar sesión</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="main-content">
+        <header data-aos="fade-right">
+            <h2>
+                <label for="nav-toggle">
+                    <span class="fas fa-bars" id="logo-menu"></span>
+                </label> 
+            </h2>
+
+            <div class="search-wrapper">
+                <span class="fas fa-search" id="logo-buscar"></span>
+                <input type="search" placeholder="Buscar aquí" />
+            </div>
+
+            <div class="user-wrapper">
+                 <!--La imagen que aparece aquí debe ser traida de la BD con el usuario logueado-->
+                <img src="../../assets/imagenes/usuario-logueado.png" width="40px" height="40px" alt="foto-usuario-logueado">
+                <div>
+                    <!--El nombres que aparecerá en este h4 debe ser traido de la BD con el usuario logueado-->
+                    <h4>Administrador</h4>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!--Fila 1 de los módulos-->
+            <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>5%</h1>
+                        <span>Variables y tipos de datos</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-info-circle"></span>
+                    </div>
+                </div>
+
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>12%</h1>
+                        <span>IF-Else</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-check-circle"></span>
+                    </div>
+                </div>
+
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>25%</h1>
+                        <span>Ciclos Repetitivos</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-redo-alt"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Fila 2 de los módulos-->
+            <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>12%</h1>
+                        <span>Funciones y Procedimientos</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-cubes"></span>
+                    </div>
+                </div>
+                
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>5%</h1>
+                        <span>Vectores</span>
+                    </div>
+                    <div>
+                        <span class="fab fa-hive"></span>
+                    </div>
+                </div>
+
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>12%</h1>
+                        <span>Matrices</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-th"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!--Fila 3 de los módulos-->
+            <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>25%</h1>
+                        <span>Caracteres y cadenas texto</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-font"></span>
+                    </div>
+                </div>
+
+                <div class="tarjetas-simples">
+                    <div>
+                        <h1>12%</h1>
+                        <span>Archivos de texto</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-file-alt"></span>
+                    </div>
+                </div>
+
+                <div class="tarjetas-simples" id="Ev-final">
+                    <div>
+                        <h1>0%</h1>
+                        <span>Evaluación final</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-code"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!--Tablas-->
+            <div class="recent-grind">
+                <div class="projects">
+                    <div class="tarjeta">
+                        <div class="tarjeta-header">
+                            <h3>Módulos recientes</h3>
+
+                            <button>Mostrar todo <span class="fas fa-arrow-right">
+                            </span></button>
+                        </div>
+
+                        <div class="tarjeta-body">                            
+                            <div class="table-responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>Apellido</td>
+                                            <td>Estado</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!--Aquí van los datos traidos de la BD-->
+                                        <tr>
+                                            <td>Jordan Fabian</td>
+                                            <td>Vera Coello</td>
+                                            <td>
+                                                <span class="status green"></span>Bueno
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jordan Fabian</td>
+                                            <td>Vera Coello</td>
+                                            <td>
+                                                <span class="status red"></span>Malo
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jordan Fabian</td>
+                                            <td>Vera Coello</td>
+                                            <td>
+                                                <span class="status yellow"></span>Intermedio
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+
+  
