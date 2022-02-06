@@ -1,45 +1,49 @@
 <div class="container" id="contenedor" #container>
     <div class="forms-container">
         <div class="ingresar-login-registrarse">
-
-            <form [formGroup]="form_login" (ngSubmit)="login()" action="" class="ingresar-login-form">
+            <form [formGroup]="form_login" (ngSubmit)="login()" class="ingresar-login-form">
                 <h2 class="title">Iniciar Sesión</h2>
                 <div class="entrada-texto">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario">
+                    <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario" />
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-lock"></i>
-                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" />
                 </div>
-                <br/>
-                <i><p>¿Olvidaste tu contraseña? Restablecela <a href="">Aquí</a> </p></i>
-                <input (click)="MostrarElegirLenguaje()" type="button" value="ingresar" class="btn ingresar">
+                <br />
+                <i>
+                    <p>¿Olvidaste tu contraseña? Restablecela <a href="">Aquí</a></p>
+                </i>
+                <button type="submit" class="btn ingresar">ingresar</button>
             </form>
 
             <form [formGroup]="form_registro" class="ingresar-registro-form" (ngSubmit)="registro_user()">
                 <h2 class="title">Registrarse</h2>
                 <div class="entrada-texto">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" class="form-control" formControlName="correo" placeholder="Correo electrónico">
+                    <input type="text" class="form-control" formControlName="correo" placeholder="Correo electrónico" />
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-phone-square-alt"></i>
-                    <input type="text" class="form-control" formControlName="celular" placeholder="Teléfono celular">
+                    <input type="text" class="form-control" formControlName="celular" placeholder="Teléfono celular" />
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario">
+                    <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario" />
                 </div>
                 <div class="entrada-texto">
                     <i class="fas fa-lock"></i>
-                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" />
                 </div>
-                <br/>
-                <i><p>Si tienes una cuenta, inicia sesión con tus credenciales</p></i>
-                <button type="submit" class="btn ingresar" id="boton-ingresar">Registrarme</button>
+                <br />
+                <i>
+                    <p>Si tienes una cuenta, inicia sesión con tus credenciales</p>
+                </i>
+                <button type="submit" class="btn ingresar" id="boton-ingresar">
+                    Registrarme
+                </button>
             </form>
-
         </div>
     </div>
 
@@ -47,23 +51,33 @@
         <div class="panel panel-izquierdo">
             <div class="content">
                 <h3>¿No tienes una cuenta?</h3>
-                <br/>
-                <p>Registrate ahora, es totalmente gratis!. Llena nuestro formulario y tendrás una cuenta en nuestra página.</p>
-                <button class="btn transparente" (click)="registro()" id="btn-registrarse">Registrarme</button>
+                <br />
+                <p>
+                    Registrate ahora, es totalmente gratis!. Llena nuestro formulario y
+                    tendrás una cuenta en nuestra página.
+                </p>
+                <button class="btn transparente" (click)="registro()" id="btn-registrarse">
+                    Registrarme
+                </button>
             </div>
-            <img src="../../assets/imagenes/img-registrarse.svg" class="image" id="imagen-registrarse" alt="imagen-de-registro">
+            <img src="../../assets/imagenes/img-registrarse.svg" class="image" id="imagen-registrarse"
+                alt="imagen-de-registro" />
         </div>
-
 
         <div class="panel panel-derecho">
             <div class="content">
                 <h3>¿Ya creaste una cuenta?</h3>
-                <br/>
-                <p>Si ya creaste una cuenta en nuestra página, inicia sesión con tus credenciales.</p>
-                <button class="btn transparente" (click)="ingres()" id="btn-ingresar2">Ingresar</button>
+                <br />
+                <p>
+                    Si ya creaste una cuenta en nuestra página, inicia sesión con tus
+                    credenciales.
+                </p>
+                <button class="btn transparente" (click)="ingres()" id="btn-ingresar2">
+                    Ingresar
+                </button>
             </div>
 
-            <img src="../../assets/imagenes/img-loguearse.svg" class="image" alt="imagen-de-login">
+            <img src="../../assets/imagenes/img-loguearse.svg" class="image" alt="imagen-de-login" />
         </div>
     </div>
 </div>

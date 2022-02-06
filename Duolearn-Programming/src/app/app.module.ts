@@ -13,6 +13,7 @@ import { PreguntasComponent } from './preguntas/preguntas.component';
 import { InstruccionesComponent } from './instrucciones/instrucciones.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -28,6 +29,9 @@ import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module.forChild(),
+    SweetAlert2Module,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

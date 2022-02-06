@@ -11,12 +11,13 @@ export class UsuariosService {
 
   constructor(private clientHttp:HttpClient) { }
 
-  iniciar_sesion(datos_login:Usuarios):Observable<any>{
-    return this.clientHttp.post(this.Api+"?login",datos_login); 
+  iniciar_sesion(datos_login:any):Observable<any>{
+    return this.clientHttp.post(this.Api+"?login",datos_login,{responseType: 'json'}); 
   }
 
   registrarse(datos_registro:Usuarios):Observable<any>{
-    return this.clientHttp.post(this.Api+"?registro",datos_registro,{responseType: 'text'});
+    //console.log(datos_registro);
+    return this.clientHttp.post(this.Api+"?registro",datos_registro,{responseType: 'json'});
   }
 
 }

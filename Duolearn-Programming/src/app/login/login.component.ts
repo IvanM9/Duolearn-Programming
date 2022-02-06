@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder} from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ElementRef, ViewChild } from '@angular/core';
 import { UsuariosService } from '../servicios/usuarios.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -10,40 +11,83 @@ import { UsuariosService } from '../servicios/usuarios.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-form_login:FormGroup;
-form_registro:FormGroup;
+  form_login: FormGroup;
+  form_registro: FormGroup;
+  mensaje: any;
 
 
   @ViewChild("container") public contenedor: ElementRef;
 
-  constructor(public ruta: Router, 
-    public formulario:FormBuilder,
-    public formulario_registro:FormBuilder,
-    private user_service:UsuariosService) { 
-      this.form_login=this.formulario.group({
-        usuario:[''],
-        password:['']
-      });
-      this.form_registro=this.formulario_registro.group({
-        correo:[''],
-        celular:[''],
-        usuario:[''],
-        password:['']
-      });
-    }
+  constructor(public ruta: Router,
+    public formulario: FormBuilder,
+    public formulario_registro: FormBuilder,
+    private user_service: UsuariosService) {
+    this.form_login = this.formulario.group({
+      usuario: [''],
+      password: ['']
+    });
+    this.form_registro = this.formulario_registro.group({
+      correo: [''],
+      celular: [''],
+      usuario: [''],
+      password: ['']
+    });
+  }
 
   ngOnInit(): void {
   }
 
-  login(){
-    this.user_service.iniciar_sesion(this.form_login.value).subscribe();
+  login() {
+    this.user_service.iniciar_sesion(this.form_login.value).subscribe(resp =>{
+      let val = resp.success;
+      if (val == 1) {
+        this.mensaje_bien();
+        this.ruta.navigateByUrl("/elegir-lenguaje");
+      } else {
+        this.mensaje_mal();
+        this.ruta.navigateByUrl("/login");
+      }
+    });
   }
 
-  registro_user():any{
-    this.user_service.registrarse(this.form_registro.value).subscribe();
+  registro_user(): any {
+    this.user_service.registrarse(this.form_registro.value).subscribe(resp => {
+      //console.log(resp);
+      let val = resp.success;
+      if (val == 1) {
+        this.mensaje_bien();
+        this.ruta.navigateByUrl("/elegir-lenguaje");
+      } else {
+        this.mensaje_mal();
+        this.ruta.navigateByUrl("/login");
+      }
+    });
   }
 
-
+  mensaje_bien() {
+    Swal.fire({
+      title: 'REDIRECCIONANDO',
+      html: 'I will close in <b></b> milliseconds.',
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+      },
+      willClose: () => {
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+      }
+    })
+  }
+  mensaje_mal() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Algo ha salido, intentalo más tarde'
+    });
+  }
   MostrarElegirLenguaje() {
     this.ruta.navigateByUrl("/elegir-lenguaje");
   }

@@ -26,6 +26,7 @@ export class PreguntasComponent implements OnInit {
   ngOnInit(): void {
     this.pregservice.obtener_pregunta().subscribe(respuesta => {
       console.log(respuesta);
+      console.log(respuesta[0].respuesta);
       this.Pregunta = respuesta;
       this.cargar_elementos();
       this.opciones = [respuesta[0].respuesta, respuesta[0].opcion_a, respuesta[0].opcion_b, respuesta[0].opcion_c]
