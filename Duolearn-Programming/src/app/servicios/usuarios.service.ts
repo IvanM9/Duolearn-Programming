@@ -11,7 +11,7 @@ export class UsuariosService {
 
   constructor(private clientHttp:HttpClient) { }
 
-  iniciar_sesion(datos_login:any):Observable<any>{
+  iniciar_sesion(datos_login:Usuarios):Observable<any>{
     return this.clientHttp.post(this.Api+"?login",datos_login,{responseType: 'json'}); 
   }
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { PreloadAllModules, Router } from '@angular/router';
 import { ElementRef, ViewChild } from '@angular/core';
 import { UsuariosService } from '../servicios/usuarios.service';
 import Swal from 'sweetalert2';
+import { PreLoaderComponent } from '../pre-loader/pre-loader.component';
 
 @Component({
   selector: 'app-login',

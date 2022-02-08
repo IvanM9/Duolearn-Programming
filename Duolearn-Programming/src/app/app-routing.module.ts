@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ElegirLenguajeComponent } from './elegir-lenguaje/elegir-lenguaje.component';
 import { InstruccionesComponent } from './instrucciones/instrucciones.component';
 import { LoginComponent } from './login/login.component';
+import { PreLoaderComponent } from './pre-loader/pre-loader.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { PrincipalComponent } from './principal/principal.component';
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"elegir-lenguaje", component:ElegirLenguajeComponent},
   {path:"preguntas", component:PreguntasComponent},
-  {path:"instrucciones", component:InstruccionesComponent}
+  {path:"instrucciones", component:InstruccionesComponent},
+  {path: "preloader", component:PreLoaderComponent}
 
 ];
 
