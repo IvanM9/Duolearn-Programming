@@ -1,10 +1,9 @@
+<div *ngIf="bol" class="contenedorLoader">
+    <div class="loader"></div>
+    <a href="../../assets/imagenes/"></a>
+</div>  
+
 <div class="container">
-    <div class="contenedorLoader">
-        <div class="loader">
-
-        </div>
-    </div>
-
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar" data-aos="fade-right">
         <div class="sidebar-brand">
@@ -70,7 +69,7 @@
         <main>
             <!--Fila 1 de los módulos-->
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Variables y tipos de datos')">
                     <div>
                         <h1>5%</h1>
                         <span>Variables y tipos de datos</span>
@@ -80,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Condicionales')">
                     <div>
                         <h1>12%</h1>
                         <span>IF-Else</span>
@@ -90,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Ciclos Repetitivos')">
                     <div>
                         <h1>25%</h1>
                         <span>Ciclos Repetitivos</span>
@@ -104,7 +103,7 @@
 
             <!--Fila 2 de los módulos-->
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Funciones y Procedimientos')">
                     <div>
                         <h1>12%</h1>
                         <span>Funciones y Procedimientos</span>
@@ -114,7 +113,7 @@
                     </div>
                 </div>
 
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Vectores')">
                     <div>
                         <h1>5%</h1>
                         <span>Vectores</span>
@@ -124,7 +123,7 @@
                     </div>
                 </div>
 
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Matrices')">
                     <div>
                         <h1>12%</h1>
                         <span>Matrices</span>
@@ -137,7 +136,7 @@
 
             <!--Fila 3 de los módulos-->
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Caracteres y cadenas de texto')">
                     <div>
                         <h1>25%</h1>
                         <span>Caracteres y cadenas texto</span>
@@ -147,7 +146,7 @@
                     </div>
                 </div>
 
-                <div class="tarjetas-simples">
+                <div class="tarjetas-simples" (click)="agregar_text('Archivos de texto')">
                     <div>
                         <h1>12%</h1>
                         <span>Archivos de texto</span>
@@ -157,7 +156,7 @@
                     </div>
                 </div>
 
-                <div class="tarjetas-simples" id="Ev-final">
+                <div class="tarjetas-simples" id="Ev-final" (click)="agregar_text('Evaluación Final')">
                     <div>
                         <h1>0%</h1>
                         <span>Evaluación final</span>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { PreloadAllModules, Router } from '@angular/router';
+import { ActivatedRoute, PreloadAllModules, Router } from '@angular/router';
 import { ElementRef, ViewChild } from '@angular/core';
 import { UsuariosService } from '../servicios/usuarios.service';
 import Swal from 'sweetalert2';
@@ -15,14 +15,15 @@ export class LoginComponent implements OnInit {
   form_login: FormGroup;
   form_registro: FormGroup;
   mensaje: any;
-
+  myItems: any;
+  bol:boolean=true;
 
   @ViewChild("container") public contenedor: ElementRef;
-
   constructor(public ruta: Router,
     public formulario: FormBuilder,
     public formulario_registro: FormBuilder,
-    private user_service: UsuariosService) {
+    private user_service: UsuariosService,
+    public activatedRoute:ActivatedRoute) {
     this.form_login = this.formulario.group({
       usuario: [''],
       password: ['']
@@ -34,8 +35,10 @@ export class LoginComponent implements OnInit {
       password: ['']
     });
   }
-
   ngOnInit(): void {
+    setTimeout(() => {
+      this.bol=!this.bol;
+    }, 3000);
   }
 
   login() {

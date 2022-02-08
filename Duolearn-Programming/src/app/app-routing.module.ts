@@ -4,9 +4,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ElegirLenguajeComponent } from './elegir-lenguaje/elegir-lenguaje.component';
 import { InstruccionesComponent } from './instrucciones/instrucciones.component';
 import { LoginComponent } from './login/login.component';
-import { PreLoaderComponent } from './pre-loader/pre-loader.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { LoginResolver } from './resolvers/login.resolver';
+import { PreloaderResolver } from './resolvers/preloader.resolver';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"principal"},
@@ -15,9 +16,7 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"elegir-lenguaje", component:ElegirLenguajeComponent},
   {path:"preguntas", component:PreguntasComponent},
-  {path:"instrucciones", component:InstruccionesComponent},
-  {path: "preloader", component:PreLoaderComponent}
-
+  {path:"instrucciones", component:InstruccionesComponent}
 ];
 
 @NgModule({
