@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PrincipalComponent } from './principal/principal.component';
@@ -11,6 +12,11 @@ import { ElegirLenguajeComponent } from './elegir-lenguaje/elegir-lenguaje.compo
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { InstruccionesComponent } from './instrucciones/instrucciones.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { PreloaderResolver } from './resolvers/preloader.resolver';
+import { PreloaderService } from './servicios/preloader.service';
+import { LoginResolver } from './resolvers/login.resolver';
 
 @NgModule({
   declarations: [
@@ -25,10 +31,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     BrowserModule,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module.forChild(),
+    SweetAlert2Module,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule
+    ],
+  providers: [
+    PreloaderService,
+    PreloaderResolver,
+    LoginResolver,
+    InstruccionesComponent
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
