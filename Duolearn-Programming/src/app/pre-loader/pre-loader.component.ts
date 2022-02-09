@@ -1,7 +1,9 @@
 import { R3BoundTarget } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import * as Aos from 'aos';
+import { Subject } from 'rxjs';
+import { PreloaderService } from '../servicios/preloader.service';
 
 @Component({
   selector: 'app-pre-loader',
@@ -9,30 +11,33 @@ import * as Aos from 'aos';
   styleUrls: ['./pre-loader.component.css']
 })
 export class PreLoaderComponent implements OnInit {
+public static vari:any;
 
-  constructor(public ruta:Router ) { }
+  constructor(public ruta: Router, private serv_preload:PreloaderService) {
+    
+    if(PreLoaderComponent.vari=1){
+      
+    }
+  }
 
   ngOnInit(): void {
     Aos.init();
+    this.serv_preload.subscribe(() => {
+      this.hideSplashAnimation();
+    });
+  }
+
+  contenedorLoader: any;
+  public showSplash = true;
+
+  private hideSplashAnimation() {
+    // Setting the transition
+    setTimeout(() => {
+      // After the transition is ended the showSplash will be hided
+      this.showSplash = this.showSplash;
+    }, 1000);
   }
 
   
-   MostrarDashBoard(){
-    this.ruta.navigateByUrl("dashboard");
-  } 
-  contenedorLoader:any;
-  
-  cargando(){
-    this.contenedorLoader = document.querySelector('.contenedorLoader')
-    //contenedorLoader.style.opacity =0;
-    this.contenedorLoader.style.visibility = ''
-    setTimeout(this.MostrarDashBoard, 3000);
-  }
 
-  MostrarElegirLenguaje() {
-    
-    this.ruta.navigateByUrl("/login");
-  }
-
-  
 }
