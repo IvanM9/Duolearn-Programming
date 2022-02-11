@@ -214,6 +214,7 @@ main:hover{
     grid-gap: 1rem;
     margin-bottom: 1rem;
     margin-left: 40px;
+    width: 117%;
 }
 
 /*-------------------------------------Modulos (cuadros)--------------------------------*/
@@ -226,6 +227,11 @@ main:hover{
     color: #1D2231;
     width: 80%;
     height: 100%;
+    margin: auto;
+}
+
+.tarjetas-simples:hover{
+    cursor: pointer;
 }
 
 .tarjetas-simples div:last-child span{
