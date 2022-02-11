@@ -60,24 +60,26 @@
     padding: 10px 15px;
 }
 
-.caja-opciones{
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 30px 0;
-    grid-gap: 15px;
-}
-
-.caja-opciones span{
-    background-color: wheat;
+.caja-imagen{
     border-radius: 10px;
-    border: 1px solid wheat;
-    height: 40px;
-    padding: 5px 15px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
-.caja-opciones span:hover{
-    cursor: pointer;
-    box-shadow: 0 6px 5px rgba(19, 28, 56, 0.26);
+.caja-imagen img{
+    max-width: 35%;
+}
+
+.caja-input input{
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .botones{

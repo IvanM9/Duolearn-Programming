@@ -1,6 +1,8 @@
 import { OnInit, Component } from '@angular/core';
 import { PreguntasService } from '../servicios/preguntas.service';
 import { ElementRef, ViewChild } from '@angular/core';
+import * as iconos from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-preguntas',
@@ -17,6 +19,8 @@ export class PreguntasComponent implements OnInit {
   private datos: ElementRef[];
   private salio: any[] = [];
   private opciones: any[];
+
+  faQuestion = iconos.faQuestionCircle;
 
 
   constructor(private pregservice: PreguntasService) {

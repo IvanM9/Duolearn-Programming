@@ -17,6 +17,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { PreloaderResolver } from './resolvers/preloader.resolver';
 import { PreloaderService } from './servicios/preloader.service';
 import { LoginResolver } from './resolvers/login.resolver';
+import { PreguntasDosComponent } from './preguntas-dos/preguntas-dos.component';
+import { PreguntasTresComponent } from './preguntas-tres/preguntas-tres.component';
+import { PreguntasCuatroComponent } from './preguntas-cuatro/preguntas-cuatro.component';
+import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { LoginResolver } from './resolvers/login.resolver';
     PreLoaderComponent,
     ElegirLenguajeComponent,
     PreguntasComponent,
-    InstruccionesComponent
+    InstruccionesComponent,
+    PreguntasDosComponent,
+    PreguntasTresComponent,
+    PreguntasCuatroComponent,
+    PreguntasCincoComponent
   ],
   imports: [
     BrowserModule,

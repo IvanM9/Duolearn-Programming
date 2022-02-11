@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body{
+.body{
     font-family: 'Poppins', sans-serif;
     background-color: rgb(5, 196, 88);  /*Puede ser una img luego lo pensamos bien */
     background-size: cover;

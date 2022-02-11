@@ -1,0 +1,57 @@
+<div class="body">
+    <div class="caja" id="screenPreguntas">
+        <div class="titulo">
+            <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+            Módulo de Variables y tipos de datos
+            <span><fa-icon [icon]="faQuestion"></fa-icon></span>
+        </div>
+    
+        <div class="header">
+            <div class="puntuacion"><b>Puntuación: </b> 0</div>
+            <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+        </div>
+    
+        <div class="caja-pregunta" #pregunta > Complete el siguiente código, arrastrando las opciones en donde usted crea correctas.
+        </div>
+
+        <!--Este será el código y debe ser traido de la bd-->
+        <div class="codigoParaCompletar">
+            <p><code>Lorem ipsum dolor sit amet consectetur <input type="text" id="textoAllenar"> elit. Nostrum illo iure quo at <input type="text" id="textoAllenar"> rerum corrupti laborum esse officiis placeat nihil quia, aut perspiciatis consectetur <input type="text" id="textoAllenar"> fuga. Tempora, aliquid <input type="text" id="textoAllenar"> enim dicta quaerat natus error voluptates quas nesciunt repellat quo?</code></p>
+        </div>
+
+        <!--Borrar los hola mundo, ahí van las opciones extraidas de la BD-->
+        <!--El draggable="true" es para que me permita arrastrar el span y hacer el drag and drop-->
+        <div class="caja-opciones">
+            <span #opcion1 id="opc" draggable="true">Hola mundo (1)</span>
+            <span #opcion2 id="opc" draggable="true">Hola mundo (2)</span>
+            <span #opcion3 id="opc" draggable="true">Hola mundo (3)</span>
+            <span #opcion4 id="opc" draggable="true">Hola mundo (4)</span>
+        </div>
+    
+        <div class="botones">
+            <button>
+                Siguiente ▶
+            </button>
+            <button>
+                Abandonar ❌
+            </button>
+        </div>
+    </div>
+    
+    <div class="box" id="resultScreen">
+    </div>
+
+    <!--Script JS para hacer Drag and Drop (No funciona, hay que revisar)-->
+    <script>
+        const opcion = document.querySelector("#opc");
+        const inputAllenar = document.querySelector("#textoAllenar");
+
+        inputAllenar.addEventListener('dragenter', e =>{
+            console.log("entra")
+        })
+
+        inputAllenar.addEventListener('drop', e =>{
+            inputAllenar.appendChild(opcion);
+        })
+    </script>
+</div>
