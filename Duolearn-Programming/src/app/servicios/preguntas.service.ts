@@ -15,4 +15,9 @@ export class PreguntasService {
   obtener_pregunta():Observable<any>{
     return this.clientHttp.get(this.Api+"?preguntas");
   }
+
+  obtener_pregunta2():Observable<any>{
+    return this.clientHttp.get(this.Api+"?pregunta2");
+  }
+
 }

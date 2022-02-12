@@ -10,8 +10,6 @@ import { PreguntasCuatroComponent } from './preguntas-cuatro/preguntas-cuatro.co
 import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { PrincipalComponent } from './principal/principal.component';
-import { LoginResolver } from './resolvers/login.resolver';
-import { PreloaderResolver } from './resolvers/preloader.resolver';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"principal"},

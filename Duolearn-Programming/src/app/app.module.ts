@@ -14,16 +14,11 @@ import { InstruccionesComponent } from './instrucciones/instrucciones.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { PreloaderResolver } from './resolvers/preloader.resolver';
 import { PreloaderService } from './servicios/preloader.service';
-import { LoginResolver } from './resolvers/login.resolver';
-<<<<<<< HEAD
-=======
 import { PreguntasDosComponent } from './preguntas-dos/preguntas-dos.component';
 import { PreguntasTresComponent } from './preguntas-tres/preguntas-tres.component';
 import { PreguntasCuatroComponent } from './preguntas-cuatro/preguntas-cuatro.component';
 import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.component';
->>>>>>> e0afe371482abd63f756090e4a10eed634555c3e
 
 @NgModule({
   declarations: [
@@ -53,8 +48,6 @@ import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.compo
     ],
   providers: [
     PreloaderService,
-    PreloaderResolver,
-    LoginResolver,
     InstruccionesComponent
   ],
   bootstrap: [AppComponent]
