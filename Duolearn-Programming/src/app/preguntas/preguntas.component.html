@@ -14,10 +14,10 @@
         <div class="caja-pregunta" #pregunta >
         </div>
         <div class="caja-opciones">
-            <span #opcion1></span>
-            <span #opcion2></span>
-            <span #opcion3></span>
-            <span #opcion4></span>
+            <span #opcion1 [ngStyle]="estilo1" (click)="comprueba('opcion1')"></span>
+            <span #opcion2 [ngStyle]="estilo2" (click)="comprueba('opcion2')"></span>
+            <span #opcion3 [ngStyle]="estilo3" (click)="comprueba('opcion3')"></span>
+            <span #opcion4 [ngStyle]="estilo4" (click)="comprueba('opcion4')"></span>
         </div>
     
         <div class="botones">

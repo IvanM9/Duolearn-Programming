@@ -65,10 +65,6 @@ export class PreguntasDosComponent implements AfterViewInit {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  guardapares() {
-
-  }
-
   palabra1 = -1;
   palabra2 = -1;
 

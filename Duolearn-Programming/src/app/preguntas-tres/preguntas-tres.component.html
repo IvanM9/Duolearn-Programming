@@ -20,30 +20,30 @@
         <!--Este será el código y debe ser traido de la bd-->
         <div class="codigoParaCompletar">
             <div>
-                Lorem ipsum dolor sit amet consectetur
+                {{linea1}}
             </div>
-            <div (drop)="drop($event)" (dragover)="allowDrop($event)" id="textoAllenar1">
+            <div (drop)="drop($event)" [ngStyle]="estilo1" (dragover)="allowDrop($event)" #texto1 id="textoAllenar1">
             </div>
             <div>
-                elit. Nostrum illo iure quo at
+                {{linea2}}
             </div>
-            <div (drop)="drop($event)" (dragover)="allowDrop($event)" id="textoAllenar2">
+            <div (drop)="drop($event)" [ngStyle]="estilo2" (dragover)="allowDrop($event)" #texto2 id="textoAllenar2">
 
             </div>
             <div>
-                rerum corrupti laborum esse officiis placeat nihil quia, aut perspiciatis consectetur
+                {{linea3}}
             </div>
-            <div (drop)="drop($event)" (dragover)="allowDrop($event)" id="textoAllenar3">
+            <div (drop)="drop($event)" [ngStyle]="estilo3" (dragover)="allowDrop($event)" #texto3 id="textoAllenar3">
 
             </div>
             <div>
-                fuga. Tempora, aliquid
+                {{linea4}}
             </div>
-            <div (drop)="drop($event)" (dragover)="allowDrop($event)" id="textoAllenar4">
+            <div (drop)="drop($event)" [ngStyle]="estilo4" (dragover)="allowDrop($event)" #texto4 id="textoAllenar4">
 
             </div>
             <div>
-                enim dicta quaerat natus error voluptates quas nesciunt repellat quo?
+                {{linea5}}
             </div>
         </div>
 
@@ -51,14 +51,14 @@
         <!--El draggable="true" es para que me permita arrastrar el span y hacer el drag and drop-->
         <div class="caja-opciones" (drop)="drop($event)" (dragover)="allowDrop($event)" dropzone="true"
             id="caja-opciones">
-            <span #opcion1 id="opc1" (drag)="drag($event)" draggable="true">Hola mundo (1)</span>
-            <span #opcion2 id="opc2" (drag)="drag($event)" draggable="true">Hola mundo (2)</span>
-            <span #opcion3 id="opc3" (drag)="drag($event)" draggable="true">Hola mundo (3)</span>
-            <span #opcion4 id="opc4" (drag)="drag($event)" draggable="true">Hola mundo (4)</span>
+            <span #opcion1 id="opc1" (drag)="drag($event)" draggable="true"> {{opcion1.innerText}} </span>
+            <span #opcion2 id="opc2" (drag)="drag($event)" draggable="true">{{opcion2.innerText}}</span>
+            <span #opcion3 id="opc3" (drag)="drag($event)" draggable="true">{{opcion3.innerText}}</span>
+            <span #opcion4 id="opc4" (drag)="drag($event)" draggable="true">{{opcion4.innerText}}</span>
         </div>
 
         <div class="botones">
-            <button>
+            <button (click)="comprueba()">
                 Siguiente ▶
             </button>
             <button>
