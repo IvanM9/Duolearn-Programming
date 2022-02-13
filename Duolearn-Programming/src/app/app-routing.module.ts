@@ -11,6 +11,13 @@ import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.compo
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { PrincipalComponent } from './principal/principal.component';
 
+import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.component';
+import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { LoginResolver } from './resolvers/login.resolver';
+import { PreloaderResolver } from './resolvers/preloader.resolver';
+
+
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"principal"},
   {path:"dashboard", component:DashboardComponent},
@@ -22,7 +29,10 @@ const routes: Routes = [
   {path: "preguntas-tres", component:PreguntasTresComponent},
   {path: "preguntas-cuatro", component:PreguntasCuatroComponent},
   {path: "preguntas-cinco", component:PreguntasCincoComponent},
-  {path:"instrucciones", component:InstruccionesComponent}
+  {path:"instrucciones", component:InstruccionesComponent},
+  {path: "mi-perfil", component:PerfilUsuarioComponent},
+  {path: "olvide-contrasenia", component:OlvideContraseniaComponent},
+  {path: "mapa-preguntas", component:MapaPreguntasComponent}
 ];
 
 @NgModule({
