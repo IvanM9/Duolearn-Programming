@@ -65,5 +65,22 @@ Usuario.eliminarUser = async (usuario) => {
         return null;
     }
 }
+Usuario.cambiarClave = async (usuario, clave_actual, clave_nuevo) =>{
+    try {
+        let datos = await pool.query("select cambiar_clave($1,$2,$3)", [usuario, clave_actual, clave_nuevo]);
+        console.log(datos.rows);
+        return datos.rows[0].cambiar_clave;
+    } catch (error) {
+        return null;
+    }
+}
+Usuario.obtenerClave = async(usuario)=>{
+    try {
+        let datos = await pool.query("select obtener_clave($1)",[usuario]);
+        return datos.rows[0].obtener_clave;
+    } catch (error) {
+        return null;
+    }
+}
 
 module.exports = Usuario;
