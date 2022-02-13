@@ -3,10 +3,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, PreloadAllModules, Router } from '@angular/router';
 import { ElementRef, ViewChild } from '@angular/core';
 import { UsuariosService } from '../servicios/usuarios.service';
-<<<<<<< HEAD
-=======
-import * as iconos from '@fortawesome/free-solid-svg-icons';
->>>>>>> e0afe371482abd63f756090e4a10eed634555c3e
 import Swal from 'sweetalert2';
 import { PreLoaderComponent } from '../pre-loader/pre-loader.component';
 
@@ -22,11 +18,6 @@ export class LoginComponent implements OnInit {
   myItems: any;
   bol:boolean=true;
 
-<<<<<<< HEAD
-=======
-  fanombre = iconos.faClosedCaptioning;
-
->>>>>>> e0afe371482abd63f756090e4a10eed634555c3e
   @ViewChild("container") public contenedor: ElementRef;
   constructor(public ruta: Router,
     public formulario: FormBuilder,
