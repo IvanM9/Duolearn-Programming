@@ -18,7 +18,6 @@ export class PreguntasComponent implements OnInit {
   private salio: any[] = [];
   private opciones: any[];
 
-
   constructor(private pregservice: PreguntasService) {
     //this.datos = [this.opcion1, this.opcion2, this.opcion3, this.opcion4];
     

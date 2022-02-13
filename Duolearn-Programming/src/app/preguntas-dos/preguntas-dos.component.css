@@ -54,7 +54,6 @@
     /*background-color: green;*/
     border-radius: 10px;
     padding: 10px;
-
     border: 1px solid gray;
     border-radius: 10px;
     padding: 10px 15px;
@@ -62,22 +61,25 @@
 
 .caja-opciones{
     display: grid;
-    grid-template-columns: 1fr;
-    margin: 30px 0;
-    grid-gap: 15px;
+    grid-template-columns: repeat(2, .7fr);
+    /*grid-gap: 1rem;*/
+    margin-top: 30px;
+    /*grid-gap: 15px;*/
 }
 
-.caja-opciones span{
-    background-color: wheat;
+.caja-opciones img{
     border-radius: 10px;
-    border: 1px solid wheat;
-    height: 40px;
-    padding: 5px 15px;
+    /*padding: 5px 15px;*/
+    /*max-width: 70%;*/
+    height: 80%;
+    width: 75%;
+    margin-left: 10%;
+    border: 1px solid gray;
 }
 
-.caja-opciones span:hover{
+.caja-opciones img:hover{
     cursor: pointer;
-    box-shadow: 0 6px 5px rgba(19, 28, 56, 0.26);
+    box-shadow: 3px 3px 3px 5px rgba(19, 28, 56, 0.26);
 }
 
 .botones{

@@ -18,6 +18,15 @@ import { PreloaderResolver } from './resolvers/preloader.resolver';
 import { PreloaderService } from './servicios/preloader.service';
 import { LoginResolver } from './resolvers/login.resolver';
 
+import { PreguntasDosComponent } from './preguntas-dos/preguntas-dos.component';
+import { PreguntasTresComponent } from './preguntas-tres/preguntas-tres.component';
+import { PreguntasCuatroComponent } from './preguntas-cuatro/preguntas-cuatro.component';
+import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.component';
+
+import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.component';
+import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +36,14 @@ import { LoginResolver } from './resolvers/login.resolver';
     PreLoaderComponent,
     ElegirLenguajeComponent,
     PreguntasComponent,
-    InstruccionesComponent
+    InstruccionesComponent,
+    PreguntasDosComponent,
+    PreguntasTresComponent,
+    PreguntasCuatroComponent,
+    PreguntasCincoComponent,
+    MapaPreguntasComponent,
+    OlvideContraseniaComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

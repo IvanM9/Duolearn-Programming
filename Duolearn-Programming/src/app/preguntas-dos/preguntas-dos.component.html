@@ -1,0 +1,39 @@
+<div class="body">
+    <div class="caja" id="screenPreguntas">
+        <div class="titulo">
+            <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+            Módulo de Variables y tipos de datos
+            <span><fa-icon [icon]="faQuestion"></fa-icon></span>
+        </div>
+    
+        <div class="header">
+            <div class="puntuacion"><b>Puntuación: </b> 0</div>
+            <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+        </div>
+    
+        <div class="caja-pregunta" #pregunta >Unir con lineas los códigos que arrojan los mismo resultados.
+        </div>
+        <div class="caja-opciones">
+            <!--No se si estas img, las cambies por un "<a>" para que se puedan seleccionar los pares o unir-->
+            <img src="../../assets/imagenes/codigo_de_prueba.png">
+            <img src="../../assets/imagenes/codigo_de_prueba.png">
+            <img src="../../assets/imagenes/codigo_de_prueba.png">
+            <img src="../../assets/imagenes/codigo_de_prueba.png">
+            <img src="../../assets/imagenes/codigo_de_prueba.png">
+            <img src="../../assets/imagenes/codigo_de_prueba.png">
+        </div>
+    
+        <div class="botones">
+            <button>
+                Siguiente ▶
+            </button>
+            <button>
+                Abandonar ❌
+            </button>
+        </div>
+    </div>
+    
+    <div class="box" id="resultScreen">
+        
+    </div>
+</div>
