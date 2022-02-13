@@ -1,6 +1,17 @@
 const Usuario = require("../Models/usuario");
-
-
+require('dotenv').config();
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    secure:'false',
+    auth: {
+        user: process.env.CORREO,
+        pass: process.env.CLAVE_CORREO
+    },
+    tls: {
+        rejectUnauthorized: false,
+      },
+});
 const user = {
 
 }
@@ -28,9 +39,8 @@ user.getUsuario = async (req, res) => {
 }
 user.iniciarSesion = async (req, res) => {
     const { usuario, clave } = req.body;
-    if (usuario.length > 0 && clave.length) {
+    if (usuario.length > 0 && clave.length > 0) {
         let datos = await Usuario.inciarSesion(usuario, clave);
-        console.log(datos);
         if (datos !== 0 && datos !== null) {
             req.session.user = usuario;
             res.json({ mensaje: "Sesion iniciada", estado: "1" });
@@ -83,5 +93,28 @@ user.elimnarUsuario = async (req, res) => {
     }
     else
         res.json({ mensaje: "El sesión no está iniciada", estado: "0" })
+}
+user.solicitarClave = async (req, res) => {
+    const { usuario } = req.body;
+    let datos = await Usuario.obtenerClave(usuario);
+    if (datos != null) {
+        let correo = Usuario.getUser(usuario).correo;
+        var mailOptions = {
+            from: "'Duolearn Admin' <"+process.env.CORREO+">",
+            to: correo,
+            subject: 'Duolearn: recuperación de clave',
+            text: 'Su contraseña es: ' + datos
+        };
+        await transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email enviado: ' + info.response);
+            }
+        });
+        res.json({ estado: "1" });
+    }
+    else
+        res.json({ estado: "0" });
 }
 module.exports = { user };
