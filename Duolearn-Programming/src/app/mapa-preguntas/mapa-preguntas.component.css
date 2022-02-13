@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(5, 196, 88);  /*Puede ser una img luego lo pensamos bien */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.caja{
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+    min-height: 500px;
+    width: 80%;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tituloApp{
+    text-align: center;
+}
+
+.tituloApp img{
+    width: 7%;
+    margin-top: 2px;
+    margin-bottom: 20px;
+}
+
+.tituloApp h6{
+    color: black;
+    font-size: 18px;
+}
+
+.linea{
+    border-top: 4px solid lightgrey;
+    height: 2px;
+    max-width: 90%;
+    margin: 30px auto 0 auto;
+    border-radius: 50%;
+}
+
+.tituloModulo h6{
+    color:#444;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.seccion-preguntas{
+    margin-top: 35px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-left: 8%;
+}
+
+.seccion-preguntas span{
+    background-color: wheat; /*Cambiar este color por lighgreen cuando se complete la pregunta*/
+    border-radius: 50px;
+    height: 90px;
+    width: 90px;
+    padding: 15px 15px;
+    text-align: center;
+    justify-content: space-between;
+    font-size: 40px;
+    color: gray; /*Cambiar este color, por green, cuando ya se complete la pregunta*/
+}
+
+.seccion-preguntas span:hover{
+    cursor: pointer;
+}
+
+.seccion-info-preguntas{
+    display: grid;
+    grid-template-columns: repeat(5, 0.3fr);
+    margin-left: 2%;
+    margin-left: 7%;
+}
+
+.seccion-info-preguntas span{
+    font-size: 16px;
+    color: gray;
+}

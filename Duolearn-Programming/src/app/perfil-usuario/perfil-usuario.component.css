@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(5, 196, 88);  /*Puede ser una img luego lo pensamos bien */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.caja{
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+    min-height: 550px;
+    width: 50%;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.entrada-texto{
+    margin-top: 15px;
+}
+
+.entrada-texto p{
+    font-size: 17px;
+}
+.entrada-texto input{
+    height: 35px;
+    border-radius: 10px;
+    background-color: lightgoldenrodyellow;
+    border-color: wheat;
+}
+
+#campoFecha{
+    color: gray;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.titulo h6{
+    font-size: 40px;
+    color: #444;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones button{
+    background-color: rgb(5, 196, 88); 
+    border-radius: 10px;
+    padding: 7px 15px;
+    outline: none;
+    border: 0;
+    font-size: 17px;
+    width: 165px;
+    color: white;
+}
+
+.botones button:hover{
+    box-shadow: 0 6px 5px rgba(19, 28, 56, 0.26);
+}

@@ -11,14 +11,17 @@
             <div class="tiempo"><b>Tiempo: </b> 00:00</div>
         </div>
     
-        <div class="caja-pregunta" #pregunta >En la siguiente imagen, se muestra un trozo de código, detalle como funciona dicho código en la entrada de texto ubicada al final de la imagen.
+        <div class="caja-pregunta" #pregunta >En la siguiente imagen, se muestra un trozo de código el cual contiene un error. Seleccione cual el el error que contiene el código.
         </div>
         <div class="caja-imagen">
             <img src="../../assets/imagenes/codigo_de_prueba.png" alt="codigo-de-prueba"/>
         </div>
 
-        <div class="caja-input">
-            <input type="text" placeholder="Detalla como funciona el código" #opcion4/>
+        <div class="caja-opciones">
+            <span #opcion1 id="opc" draggable="true">Hola mundo (1)</span>
+            <span #opcion2 id="opc" draggable="true">Hola mundo (2)</span>
+            <span #opcion3 id="opc" draggable="true">Hola mundo (3)</span>
+            <span #opcion4 id="opc" draggable="true">Hola mundo (4)</span>
         </div>
     
         <div class="botones">

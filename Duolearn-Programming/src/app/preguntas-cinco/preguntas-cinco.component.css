@@ -72,14 +72,23 @@
     max-width: 35%;
 }
 
-.caja-input input{
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin-top: 15px;
+.caja-opciones{
+    margin-top: 20px;
     margin-bottom: 20px;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+.caja-opciones span{
+    background-color: wheat;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    height: 40px;
+    width: 245px;
+    padding: 6.5px 15px;
+    text-align: center;
+    justify-content: space-between;
 }
 
 .botones{
