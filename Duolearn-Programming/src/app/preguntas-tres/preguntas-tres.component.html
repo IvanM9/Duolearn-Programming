@@ -1,0 +1,72 @@
+<div class="body">
+    <div class="caja" id="screenPreguntas">
+        <div class="titulo">
+            <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+            Módulo de Variables y tipos de datos
+            <span>
+                <fa-icon [icon]="faQuestion"></fa-icon>
+            </span>
+        </div>
+
+        <div class="header" (drop)="drop($event)" (dragover)="allowDrop($event)">
+            <div class="puntuacion"><b>Puntuación: </b> 0</div>
+            <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+        </div>
+
+        <div class="caja-pregunta" #pregunta> Complete el siguiente código, arrastrando las opciones en donde usted crea
+            correctas.
+        </div>
+
+        <!--Este será el código y debe ser traido de la bd-->
+        <div class="codigoParaCompletar">
+            <div>
+                {{linea1}}
+            </div>
+            <div (drop)="drop($event)" [ngStyle]="estilo1" (dragover)="allowDrop($event)" #texto1 id="textoAllenar1">
+            </div>
+            <div>
+                {{linea2}}
+            </div>
+            <div (drop)="drop($event)" [ngStyle]="estilo2" (dragover)="allowDrop($event)" #texto2 id="textoAllenar2">
+
+            </div>
+            <div>
+                {{linea3}}
+            </div>
+            <div (drop)="drop($event)" [ngStyle]="estilo3" (dragover)="allowDrop($event)" #texto3 id="textoAllenar3">
+
+            </div>
+            <div>
+                {{linea4}}
+            </div>
+            <div (drop)="drop($event)" [ngStyle]="estilo4" (dragover)="allowDrop($event)" #texto4 id="textoAllenar4">
+
+            </div>
+            <div>
+                {{linea5}}
+            </div>
+        </div>
+
+        <!--Borrar los hola mundo, ahí van las opciones extraidas de la BD-->
+        <!--El draggable="true" es para que me permita arrastrar el span y hacer el drag and drop-->
+        <div class="caja-opciones" (drop)="drop($event)" (dragover)="allowDrop($event)" dropzone="true"
+            id="caja-opciones">
+            <span #opcion1 id="opc1" (drag)="drag($event)" draggable="true"> {{opcion1.innerText}} </span>
+            <span #opcion2 id="opc2" (drag)="drag($event)" draggable="true">{{opcion2.innerText}}</span>
+            <span #opcion3 id="opc3" (drag)="drag($event)" draggable="true">{{opcion3.innerText}}</span>
+            <span #opcion4 id="opc4" (drag)="drag($event)" draggable="true">{{opcion4.innerText}}</span>
+        </div>
+
+        <div class="botones">
+            <button (click)="comprueba()">
+                Siguiente ▶
+            </button>
+            <button>
+                Abandonar ❌
+            </button>
+        </div>
+    </div>
+
+    <div class="box" id="resultScreen">
+    </div>
+</div>

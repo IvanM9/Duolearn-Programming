@@ -1,0 +1,74 @@
+<div class="body">
+    <div class="caja" id="screenPreguntas">
+        <div class="titulo">
+            <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+            Módulo de Variables y tipos de datos
+            <span><fa-icon [icon]="faQuestion"></fa-icon></span>
+        </div>
+    
+        <div class="header">
+            <div class="puntuacion"><b>Puntuación: </b> 0</div>
+            <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+        </div>
+    
+        <div class="caja-pregunta" >Elija la respuesta correcta delas opciones que aparecen en la columna derecha, para cada item que aparece en la columna izquierda
+        </div>
+
+        <div class="caja-opciones">
+            <span #pregunta1></span>
+            <select name="comboBox" id="combobox" #escogio1>
+                <option selected disabled>--- Seleccione ---</option>
+                <option #opcion1 value="opcion1"> {{opcion1.innerText}} </option>
+                <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
+                <option #opcion3 value="opcion3">{{opcion3.innerText}}</option>
+                <option #opcion4 value="opcion4">{{opcion4.innerText}}</option>
+            </select>
+        </div>
+
+        <div class="caja-opciones">
+            <span #pregunta2></span>
+            <select name="comboBox" id="combobox" #escogio2>
+                <option selected disabled>--- Seleccione ---</option>
+                <option #opcion1 value="opcion1">{{opcion1.innerText}}</option>
+                <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
+                <option #opcion3 value="opcion3">{{opcion3.innerText}}</option>
+                <option #opcion4 value="opcion4">{{opcion4.innerText}}</option>
+            </select>
+        </div>
+
+        <div class="caja-opciones">
+            <span #pregunta3></span>
+            <select name="comboBox" id="combobox" #escogio3>
+                <option selected disabled>--- Seleccione ---</option>
+                <option #opcion1 value="opcion1">{{opcion1.innerText}}</option>
+                <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
+                <option #opcion3 value="opcion3">{{opcion3.innerText}}</option>
+                <option #opcion4 value="opcion4">{{opcion4.innerText}}</option>
+            </select>
+        </div>
+
+        <div class="caja-opciones">
+            <span #pregunta4></span>
+            <select name="comboBox" id="combobox" #escogio4>
+                <option selected disabled>--- Seleccione ---</option>
+                <option #opcion1 value="opcion1">{{opcion1.innerText}}</option>
+                <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
+                <option #opcion3 value="opcion3">{{opcion3.innerText}}</option>
+                <option #opcion4 value="opcion4">{{opcion4.innerText}}</option>
+            </select>
+        </div>
+    
+        <div class="botones">
+            <button (click)="comprueba()">
+                Siguiente ▶
+            </button>
+            <button>
+                Abandonar ❌
+            </button>
+        </div>
+    </div>
+    
+    <div class="box" id="resultScreen">
+        
+    </div>
+</div>

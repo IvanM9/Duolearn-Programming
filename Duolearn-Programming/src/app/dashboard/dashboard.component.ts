@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   fagraduation = iconos.faGraduationCap;
   fahome = iconos.faHome;
   fachart = iconos.faChartBar;
-  fausers = iconos.faUsers;
+  fauser = iconos.faUser;
   facomments = iconos.faComments;
   facrown = iconos.faCrown;
   fasignoutalt = iconos.faSignOutAlt;
@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit {
   facheckcircle = iconos.faCheckCircle;
   faredoalt = iconos.faRedoAlt;
   facubes = iconos.faCubes;
-  //falta
   fahive = iconosfab.faHive;
   fath = iconos.faTh;
   fafont = iconos.faFont;

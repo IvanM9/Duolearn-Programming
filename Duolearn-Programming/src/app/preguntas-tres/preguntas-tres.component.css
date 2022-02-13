@@ -60,11 +60,45 @@
     padding: 10px 15px;
 }
 
+#textoAllenar1, #textoAllenar2, #textoAllenar3, #textoAllenar4{
+    border: 2px solid black;
+    width: 20%;
+    height: 25%;
+}
+
+.codigoParaCompletar{
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    
+    /*padding: 10px 15px;*/
+    /*padding-bottom: 10px;
+    margin-bottom: 20px;
+    /*font-weight: 600;
+    font-size: 20px;*/
+}
+
+.codigoParaCompletar code{
+    color: black;
+}
+
+.codigoParaCompletar input{
+    cursor:pointer;
+    border-radius: 7px;
+    height: 40px;
+    width: 200px;
+    background-color: rgb(161, 158, 158);
+    border: 1px solid lightgray;
+}
+
 .caja-opciones{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
     margin: 30px 0;
     grid-gap: 15px;
+    margin-left: 5%;
 }
 
 .caja-opciones span{
@@ -72,7 +106,9 @@
     border-radius: 10px;
     border: 1px solid wheat;
     height: 40px;
-    padding: 5px 15px;
+    width: 180px;
+    padding: 6.5px 15px;
+    text-align: center;
 }
 
 .caja-opciones span:hover{
