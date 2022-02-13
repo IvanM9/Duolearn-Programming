@@ -2,7 +2,7 @@
     <div class="caja" id="screenPreguntas">
         <div class="titulo">
             <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
-            Módulo de Variables y tipos de datos
+           {{valor}}
             <span><fa-icon [icon]="faQuestion"></fa-icon></span>
         </div>
     
@@ -15,12 +15,12 @@
         </div>
         <div class="caja-opciones">
             <!--No se si estas img, las cambies por un "<a>" para que se puedan seleccionar los pares o unir-->
-            <img src="../../assets/imagenes/codigo_de_prueba.png">
-            <img src="../../assets/imagenes/codigo_de_prueba.png">
-            <img src="../../assets/imagenes/codigo_de_prueba.png">
-            <img src="../../assets/imagenes/codigo_de_prueba.png">
-            <img src="../../assets/imagenes/codigo_de_prueba.png">
-            <img src="../../assets/imagenes/codigo_de_prueba.png">
+            <img #img1 *ngIf="mostrar1" [ngStyle]="estilo1" (click)="comprueba('img1')">
+            <img #img2 *ngIf="mostrar2" [ngStyle]="estilo2"  (click)="comprueba('img2')">
+            <img #img3 *ngIf="mostrar3" [ngStyle]="estilo3"  (click)="comprueba('img3')">
+            <img #img4 *ngIf="mostrar4" [ngStyle]="estilo4"  (click)="comprueba('img4')">
+            <img #img5 *ngIf="mostrar5" [ngStyle]="estilo5"  (click)="comprueba('img5')">
+            <img #img6 *ngIf="mostrar6" [ngStyle]="estilo6"  (click)="comprueba('img6')">
         </div>
     
         <div class="botones">

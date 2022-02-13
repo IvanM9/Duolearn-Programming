@@ -36,10 +36,6 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/aos/dist/aos.js"
-<<<<<<< HEAD
-=======
-              
->>>>>>> e0afe371482abd63f756090e4a10eed634555c3e
             ]
           },
           "configurations": {
