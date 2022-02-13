@@ -14,18 +14,21 @@ import { InstruccionesComponent } from './instrucciones/instrucciones.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { PreloaderResolver } from './resolvers/preloader.resolver';
 import { PreloaderService } from './servicios/preloader.service';
+
 import { LoginResolver } from './resolvers/login.resolver';
+
 
 import { PreguntasDosComponent } from './preguntas-dos/preguntas-dos.component';
 import { PreguntasTresComponent } from './preguntas-tres/preguntas-tres.component';
 import { PreguntasCuatroComponent } from './preguntas-cuatro/preguntas-cuatro.component';
 import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.component';
 
+
 import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.component';
 import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+
 
 @NgModule({
   declarations: [
@@ -58,8 +61,6 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     ],
   providers: [
     PreloaderService,
-    PreloaderResolver,
-    LoginResolver,
     InstruccionesComponent
   ],
   bootstrap: [AppComponent]

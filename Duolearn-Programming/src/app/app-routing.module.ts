@@ -10,11 +10,13 @@ import { PreguntasCuatroComponent } from './preguntas-cuatro/preguntas-cuatro.co
 import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { PrincipalComponent } from './principal/principal.component';
+
 import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.component';
 import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { LoginResolver } from './resolvers/login.resolver';
 import { PreloaderResolver } from './resolvers/preloader.resolver';
+
 
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"principal"},
