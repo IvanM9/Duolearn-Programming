@@ -8,7 +8,7 @@ import { Preguntas } from './preguntas';
 })
 export class PreguntasService {
   //Api:string='http://localhost:8080/basedatos/';
-  Api: string = "http://localhost:3000/";
+  Api: string = "http://localhost:2000/api/";
 
   constructor(private clientHttp:HttpClient) { }
 
@@ -22,6 +22,14 @@ export class PreguntasService {
 
   obtener_preguntadd():Observable<any>{
     return this.clientHttp.get(this.Api+"preguntasdd");
+  }
+
+  get_questions(tipo:any):Observable<any>{
+    return this.clientHttp.post(this.Api+"actividades/obtener",tipo);
+  }
+
+  send_solves():Observable<any>{
+    return this.clientHttp.post(this.Api+"actividades/resolver","");
   }
 
 }

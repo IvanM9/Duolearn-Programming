@@ -16,7 +16,6 @@ import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { PreloaderService } from './servicios/preloader.service';
 
-import { LoginResolver } from './resolvers/login.resolver';
 
 
 import { PreguntasDosComponent } from './preguntas-dos/preguntas-dos.component';
