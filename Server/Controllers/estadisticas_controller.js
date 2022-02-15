@@ -3,7 +3,8 @@ const { Estadisticas } = require("../Models/estadisticas");
 const estadisticas={}
 
 estadisticas.getJava= async (req, res)=>{
-    let datos = await Estadisticas.getJava(req.session.user);
+    const {usuario} = req.body;
+    let datos = await Estadisticas.getJava(usuario);
     if(datos!=null)
         res.json(datos);
     else

@@ -25,6 +25,9 @@ export class PrincipalComponent implements OnInit {
     setTimeout(() => {
       this.bol = !this.bol;
     }, 3000);
+    if(sessionStorage.getItem("user")!=null){
+      this.ruta.navigateByUrl("/dashboard");
+    }
   }
 
   scroll() {

@@ -16,7 +16,9 @@
 
         <div class="caja-opciones">
             <span #pregunta1></span>
-            <select name="comboBox" id="combobox" #escogio1>
+
+            <select name="comboBox" id="combobox" [ngStyle]="estilo1" #escogio1>
+
                 <option selected disabled>--- Seleccione ---</option>
                 <option #opcion1 value="opcion1"> {{opcion1.innerText}} </option>
                 <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
@@ -27,7 +29,9 @@
 
         <div class="caja-opciones">
             <span #pregunta2></span>
-            <select name="comboBox" id="combobox" #escogio2>
+
+            <select name="comboBox" id="combobox"[ngStyle]="estilo2" #escogio2>
+
                 <option selected disabled>--- Seleccione ---</option>
                 <option #opcion1 value="opcion1">{{opcion1.innerText}}</option>
                 <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
@@ -38,7 +42,9 @@
 
         <div class="caja-opciones">
             <span #pregunta3></span>
-            <select name="comboBox" id="combobox" #escogio3>
+
+            <select name="comboBox" id="combobox" [ngStyle]="estilo3" #escogio3>
+
                 <option selected disabled>--- Seleccione ---</option>
                 <option #opcion1 value="opcion1">{{opcion1.innerText}}</option>
                 <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
@@ -49,7 +55,9 @@
 
         <div class="caja-opciones">
             <span #pregunta4></span>
-            <select name="comboBox" id="combobox" #escogio4>
+
+            <select name="comboBox" id="combobox" [ngStyle]="estilo4" #escogio4>
+
                 <option selected disabled>--- Seleccione ---</option>
                 <option #opcion1 value="opcion1">{{opcion1.innerText}}</option>
                 <option #opcion2 value="opcion2">{{opcion2.innerText}}</option>
@@ -62,7 +70,9 @@
             <button (click)="comprueba()">
                 Siguiente ▶
             </button>
-            <button>
+
+            <button (click)="abandonar()">
+
                 Abandonar ❌
             </button>
         </div>

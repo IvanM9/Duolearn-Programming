@@ -34,8 +34,8 @@
                     <a href=""> <span><fa-icon [icon]="facrown"></fa-icon></span>
                         <span>Coronas</span></a>
                 </li>
-                <li>
-                    <a href=""> <span><fa-icon [icon]="fasignoutalt"></fa-icon></span>
+                <li (click)="close_session()">
+                    <a> <span><fa-icon [icon]="fasignoutalt"></fa-icon></span>
                         <span>Cerrar sesión</span></a>
                 </li>
             </ul>
@@ -62,7 +62,7 @@
                     alt="foto-usuario-logueado">
                 <div>
                     <!--El nombres que aparecerá en este h4 debe ser traido de la BD con el usuario logueado-->
-                    <h4>Administrador</h4>
+                    <h4>{{nombre}}</h4>
                 </div>
             </div>
         </header>
@@ -70,33 +70,33 @@
         <main>
             <!--Fila 1 de los módulos-->
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
-                <div class="tarjetas-simples" (click)="agregar_text('Variables y tipos de datos')">
+                <div class="tarjetas-simples" [ngStyle]="estilo1" (click)="agregar_text('Variables y tipos de datos')">
                     <div>
-                        <h1>5%</h1>
-                        <span>Variables y tipos de datos</span>
+                        <h1> {{porcentaje_mod1}}% </h1>
+                        <span [ngStyle]="estiloletra1">Variables y tipos de datos</span>
                     </div>
                     <div>
-                        <span><fa-icon [icon]="fainfocircle"></fa-icon></span>
-                    </div>
-                </div>
-
-                <div class="tarjetas-simples" (click)="agregar_text('Condicionales')">
-                    <div>
-                        <h1>12%</h1>
-                        <span>IF-Else</span>
-                    </div>
-                    <div>
-                        <span><fa-icon [icon]="facheckcircle"></fa-icon></span>
+                        <span [ngStyle]="estiloicono1"><fa-icon [icon]="fainfocircle"></fa-icon></span>
                     </div>
                 </div>
 
-                <div class="tarjetas-simples" (click)="agregar_text('Ciclos Repetitivos')">
+                <div class="tarjetas-simples" [ngStyle]="estilo2" (click)="agregar_text('Condicionales')">
                     <div>
-                        <h1>25%</h1>
-                        <span>Ciclos Repetitivos</span>
+                        <h1>{{porcentaje_mod2}}%</h1>
+                        <span [ngStyle]="estiloletra2">IF-Else</span>
                     </div>
                     <div>
-                        <span><fa-icon [icon]="faredoalt"></fa-icon></span>
+                        <span [ngStyle]="estiloicono2"><fa-icon [icon]="facheckcircle"></fa-icon></span>
+                    </div>
+                </div>
+
+                <div class="tarjetas-simples" [ngStyle]="estilo3" (click)="agregar_text('Ciclos Repetitivos')">
+                    <div>
+                        <h1>{{porcentaje_mod3}}%</h1>
+                        <span [ngStyle]="estiloletra3">Ciclos Repetitivos</span>
+                    </div>
+                    <div>
+                        <span [ngStyle]="estiloicono3"><fa-icon [icon]="faredoalt"></fa-icon></span>
                     </div>
                 </div>
             </div>
@@ -104,56 +104,56 @@
 
             <!--Fila 2 de los módulos-->
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
-                <div class="tarjetas-simples" (click)="agregar_text('Funciones y Procedimientos')">
+                <div class="tarjetas-simples" [ngStyle]="estilo4" (click)="agregar_text('Funciones y Procedimientos')">
                     <div>
-                        <h1>12%</h1>
-                        <span>Funciones y Procedimientos</span>
+                        <h1>{{porcentaje_mod4}}%</h1>
+                        <span [ngStyle]="estiloletra4">Funciones y Procedimientos</span>
                     </div>
                     <div>
-                        <span><fa-icon [icon]="facubes"></fa-icon></span>
-                    </div>
-                </div>
-
-                <div class="tarjetas-simples" (click)="agregar_text('Vectores')">
-                    <div>
-                        <h1>5%</h1>
-                        <span>Vectores</span>
-                    </div>
-                    <div>
-                        <span><fa-icon [icon]="fahive"></fa-icon></span>
+                        <span [ngStyle]="estiloicono4"><fa-icon [icon]="facubes"></fa-icon></span>
                     </div>
                 </div>
 
-                <div class="tarjetas-simples" (click)="agregar_text('Matrices')">
+                <div class="tarjetas-simples" [ngStyle]="estilo5" (click)="agregar_text('Vectores')">
                     <div>
-                        <h1>12%</h1>
-                        <span>Matrices</span>
+                        <h1>{{porcentaje_mod5}}%</h1>
+                        <span [ngStyle]="estiloletra5">Vectores</span>
                     </div>
                     <div>
-                        <span><fa-icon [icon]="fath"></fa-icon></span>
+                        <span [ngStyle]="estiloicono5"><fa-icon [icon]="fahive"></fa-icon></span>
+                    </div>
+                </div>
+
+                <div class="tarjetas-simples" [ngStyle]="estilo6" (click)="agregar_text('Matrices')">
+                    <div>
+                        <h1>{{porcentaje_mod6}}%</h1>
+                        <span [ngStyle]="estiloletra6">Matrices</span>
+                    </div>
+                    <div>
+                        <span [ngStyle]="estiloicono6"><fa-icon [icon]="fath"></fa-icon></span>
                     </div>
                 </div>
             </div>
 
             <!--Fila 3 de los módulos-->
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
-                <div class="tarjetas-simples" (click)="agregar_text('Caracteres y cadenas de texto')">
+                <div class="tarjetas-simples" [ngStyle]="estilo7" (click)="agregar_text('Caracteres y cadenas de texto')">
                     <div>
-                        <h1>25%</h1>
-                        <span>Caracteres y cadenas texto</span>
+                        <h1>{{porcentaje_mod7}}%</h1>
+                        <span [ngStyle]="estiloletra7">Caracteres y cadenas texto</span>
                     </div>
                     <div>
-                        <span><fa-icon [icon]="fafont"></fa-icon></span>
+                        <span [ngStyle]="estiloicono7"><fa-icon [icon]="fafont"></fa-icon></span>
                     </div>
                 </div>
 
-                <div class="tarjetas-simples" (click)="agregar_text('Archivos de texto')">
+                <div class="tarjetas-simples" [ngStyle]="estilo8" (click)="agregar_text('Archivos de texto')">
                     <div>
-                        <h1>12%</h1>
-                        <span>Archivos de texto</span>
+                        <h1>{{porcentaje_mod8}}%</h1>
+                        <span [ngStyle]="estiloletra8">Archivos de texto</span>
                     </div>
                     <div>
-                        <span><fa-icon [icon]="fafilealt"></fa-icon></span>
+                        <span [ngStyle]="estiloicono8"><fa-icon [icon]="fafilealt"></fa-icon></span>
                     </div>
                 </div>
 

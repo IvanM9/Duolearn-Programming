@@ -30,13 +30,15 @@ export class LoginComponent implements OnInit {
     public activatedRoute:ActivatedRoute) {
     this.form_login = this.formulario.group({
       usuario: [''],
-      password: ['']
+      clave: ['']
     });
     this.form_registro = this.formulario_registro.group({
       correo: [''],
-      celular: [''],
       usuario: [''],
-      password: ['']
+      fecha_nacimiento: [''],
+      nombres: [''],
+      apellidos: [''],
+      clave: ['']
     });
   }
   ngOnInit(): void {
@@ -46,27 +48,33 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.user_service.iniciar_sesion(this.form_login.value).subscribe(resp =>{
-      let val = resp.success;
+    this.user_service.user_login(this.form_login.value).subscribe(resp =>{
+      let val = resp.estado;
       if (val == 1) {
         this.mensaje_bien();
+        this.saveData();
         this.ruta.navigateByUrl("/elegir-lenguaje");
       } else {
-        this.mensaje_mal();
+        this.mensaje_mal(resp.mensaje);
         this.ruta.navigateByUrl("/login");
       }
     });
   }
 
+  saveData() {
+    sessionStorage.setItem('user', this.form_login.value.usuario);
+    //sessionStorage.setItem('location', 'Pakistan');
+  }
+
   registro_user(): any {
-    this.user_service.registrarse(this.form_registro.value).subscribe(resp => {
+    this.user_service.user_register(this.form_registro.value).subscribe(resp => {
       //console.log(resp);
-      let val = resp.success;
+      let val = resp.estado;
       if (val == 1) {
         this.mensaje_bien();
         this.ruta.navigateByUrl("/elegir-lenguaje");
       } else {
-        this.mensaje_mal();
+        this.mensaje_mal(resp.mensaje);
         this.ruta.navigateByUrl("/login");
       }
     });
@@ -89,11 +97,11 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-  mensaje_mal() {
+  mensaje_mal(mensaje:any) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Algo ha salido, intentalo más tarde'
+      text: mensaje
     });
   }
   MostrarElegirLenguaje() {

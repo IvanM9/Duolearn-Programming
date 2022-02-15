@@ -1,45 +1,42 @@
 
 <div class="box" id="resultScreen">
-<div class="body">
-    <div class="caja" id="screenPreguntas">
-        <div class="titulo">
-            <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
-            {{valor}}
-            <span><fa-icon [icon]="faQuestion"></fa-icon></span>
-        </div>    
+    <div class="body">
+        <div class="caja" id="screenPreguntas">
+            <div class="titulo">
+                <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+               {{valor}}
+                <span><fa-icon [icon]="faQuestion"></fa-icon></span>
+            </div>
+            <div class="header">
+                <div class="puntuacion"><b>Puntuación: </b> 0</div>
+                <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+            </div>
 
-<div class="caja" id="screenPreguntas">
-    <div class="titulo">
-        <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
-        Módulo de Variables y tipos de datos
-        <span class="fas fa-info-circle"></span>
-    </div>
 
-    <div class="header">
-        <div class="puntuacion"><b>Puntuación: </b> 0</div>
-        <div class="tiempo"><b>Tiempo: </b> 00:00</div>
-    </div>
+            <div class="caja-pregunta" #pregunta>
+                
+            </div>
+            <div class="caja-opciones">
+                <span #opcion1 [ngStyle]="estilo1" (click)="comprueba('opcion1')"></span>
+                <span #opcion2 [ngStyle]="estilo2" (click)="comprueba('opcion2')"></span>
+                <span #opcion3 [ngStyle]="estilo3" (click)="comprueba('opcion3')"></span>
+                <span #opcion4 [ngStyle]="estilo4" (click)="comprueba('opcion4')"></span>
+            </div>
 
-    <div class="caja-pregunta" #pregunta >
-    </div>
-    <div class="caja-opciones">
-        <span #opcion1></span>
-        <span #opcion2></span>
-        <span #opcion3></span>
-        <span #opcion4></span>
-    </div>
-
-    <div class="botones">
-        <button>
-            Siguiente ▶
-        </button>
-        <button>
-            Abandonar ❌
-        </button>
+            <div class="botones">
+                <button (click)="ver_verde()">
+                    Siguiente ▶
+                </button>
+                <button (click)="abandonar()">
+                    Abandonar ❌
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
 <!--<div class="box" id="resultScreen">
+
     
 
         <div class="header">
@@ -56,6 +53,7 @@
             <span #opcion4 [ngStyle]="estilo4" (click)="comprueba('opcion4')"></span>
         </div>
     
+
         <div class="botones">
             <button>
                 Siguiente ▶
