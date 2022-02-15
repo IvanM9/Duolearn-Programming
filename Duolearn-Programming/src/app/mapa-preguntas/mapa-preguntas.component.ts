@@ -1,3 +1,4 @@
+
 import { R3BoundTarget } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -7,11 +8,13 @@ import { InstruccionesComponent } from '../instrucciones/instrucciones.component
 import { PreguntasCuatroComponent } from '../preguntas-cuatro/preguntas-cuatro.component';
 import { PreguntasComponent } from '../preguntas/preguntas.component';
 
+
 @Component({
   selector: 'app-mapa-preguntas',
   templateUrl: './mapa-preguntas.component.html',
   styleUrls: ['./mapa-preguntas.component.css']
 })
+
 export class MapaPreguntasComponent implements AfterViewInit {
 
   faVisto = iconos.faCheckCircle;
@@ -208,4 +211,5 @@ export class MapaPreguntasComponent implements AfterViewInit {
   crearjson3() {
     return { porcentaje: 0 };
   }
+
 }

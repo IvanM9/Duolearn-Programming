@@ -16,7 +16,9 @@ router.post("/recuperar_clave", user.solicitarClave)
 
 
 //actividades
+
 router.post("/actividades/obtener", actividades.obtenerActividades);
+
 router.post("/actividades/resolver", actividades.resolverActividad);
 
 

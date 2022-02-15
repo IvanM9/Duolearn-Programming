@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
 import { Router } from '@angular/router';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { MapaPreguntasComponent } from '../mapa-preguntas/mapa-preguntas.component';
+
 import { PreguntasService } from '../servicios/preguntas.service';
 
 
@@ -27,11 +29,13 @@ export class PreguntasCuatroComponent implements AfterViewInit {
   @ViewChild("escogio1") public esc1: ElementRef;
 
 
+
   public static numact: any;
   datos: any[][] = [];
   pregunta: any;
   pregs_Salieron: number[] = [];
   total_correctas: number = 0;
+
 
   opcs: any[] = [];
   esc: any[] = [];
@@ -39,6 +43,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
   pregs: any[] = [];
 
   faQuestion = iconos.faQuestionCircle;
+
   constructor(private pregservice: PreguntasService, public ruta: Router) { }
 
   ngAfterViewInit(): void {
@@ -101,12 +106,14 @@ export class PreguntasCuatroComponent implements AfterViewInit {
         }
       });
     }
+
   }
   getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
 
   jsongeneral: any = {};
 
@@ -129,10 +136,12 @@ export class PreguntasCuatroComponent implements AfterViewInit {
           } else {
             console.log("incorrecto");
             this.respuestas.push("incorrecta");
+
           }
         }
       }
     }
+
 
     this.jsongeneral = JSON.parse(sessionStorage.getItem(sessionStorage.getItem("modulo")));
     this.jsongeneral.porcentaje = this.jsongeneral.porcentaje + 10;
@@ -207,6 +216,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
   retornaselect(index: number, select: ElementRef): string {
     return select.nativeElement.options[index].innerText;
   }
+
 
 
 }
