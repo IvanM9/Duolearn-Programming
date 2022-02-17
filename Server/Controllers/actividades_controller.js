@@ -5,6 +5,7 @@ const actividades = {};
 actividades.obtenerActividades = async (req, res) => {
     const { actividad } = req.body;
     let datos = await activity.obtenerActividades(actividad);
+    
     if (datos != null) {
         res.json(datos);
     }
