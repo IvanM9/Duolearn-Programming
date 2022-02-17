@@ -9,6 +9,7 @@ import * as iconos from '@fortawesome/free-solid-svg-icons';
 export class PerfilUsuarioComponent implements OnInit {
 
   fanombre = iconos.faClosedCaptioning;
+  fauser = iconos.faUser;
   constructor() { }
 
   ngOnInit(): void {
