@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { MapaPreguntasComponent } from '../mapa-preguntas/mapa-preguntas.component';
 
-
-
 @Component({
   selector: 'app-preguntas',
   templateUrl: './preguntas.component.html',
@@ -33,7 +31,6 @@ export class PreguntasComponent implements OnInit {
 
 
   constructor(private pregservice: PreguntasService, public ruta: Router) {
-
     //this.datos = [this.opcion1, this.opcion2, this.opcion3, this.opcion4];
 
   }

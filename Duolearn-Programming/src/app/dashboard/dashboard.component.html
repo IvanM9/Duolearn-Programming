@@ -52,14 +52,17 @@
             </h2>
 
             <div class="search-wrapper">
-                <span id="logo-buscar"><fa-icon [icon]="fasearch"></fa-icon></span>
-                <input type="search" placeholder="Buscar aquí" />
+                <select name="comboBox" id="combobox" #escogio3>
+                    <option selected disabled>Cambiar Lenguaje</option>
+                    <option #opcion1 value="opcion1">Java</option>
+                    <option #opcion2 value="opcion2">C#</option>
+                </select>
             </div>
 
             <div class="user-wrapper">
-                <!--La imagen que aparece aquí debe ser traida de la BD con el usuario logueado-->
-                <img src="../../assets/imagenes/usuario-logueado.png" width="40px" height="40px"
-                    alt="foto-usuario-logueado">
+                <!--Cambiar el logo del lenguaje según el que se seleccione-->
+                <img src="../../assets/imagenes/logo-java.jpg" id="lenguaje-practicando" width="50px" height="50px" alt="foto-usuario-logueado">
+                
                 <div>
                     <!--El nombres que aparecerá en este h4 debe ser traido de la BD con el usuario logueado-->
                     <h4>{{nombre}}</h4>

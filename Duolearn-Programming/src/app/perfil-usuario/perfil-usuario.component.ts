@@ -14,6 +14,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
   form_registro: FormGroup;
   fanombre = iconos.faClosedCaptioning;
+<<<<<<< HEAD
   constructor(
     public formulario_registro: FormBuilder,
     public user_Service: UsuariosService,
@@ -72,6 +73,10 @@ export class PerfilUsuarioComponent implements OnInit {
       timer: 1500
     });
   }
+=======
+  fauser = iconos.faUser;
+  constructor() { }
+>>>>>>> jordan2
 
   ngOnInit(): void {
   }

@@ -10,9 +10,20 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+<<<<<<< HEAD
 app.use(session({secret:"student", resave: false, saveUninitialized: true}));
+=======
+app.use(session({secret:"student", resave: true, saveUninitialized: true}));
+>>>>>>> jordan2
 
 app.use("/api/",require("./Routes/routes"));
 
 app.listen(process.env.PORT);
+<<<<<<< HEAD
 console.log("http://localhost:"+process.env.PORT);
+=======
+console.log("http://localhost:"+process.env.PORT);
+
+
+
+>>>>>>> jordan2

@@ -7,7 +7,11 @@ const router = Router();
 //usuarios
 router.get("/admin/usuarios/listar", user.listarUsuarios);
 router.post("/usuario/nuevo", user.nuevoUsuario);
+<<<<<<< HEAD
 router.post("/usuario/datos", user.getUsuario);
+=======
+router.get("/usuario/datos", user.getUsuario);
+>>>>>>> jordan2
 router.put("/usuario/modificar", user.modificarUsuario);
 router.post("/iniciar_sesion", user.iniciarSesion);
 router.get("/cerrar_sesion", user.cerrarSesion);
@@ -16,6 +20,7 @@ router.post("/recuperar_clave", user.solicitarClave)
 
 
 //actividades
+<<<<<<< HEAD
 
 router.post("/actividades/obtener", actividades.obtenerActividades);
 
@@ -25,6 +30,14 @@ router.post("/actividades/resolver", actividades.resolverActividad);
 //estadisticass
 router.post("/usuario/estadisticas_java", estadisticas.getJava);
 router.post("/usuario/estadisticas_csharp", estadisticas.getCsharp);
+=======
+router.get("/actividades/obtener", actividades.obtenerActividades);
+router.post("/actividades/resolver", actividades.resolverActividad);
+
+
+//estadisticas
+router.get("/usuario/estadisticas_java", estadisticas.getJava);
+>>>>>>> jordan2
 
 
 

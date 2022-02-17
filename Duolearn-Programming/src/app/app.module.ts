@@ -24,6 +24,9 @@ import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.compo
 import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.component';
 import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { CoronasComponent } from './coronas/coronas.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     PreguntasCincoComponent,
     MapaPreguntasComponent,
     OlvideContraseniaComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    CoronasComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,

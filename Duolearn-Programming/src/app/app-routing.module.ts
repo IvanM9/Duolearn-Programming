@@ -15,6 +15,9 @@ import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.componen
 import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
+import { CoronasComponent } from './coronas/coronas.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+
 
 
 const routes: Routes = [
@@ -31,6 +34,8 @@ const routes: Routes = [
   {path:"instrucciones", component:InstruccionesComponent},
   {path: "mi-perfil", component:PerfilUsuarioComponent},
   {path: "olvide-contrasenia", component:OlvideContraseniaComponent},
+  {path: "coronas", component:CoronasComponent},
+  {path: "estadisticas", component:EstadisticasComponent},
   {path: "mapa-preguntas", component:MapaPreguntasComponent}
 ];
 

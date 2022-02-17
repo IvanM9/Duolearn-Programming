@@ -21,28 +21,10 @@
     border-radius: 15px;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
     min-height: 550px;
-    width: 50%;
+    width: 65%;
     padding: 25px;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.entrada-texto{
-    margin-top: 15px;
-}
-
-.entrada-texto p{
-    font-size: 17px;
-}
-.entrada-texto input{
-    height: 35px;
-    border-radius: 10px;
-    background-color: lightgoldenrodyellow;
-    border-color: wheat;
-}
-
-#campoFecha{
-    color: gray;
 }
 
 .titulo{
@@ -52,16 +34,48 @@
 .titulo h6{
     font-size: 40px;
     color: #444;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #icono-titulo{
-    color: green
+    color: rgba(37, 111, 221, 0.753);
+}
+
+.linea{
+    border-top: 4px solid lightgrey;
+    height: 2px;
+    max-width: 90%;
+    margin: 30px auto 0 auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.progreso-modulos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 10px;
+}
+
+.progreso-modulos label{
+    height: 35px;
+    width: 80%;
+    padding: 5px 15px;
+    font-size: 17px;
+    text-align: right;
+    margin-left: 10%;
+}
+
+.progreso-modulos progress{
+    height: 25px;
+    width: 80%;
+    margin-top: 7px;
+    margin-left: -5%;
 }
 
 .botones{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .botones button{
@@ -71,30 +85,10 @@
     outline: none;
     border: 0;
     font-size: 17px;
-    width: 240px;
+    width: 200px;
     color: white;
 }
 
 .botones button:hover{
     box-shadow: 0 6px 5px rgba(19, 28, 56, 0.26);
-}
-
-.botones .boton-cambiar-contrasenia{
-    background-color: rgb(5, 196, 88); 
-    border-radius: 10px;
-    margin-top: 30px;
-    outline: none;
-    border: 0;
-    font-size: 17px;
-    width: 240px;
-    color: white;
-}
-
-.linea{
-    border-top: 4px solid lightgrey;
-    height: 2px;
-    max-width: 90%;
-    margin: 30px auto 0 auto;
-    border-radius: 50%;
-    margin-bottom: 5px;
 }

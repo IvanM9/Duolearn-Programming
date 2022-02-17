@@ -2,7 +2,7 @@
     <div class="caja" id="screenPreguntas">
         
         <div class="titulo">
-            <h6>Mi perfil</h6>
+            <h6><i class="fas fa-user" id="icono-titulo"></i> Mi perfil</h6>
         </div>
 
         <form class="ingresar-registro-form" [formGroup]="form_registro" (ngSubmit)="update_info()">
@@ -30,9 +30,35 @@
                 <p><i class="fas fa-user"></i> Nombre de usuario: </p>
                 <input type="text" class="form-control" formControlName="usuario" readonly/>
             </div>
+
+            <div class="linea">
+            </div>
+
+            <div class="botones">
+                <button class="boton-cambiar-contrasenia">
+                    🔁 Cambiar Contraseña
+                </button>
+                <button class="boton-cambiar-contrasenia">
+                    ◀ Volver al menú
+                </button>
+            </div>
+
             <div class="entrada-texto">
+<<<<<<< HEAD
                 <p><i class="fas fa-lock"></i> Contraseña: </p>
                 <input type="password" class="form-control" formControlName="clave"/>
+=======
+                <p><i class="fas fa-lock"></i> Actual Contraseña: </p>
+                <input type="password" class="form-control" formControlName="password"/>
+            </div>
+            <div class="entrada-texto">
+                <p><i class="fas fa-lock"></i> Nueva Contraseña: </p>
+                <input type="password" class="form-control" formControlName="password"/>
+            </div>
+            <div class="entrada-texto">
+                <p><i class="fas fa-lock"></i> Confirmar Contraseña: </p>
+                <input type="password" class="form-control" formControlName="password"/>
+>>>>>>> jordan2
             </div>
             <br />
 
@@ -47,7 +73,18 @@
         </form>
         
 
+<<<<<<< HEAD
         
+=======
+        <div class="botones">
+            <button>
+                💾 Actualizar 
+            </button>
+            <button>
+                ❌ Cancelar 
+            </button>
+        </div>
+>>>>>>> jordan2
 
     </div>
 </div>
