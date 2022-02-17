@@ -22,8 +22,9 @@ router.post("/actividades/obtener", actividades.obtenerActividades);
 router.post("/actividades/resolver", actividades.resolverActividad);
 
 
-//estadisticas
+//estadisticass
 router.get("/usuario/estadisticas_java", estadisticas.getJava);
+router.get("/usuario/estadisticas_csharp", estadisticas.getCsharp);
 
 
 

@@ -10,5 +10,13 @@ estadisticas.getJava= async (req, res)=>{
     else
         res.json({menssage: 'error'});
 }
+estadisticas.getCsharp= async (req, res)=>{
+    const {usuario} = req.body;
+    let datos = await Estadisticas.getCsharp(usuario);
+    if(datos!=null)
+        res.json(datos);
+    else
+        res.json({menssage: 'error'});
 
+}
 module.exports = {estadisticas};
