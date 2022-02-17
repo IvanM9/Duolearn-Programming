@@ -4,9 +4,11 @@ import { ElementRef, ViewChild } from '@angular/core';
 
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { InstruccionesComponent } from '../instrucciones/instrucciones.component';
+
 import { Router } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { MapaPreguntasComponent } from '../mapa-preguntas/mapa-preguntas.component';
+
 
 
 @Component({
@@ -29,7 +31,9 @@ export class PreguntasComponent implements OnInit {
   private puntos = 20;
   valor: any;
 
+
   constructor(private pregservice: PreguntasService, public ruta: Router) {
+
     //this.datos = [this.opcion1, this.opcion2, this.opcion3, this.opcion4];
 
   }
@@ -74,6 +78,7 @@ export class PreguntasComponent implements OnInit {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
 
   jsongeneral:any={};
   ver_verde() {
@@ -126,10 +131,12 @@ export class PreguntasComponent implements OnInit {
   estilo3: any = {};
   estilo4: any = {};
 
+
   comprueba(opcion: string) {
     let texto;
     switch (opcion) {
       case "opcion1":
+
         texto = this.opcion1.nativeElement.innerText;
         if (texto == this.Pregunta[0].opcion_correcta) {
           console.log("correcto");
@@ -199,15 +206,18 @@ export class PreguntasComponent implements OnInit {
   }
 
   concatJSON2(estilo:any){
+
     const estiloaux={"pointer-events" : "none" };
     const merge = Object.assign({},estilo,estiloaux);  
     return merge;
    }
+
 
   enviar_respuesta() {
     this.pregservice.send_solves().subscribe(resp => {
 
     });
   }
+
 
 }

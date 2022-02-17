@@ -16,6 +16,7 @@ import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrase
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
+
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"principal"},
   {path:"dashboard", component:DashboardComponent},
