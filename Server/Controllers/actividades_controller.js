@@ -3,8 +3,10 @@ const activity = require("../Models/actividades");
 const actividades = {};
 
 actividades.obtenerActividades = async (req, res) => {
+
     const { modulo, lenguaje, tipo, usuario } = req.body;
     let datos = await activity.obtenerActividades(modulo, lenguaje, tipo, usuario);
+
     if (datos != null) {
         res.json(datos);
     }

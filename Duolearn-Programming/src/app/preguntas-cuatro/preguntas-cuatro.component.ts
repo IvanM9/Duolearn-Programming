@@ -122,6 +122,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
   }
 
   private respuestas: string[] = [];
+  private puntos=0;
   comprueba() {
     this.respuestas = [];
     for (let index = 0; index < 4; index++) {
@@ -131,6 +132,9 @@ export class PreguntasCuatroComponent implements AfterViewInit {
           let b = this.pregunta[j];
           if (a == b.opcion_correcta) {
             console.log("correcto");
+            if(this.puntos!=20){
+              this.puntos+=5;
+            }
             this.respuestas.push("correcta");
             this.total_correctas++;
           } else {
