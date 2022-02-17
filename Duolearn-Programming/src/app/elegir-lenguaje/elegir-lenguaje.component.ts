@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as AOS from 'aos';
 
 
@@ -9,10 +10,14 @@ import * as AOS from 'aos';
 })
 export class ElegirLenguajeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ruta: Router) { }
 
   ngOnInit(): void {
     AOS.init();
   }
 
+  redirigir(lenguaje:any) {
+    sessionStorage.setItem("lenguaje",lenguaje);
+    this.ruta.navigateByUrl("/dashboard");
+  }
 }

@@ -13,10 +13,15 @@ import { UsuariosService } from '../servicios/usuarios.service';
 })
 export class DashboardComponent implements OnInit {
   bol: boolean = true;
+  bol2: boolean = false;
+
   constructor(
     public ruta: Router,
     private instr: InstruccionesComponent,
-    private user_serv: UsuariosService) { }
+    private user_serv: UsuariosService
+  ) { }
+
+  
   fagraduation = iconos.faGraduationCap;
   fahome = iconos.faHome;
   fachart = iconos.faChartBar;
@@ -91,6 +96,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.bol = !this.bol;
+      this.bol2 = !this.bol2;
     }, 3000);
     AOS.init();
     //console.log(sessionStorage.getItem("usuario"));
@@ -135,48 +141,49 @@ export class DashboardComponent implements OnInit {
   verifica_porcentaje() {
     if (this.porcentaje_mod1 == 100) {
       this.estilo1 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono1={ 'color': '#fff'};
-      this.estiloletra1={ 'color': '#fff'};
+      this.estiloicono1 = { 'color': '#fff' };
+      this.estiloletra1 = { 'color': '#fff' };
     }
     if (this.porcentaje_mod2 == 100) {
       this.estilo2 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono2={ 'color': '#fff'};
-      this.estiloletra2={ 'color': '#fff'};
+      this.estiloicono2 = { 'color': '#fff' };
+      this.estiloletra2 = { 'color': '#fff' };
     }
     if (this.porcentaje_mod3 == 100) {
       this.estilo3 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono3={ 'color': '#fff'};
-      this.estiloletra3={ 'color': '#fff'};
+      this.estiloicono3 = { 'color': '#fff' };
+      this.estiloletra3 = { 'color': '#fff' };
     }
     if (this.porcentaje_mod4 == 100) {
       this.estilo4 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono4={ 'color': '#fff'};
-      this.estiloletra4={ 'color': '#fff'};
+      this.estiloicono4 = { 'color': '#fff' };
+      this.estiloletra4 = { 'color': '#fff' };
     }
     if (this.porcentaje_mod5 == 100) {
       this.estilo5 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono5={ 'color': '#fff'};
-      this.estiloletra5={ 'color': '#fff'};
+      this.estiloicono5 = { 'color': '#fff' };
+      this.estiloletra5 = { 'color': '#fff' };
     }
     if (this.porcentaje_mod6 == 100) {
       this.estilo6 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono6={ 'color': '#fff'};
-      this.estiloletra6={ 'color': '#fff'};
+      this.estiloicono6 = { 'color': '#fff' };
+      this.estiloletra6 = { 'color': '#fff' };
     }
     if (this.porcentaje_mod7 == 100) {
       this.estilo7 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono7={ 'color': '#fff'};
-      this.estiloletra7={ 'color': '#fff'};
+      this.estiloicono7 = { 'color': '#fff' };
+      this.estiloletra7 = { 'color': '#fff' };
     }
     if (this.porcentaje_mod8 == 100) {
       this.estilo8 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
-      this.estiloicono8={ 'color': '#fff'};
-      this.estiloletra8={ 'color': '#fff'};
+      this.estiloicono8 = { 'color': '#fff' };
+      this.estiloletra8 = { 'color': '#fff' };
     }
   }
 
-  agregar_text(entrada: any) {
-    sessionStorage.setItem("modulo",entrada);
+  agregar_text(entrada: any,number:any) {
+    sessionStorage.setItem("modulo", entrada);
+    sessionStorage.setItem("num_mod",number);
     DashboardComponent.modulo_select = entrada;
     InstruccionesComponent.valor = entrada;
     this.ruta.navigateByUrl("/mapa-preguntas");

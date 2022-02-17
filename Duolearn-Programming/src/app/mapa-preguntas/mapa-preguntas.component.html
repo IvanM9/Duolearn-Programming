@@ -1,49 +1,51 @@
 <div class="body">
     <div class="caja" id="screenPreguntas">
-       <div class="tituloApp" routerLink="/dashboard">       
-           <img src="../../assets/imagenes/logo_pag_principal.png" alt ="logo-app"/>
-           <h6>DuoLearn Programming</h6>
-       </div>
-
-       <div class="linea">
-       </div>
-
-       <div class="tituloModulo">
-           <!--El texto que va en este <h6> depende del modulo que se selecicone, debe ser dinámico-->
-           <h6><b>{{valor}}</b></h6>
-       </div>
-       
-       <div class="seccion-preguntas">
-            <span #preg1  [ngStyle]="estilo1" (click)="hacer_act(1)">1</span>
-            <span #preg2  [ngStyle]="estilo2" (click)="hacer_act(2)">2</span>
-            <span #preg3  [ngStyle]="estilo3" (click)="hacer_act(3)">3</span>
-            <span #preg4  [ngStyle]="estilo4" (click)="hacer_act(4)">4</span>
-            <span #preg5  [ngStyle]="estilo5" (click)="hacer_act(5)">5</span>
-       </div>
-       <!--Este texto debe aparecer cuando el usuario ya haya visitado la pregunta-->
-       <div class="seccion-info-preguntas">
-           <span [ngStyle]="estado1">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado2">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado3">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado4">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado5">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+        <div class="tituloApp" routerLink="/dashboard">
+            <img src="../../assets/imagenes/logo_pag_principal.png" alt="logo-app" />
+            <h6>DuoLearn Programming</h6>
         </div>
 
+        <div class="linea">
+        </div>
+
+        <div class="tituloModulo">
+            <!--El texto que va en este <h6> depende del modulo que se selecicone, debe ser dinámico-->
+            <h6><b>{{valor}}</b></h6>
+        </div>
+
+        <div class="seccion-preguntas">
+            <span #preg1 [ngStyle]="estilo1" (click)="hacer_act(1)">1</span>
+            <span #preg2 [ngStyle]="estilo2" (click)="hacer_act(2)">2</span>
+            <span #preg3 [ngStyle]="estilo3" (click)="hacer_act(3)">3</span>
+            <span #preg4 [ngStyle]="estilo4" (click)="hacer_act(4)">4</span>
+            <span #preg5 [ngStyle]="estilo5" (click)="hacer_act(5)">5</span>
+        </div>
+        <!--Este texto debe aparecer cuando el usuario ya haya visitado la pregunta-->
+        <div class="seccion-info-preguntas">
+            <span [ngStyle]="estado1">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado2">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado3">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado4">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado5">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+        </div>
+        <!--puntos-->
 
         <div class="seccion-preguntas">
             <span (click)="hacer_act(6)" [ngStyle]="estilo6" #preg6>6</span>
             <span (click)="hacer_act(7)" [ngStyle]="estilo7" #preg7>7</span>
             <span (click)="hacer_act(8)" [ngStyle]="estilo8" #preg8>8</span>
-            <span (click)="hacer_act(9)" [ngStyle]="estilo9"  #preg9>9</span>
+            <span (click)="hacer_act(9)" [ngStyle]="estilo9" #preg9>9</span>
             <span (click)="hacer_act(10)" [ngStyle]="estilo10" #preg10>10</span>
-       </div>
-       <!--Este texto debe aparecer cuando el usuario ya haya visitado la pregunta-->
-       <div class="seccion-info-preguntas">
-           <span [ngStyle]="estado6">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado7">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado8">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado9">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
-           <span [ngStyle]="estado10">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
         </div>
+        <!--Este texto debe aparecer cuando el usuario ya haya visitado la pregunta-->
+        <div class="seccion-info-preguntas">
+            <span [ngStyle]="estado6">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado7">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado8">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado9">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+            <span [ngStyle]="estado10">Completado <fa-icon [icon]="faVisto"></fa-icon></span>
+        </div>
+        <!--puntos-->
+       
     </div>
 </div>

@@ -5,20 +5,20 @@
             <h6>Mi perfil</h6>
         </div>
 
-        <form class="ingresar-registro-form">
+        <form class="ingresar-registro-form" [formGroup]="form_registro" (ngSubmit)="update_info()">
             <div class="entrada-texto">
                 <p><i class="fas fa-comment"></i> Nombres Completos: </p>
-                <input type="text" class="form-control" formControlName="correo"/>
+                <input type="text" class="form-control" formControlName="nombres"/>
             </div>
 
             <div class="entrada-texto">
                 <p><i class="fas fa-comment"></i> Apellidos Completos: </p>
-                <input type="text" class="form-control" formControlName="correo"/>
+                <input type="text" class="form-control" formControlName="apellidos"/>
             </div>
 
             <div class="entrada-texto">
                 <p><i class="fas fa-calendar"></i> Fecha de Nacimiento: </p>
-                <input type="date" class="form-control" formControlName="celular" id="campoFecha" readonly/>
+                <input type="date" class="form-control" formControlName="fecha_nacimiento" id="campoFecha" readonly/>
             </div>
 
             <div class="entrada-texto">
@@ -32,20 +32,22 @@
             </div>
             <div class="entrada-texto">
                 <p><i class="fas fa-lock"></i> Contraseña: </p>
-                <input type="password" class="form-control" formControlName="password"/>
+                <input type="password" class="form-control" formControlName="clave"/>
             </div>
             <br />
+
+            <div class="botones">
+                <button type="submit">
+                    Actualizar 💾
+                </button>
+                <button routerLink="/dashboard">
+                    Cancelar ❌
+                </button>
+            </div>
         </form>
         
 
-        <div class="botones">
-            <button>
-                Actualizar 💾
-            </button>
-            <button>
-                Cancelar ❌
-            </button>
-        </div>
+        
 
     </div>
 </div>

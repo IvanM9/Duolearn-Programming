@@ -45,13 +45,18 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       this.bol=!this.bol;
     }, 3000);
+    this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
+      if(resp.estado==1){
+        this.ruta.navigateByUrl("/dashboard");
+      }
+    });
   }
 
   login() {
     this.user_service.user_login(this.form_login.value).subscribe(resp =>{
       let val = resp.estado;
       if (val == 1) {
-        this.mensaje_bien();
+        this.mensaje_bien(resp.mensaje);
         this.saveData();
         this.ruta.navigateByUrl("/elegir-lenguaje");
       } else {
@@ -71,8 +76,8 @@ export class LoginComponent implements OnInit {
       //console.log(resp);
       let val = resp.estado;
       if (val == 1) {
-        this.mensaje_bien();
-        this.ruta.navigateByUrl("/elegir-lenguaje");
+        this.mensaje_bien(resp.mensaje);
+        this.ruta.navigateByUrl("/login");
       } else {
         this.mensaje_mal(resp.mensaje);
         this.ruta.navigateByUrl("/login");
@@ -80,28 +85,21 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  mensaje_bien() {
+  mensaje_bien(mensaje:any) {
     Swal.fire({
-      title: 'REDIRECCIONANDO',
-      html: 'I will close in <b></b> milliseconds.',
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading()
-      },
-      willClose: () => {
-      }
-    }).then((result) => {
-      /* Read more about handling dismissals below */
-      if (result.dismiss === Swal.DismissReason.timer) {
-      }
+      icon: 'success',
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 1500
     })
   }
   mensaje_mal(mensaje:any) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: mensaje
+      text: mensaje,
+      showConfirmButton: false,
+      timer: 1500
     });
   }
   MostrarElegirLenguaje() {

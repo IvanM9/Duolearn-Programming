@@ -13,15 +13,6 @@ export class UsuariosService {
 
   constructor(private clientHttp:HttpClient) { }
 
-  /*iniciar_sesion(datos_login:Usuarios):Observable<any>{
-    return this.clientHttp.post(this.Api+"?login",datos_login,{responseType: 'json'}); 
-  }
-
-  registrarse(datos_registro:Usuarios):Observable<any>{
-    //console.log(datos_registro);
-    return this.clientHttp.post(this.Api+"?registro",datos_registro,{responseType: 'json'});
-  }*/
-
   user_login(datos_login:Usuarios):Observable<any>{
     return this.clientHttp.post(this.Api+"/iniciar_sesion",datos_login);
   }
@@ -36,5 +27,9 @@ export class UsuariosService {
   
   get_user(user:any):Observable<any>{
     return this.clientHttp.post(this.Api+"/usuario/datos",user);
+  }
+
+  update_info(datos_nuevos:Usuarios):Observable<any>{
+    return this.clientHttp.put(this.Api+"/usuario/modificar",datos_nuevos);
   }
 }
