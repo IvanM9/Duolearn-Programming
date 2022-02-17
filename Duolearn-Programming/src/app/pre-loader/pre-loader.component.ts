@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Aos from 'aos';
 import { Subject } from 'rxjs';
-import { PreloaderService } from '../servicios/preloader.service';
 
 @Component({
   selector: 'app-pre-loader',
@@ -13,7 +12,7 @@ import { PreloaderService } from '../servicios/preloader.service';
 export class PreLoaderComponent implements OnInit {
 public static vari:any;
 
-  constructor(public ruta: Router, private serv_preload:PreloaderService) {
+  constructor(public ruta: Router) {
     
     if(PreLoaderComponent.vari=1){
       
@@ -22,9 +21,7 @@ public static vari:any;
 
   ngOnInit(): void {
     Aos.init();
-    this.serv_preload.subscribe(() => {
-      this.hideSplashAnimation();
-    });
+    this.hideSplashAnimation();
   }
 
   contenedorLoader: any;

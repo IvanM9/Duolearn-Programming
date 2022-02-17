@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Preguntas } from './preguntas';
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +26,13 @@ export class PreguntasService {
   }
 
 
-  get_questions(tipo:any):Observable<any>{
-    return this.clientHttp.post(this.Api+"actividades/obtener",tipo);
+  get_questions(datos:any):Observable<any>{
+    return this.clientHttp.post(this.Api+"actividades/obtener",datos);
   }
 
-  send_solves():Observable<any>{
-    return this.clientHttp.post(this.Api+"actividades/resolver","");
+  send_solves(datos:any):Observable<any>{
+    console.log(datos);
+    return this.clientHttp.post(this.Api+"actividades/resolver",datos);
   }
 
 

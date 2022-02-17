@@ -23,8 +23,8 @@ router.post("/actividades/resolver", actividades.resolverActividad);
 
 
 //estadisticass
-router.get("/usuario/estadisticas_java", estadisticas.getJava);
-router.get("/usuario/estadisticas_csharp", estadisticas.getCsharp);
+router.post("/usuario/estadisticas_java", estadisticas.getJava);
+router.post("/usuario/estadisticas_csharp", estadisticas.getCsharp);
 
 
 
