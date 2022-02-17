@@ -2,9 +2,9 @@ const { pool } = require("./conexion");
 
 const activity = {};
 
-activity.obtenerActividades = async (actividad) => {
+activity.obtenerActividades = async (modulo, lenguaje, tipo, usuario) => {
     try {
-        let datos = await pool.query("select obtener_actividades($1)", [actividad]);
+        let datos = await pool.query("select obtener_actividades($1, $2, $3, $4)", [tipo, modulo,lenguaje, usuario]);
         let aux = [];
         for (let index = 0; index < datos.rowCount; index++) {
             aux.push(datos.rows[index].obtener_actividades);
