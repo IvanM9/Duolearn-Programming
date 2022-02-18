@@ -13,8 +13,10 @@ cloudinary.config({
 
 //Se obtiene las actividades por medio de varios restricciones
 actividades.obtenerActividades = async (req, res) => {
+
     const { modulo, lenguaje, tipo, usuario } = req.body;
     let datos = await activity.obtenerActividades(modulo, lenguaje, tipo, usuario);
+
     if (datos != null) {
         res.json(datos);
     }
