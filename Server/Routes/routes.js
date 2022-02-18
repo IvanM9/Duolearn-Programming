@@ -10,6 +10,7 @@ router.post("/usuario/nuevo", user.nuevoUsuario);
 router.get("/usuario/datos/:usuario", user.getUsuario);
 router.put("/usuario/modificar", user.modificarUsuario);
 router.post("/iniciar_sesion", user.iniciarSesion);
+
 router.delete('/usuario/eliminar/:usuario', user.elimnarUsuario);
 router.get("/recuperar_clave/:usuario", user.solicitarClave);
 router.post("/cambio_clave", user.cambiarClave);
@@ -26,6 +27,7 @@ router.post("/actividadades/temas", actividades.agregarTema);
 //estadisticas
 router.get("/usuario/estadisticas_java/:usuario", estadisticas.getJava);
 router.get("/usuario/estadisticas_csharp/:usuario", estadisticas.getCsharp);
+
 
 
 

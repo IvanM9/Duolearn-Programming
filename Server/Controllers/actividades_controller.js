@@ -1,4 +1,5 @@
 const activity = require("../Models/actividades");
+
 const fs = require('fs-extra');
 const cloudinary = require('cloudinary');
 const actividades = {};
@@ -17,12 +18,14 @@ actividades.obtenerActividades = async (req, res) => {
     const { modulo, lenguaje, tipo, usuario } = req.body;
     let datos = await activity.obtenerActividades(modulo, lenguaje, tipo, usuario);
 
+
     if (datos != null) {
         res.json(datos);
     }
     else
         res.json({ mensaje: "vacio", estado: "0" });
 }
+
 
 // Se envían los datos para registrar la actividad y su nota correspondiente
 actividades.resolverActividad = async (req, res) => {
@@ -38,6 +41,7 @@ actividades.resolverActividad = async (req, res) => {
     else
         res.json({ mensaje: "Usuario desconectado", estado: "0" });
 }
+
 
 //Se inserta una nueva actividad a la base de datos
 actividades.agregarActividad = async (req, res) => {
@@ -79,4 +83,5 @@ actividades.agregarTema= async(req,res)=>{
     const {modulo, lenguaje, titulo, concepto} = req.body;
     await activity.añadirTema(modulo, lenguaje, titulo, concepto);
 }
+
 module.exports = actividades;

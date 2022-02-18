@@ -1,11 +1,13 @@
 const Usuario = require("../Models/usuario");
 require('dotenv').config();
 
+
 //Configuración para el envío de correos
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: 'false',
+
     auth: {
         user: process.env.CORREO,
         pass: process.env.CLAVE_CORREO
@@ -17,6 +19,7 @@ var transporter = nodemailer.createTransport({
 
 //* Se crea el objeto/clase
 const user = {}
+
 
 //Se obtienen todos los usuarios
 user.listarUsuarios = async (req, res) => {
@@ -110,6 +113,7 @@ user.elimnarUsuario = async (req, res) => {
         res.json({ mensaje: "El sesión no está iniciada", estado: "0" })
 }
 
+
 //Se envía un correo con una clave temporal
 user.solicitarClave = async (req, res) => {
     const { usuario } = req.params;
@@ -119,6 +123,7 @@ user.solicitarClave = async (req, res) => {
         let correo = Usuario.getUser(usuario).correo;
         var mailOptions = {
             from: "'Duolearn Admin' <" + process.env.CORREO + ">",
+
             to: correo,
             subject: 'Duolearn: recuperación de clave',
             text: 'Su contraseña es: ' + datos
@@ -136,7 +141,6 @@ user.solicitarClave = async (req, res) => {
         res.json({ estado: "0" });
 }
 
-
 //Cambio de clave
 user.cambiarClave = async (req, res) => {
     const { usuario, clave_actual, clave_nueva } = req.body;
@@ -146,5 +150,6 @@ user.cambiarClave = async (req, res) => {
     else
         res.json({ estado: "0" });
 }
+
 
 module.exports = { user };
