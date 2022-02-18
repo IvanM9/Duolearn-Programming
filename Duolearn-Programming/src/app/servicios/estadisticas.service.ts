@@ -12,10 +12,10 @@ export class EstadisticasService {
   Api: string = "http://localhost:2000/api/";
 
   obtener_est_java(user:any):Observable<any>{
-    return this.clientHttp.post(this.Api+"usuario/estadisticas_java",user);
+    return this.clientHttp.get(this.Api+"usuario/estadisticas_java/"+user.usuario);
   }
 
   obtener_est_csh(user:any):Observable<any>{
-    return this.clientHttp.post(this.Api+"usuario/estadisticas_csharp",user);
+    return this.clientHttp.get(this.Api+"usuario/estadisticas_csharp/"+user.usuario);
   }
 }

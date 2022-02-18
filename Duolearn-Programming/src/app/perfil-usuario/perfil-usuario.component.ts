@@ -11,7 +11,7 @@ import { UsuariosService } from '../servicios/usuarios.service';
   styleUrls: ['./perfil-usuario.component.css']
 })
 export class PerfilUsuarioComponent implements OnInit {
-
+  form_clave: boolean = true;
   form_registro: FormGroup;
   fanombre = iconos.faClosedCaptioning;
   constructor(
@@ -73,6 +73,9 @@ export class PerfilUsuarioComponent implements OnInit {
     });
   }
 
+  mostrarCambioClave() {
+    this.form_clave = this.form_clave ? false : true;
+  }
   ngOnInit(): void {
   }
 
