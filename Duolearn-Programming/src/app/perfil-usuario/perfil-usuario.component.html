@@ -1,51 +1,82 @@
+<div *ngIf="bolean" class="contenedorLoader">
+    <div class="loader"></div>
+    <a href="../../assets/imagenes/"></a>
+</div>  
+
 <div class="body">
     <div class="caja" id="screenPreguntas">
-        
+
         <div class="titulo">
-            <h6>Mi perfil</h6>
+            <h6><i class="fas fa-user" id="icono-titulo"></i> Mi perfil</h6>
         </div>
 
-        <form class="ingresar-registro-form">
+        <form class="ingresar-registro-form" [formGroup]="form_registro" (ngSubmit)="update_info()"
+            *ngIf="form_clave else cambio">
             <div class="entrada-texto">
                 <p><i class="fas fa-comment"></i> Nombres Completos: </p>
-                <input type="text" class="form-control" formControlName="correo"/>
+                <input type="text" class="form-control" formControlName="nombres" />
             </div>
 
             <div class="entrada-texto">
                 <p><i class="fas fa-comment"></i> Apellidos Completos: </p>
-                <input type="text" class="form-control" formControlName="correo"/>
+                <input type="text" class="form-control" formControlName="apellidos" />
             </div>
 
             <div class="entrada-texto">
                 <p><i class="fas fa-calendar"></i> Fecha de Nacimiento: </p>
-                <input type="date" class="form-control" formControlName="celular" id="campoFecha" readonly/>
+                <input type="date" class="form-control" formControlName="fecha_nacimiento" id="campoFecha" />
             </div>
 
             <div class="entrada-texto">
                 <p><i class="fas fa-envelope"></i> Correo electrónico: </p>
-                <input type="text" class="form-control" formControlName="correo"/>
+                <input type="text" class="form-control" formControlName="correo" />
             </div>
 
             <div class="entrada-texto">
                 <p><i class="fas fa-user"></i> Nombre de usuario: </p>
-                <input type="text" class="form-control" formControlName="usuario" readonly/>
+                <input disabled="true" type="text" class="form-control" formControlName="usuario"/>
             </div>
-            <div class="entrada-texto">
-                <p><i class="fas fa-lock"></i> Contraseña: </p>
-                <input type="password" class="form-control" formControlName="password"/>
+            <br>
+            <a style="cursor: pointer;" class="boton-cambiar-contrasenia" (click)="mostrarCambioClave()">
+                Cambiar Contraseña
+            </a>
+
+            <div class="botones">
+                <button class="boton-cambiar-contrasenia" type="submit">
+                    🔁 Modificar datos
+                </button>
+                <button class="boton-cambiar-contrasenia" routerLink="/dashboard">
+                    ◀ Volver al menú
+                </button>
             </div>
-            <br />
         </form>
-        
 
-        <div class="botones">
-            <button>
-                Actualizar 💾
-            </button>
-            <button>
-                Cancelar ❌
-            </button>
-        </div>
+        <!-- Cambio de clave -->
+        <ng-template #cambio>
+            <form [formGroup]="form_contra" (ngSubmit)="update_password()">
+                <div class="entrada-texto">
+                    <p><i class="fas fa-lock"></i> Actual Contraseña: </p>
+                    <input type="password" class="form-control" formControlName="clave_actual" />
+                </div>
+                <div class="entrada-texto">
+                    <p><i class="fas fa-lock"></i> Nueva Contraseña: </p>
+                    <input type="password" class="form-control" formControlName="clave_nueva1" />
+                </div>
+                <div class="entrada-texto">
+                    <p><i class="fas fa-lock"></i> Confirmar Contraseña: </p>
+                    <input type="password" class="form-control" formControlName="clave_nueva" />
+                </div>
+                <br />
 
+                <div class="botones">
+                    <button type="submit">
+                        Actualizar 💾
+                    </button>
+                    <button (click)="mostrarCambioClave()">
+                        Cancelar ❌
+                    </button>
+                </div>
+            </form>
+        </ng-template>
     </div>
 </div>

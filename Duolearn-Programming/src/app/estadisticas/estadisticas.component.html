@@ -1,0 +1,53 @@
+
+<div class="body">
+    <div class="caja" id="screenPreguntas">
+        
+        <div class="titulo">
+            <h6><fa-icon [icon]="fachart" id="icono-titulo"></fa-icon> Estadísticas</h6>
+        </div>
+
+        <div class="linea">
+        </div>
+        
+        <!--El value de progress, debe ser el mismop valor de porcentaje que se indica en el modulo del dashboard-->
+        <div class="progreso-modulos">
+            <label for="task"><b>1.</b> Variables y tipos de datos: </label>
+            <progress id="task" max="100" value={{p1}}></progress>
+        </div>
+        <div class="progreso-modulos">
+            <label for="task"><b>2.</b> If-else: </label>
+            <progress id="task" max="100" value={{p2}}></progress>
+        </div>
+        <div class="progreso-modulos">
+            <label for="task"><b>3.</b> Ciclos Repetitivos: </label>
+            <progress id="task" max="100" value={{p3}}></progress>
+        </div>
+        <div class="progreso-modulos">
+            <label for="task"><b>4.</b> Funciones y procedimientos: </label>
+            <progress id="task" max="100" value={{p4}}></progress>
+        </div>
+        <div class="progreso-modulos">
+            <label for="task"><b>5.</b> Vectores: </label>
+            <progress id="task" max="100" value={{p5}}></progress>
+        </div>
+        <div class="progreso-modulos">
+            <label for="task"><b>6.</b> Matrices: </label>
+            <progress id="task" max="100" value={{p6}}></progress>
+        </div>
+        <div class="progreso-modulos">
+            <label for="task"><b>7.</b> Caracteres y cadenas de texto: </label>
+            <progress id="task" max="100" value={{p7}></progress>
+        </div>
+        <div class="progreso-modulos">
+            <label for="task"><b>8.</b> Archivos de texto: </label>
+            <progress id="task" max="100" value={{p8}}></progress>
+        </div>
+
+        <div class="botones">
+            <button routerLink="/dashboard">
+                ◀ Entendido, volver
+            </button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(5, 196, 88);  /*Puede ser una img luego lo pensamos bien */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.caja{
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+    min-height: 500px;
+    width: 50%;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.titulo h6{
+    font-size: 40px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.caja-info{
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid wheat;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: wheat;
+    text-align: center;
+}
+
+.caja-texto{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 60px 0;
+    grid-gap: 15px;
+}
+
+.texto{
+    text-align: right;
+    font-size: 18px;
+    color: #444;
+}
+
+.numero{
+    font-size: 20px;
+    margin-left: 20%;
+}
+
+fa-icon{
+    color: gold
+}
+
+.botones{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.botones button{
+    background-color: rgb(5, 196, 88); 
+    border-radius: 10px;
+    padding: 7px 15px;
+    outline: none;
+    border: 0;
+    font-size: 17px;
+    width: 240px;
+    color: white;
+}
+
+.botones button:hover{
+    box-shadow: 0 6px 5px rgba(19, 28, 56, 0.26);
+}

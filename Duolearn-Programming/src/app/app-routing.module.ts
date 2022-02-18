@@ -14,8 +14,10 @@ import { PrincipalComponent } from './principal/principal.component';
 import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.component';
 import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
-import { LoginResolver } from './resolvers/login.resolver';
-import { PreloaderResolver } from './resolvers/preloader.resolver';
+
+import { CoronasComponent } from './coronas/coronas.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+
 
 
 const routes: Routes = [
@@ -32,6 +34,8 @@ const routes: Routes = [
   {path:"instrucciones", component:InstruccionesComponent},
   {path: "mi-perfil", component:PerfilUsuarioComponent},
   {path: "olvide-contrasenia", component:OlvideContraseniaComponent},
+  {path: "coronas", component:CoronasComponent},
+  {path: "estadisticas", component:EstadisticasComponent},
   {path: "mapa-preguntas", component:MapaPreguntasComponent}
 ];
 

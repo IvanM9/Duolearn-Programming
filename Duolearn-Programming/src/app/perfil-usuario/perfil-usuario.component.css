@@ -52,6 +52,11 @@
 .titulo h6{
     font-size: 40px;
     color: #444;
+    margin-bottom: 30px;
+}
+
+#icono-titulo{
+    color: green
 }
 
 .botones{
@@ -66,10 +71,30 @@
     outline: none;
     border: 0;
     font-size: 17px;
-    width: 165px;
+    width: 240px;
     color: white;
 }
 
 .botones button:hover{
     box-shadow: 0 6px 5px rgba(19, 28, 56, 0.26);
+}
+
+.botones .boton-cambiar-contrasenia{
+    background-color: rgb(5, 196, 88); 
+    border-radius: 10px;
+    margin-top: 30px;
+    outline: none;
+    border: 0;
+    font-size: 17px;
+    width: 240px;
+    color: white;
+}
+
+.linea{
+    border-top: 4px solid lightgrey;
+    height: 2px;
+    max-width: 90%;
+    margin: 30px auto 0 auto;
+    border-radius: 50%;
+    margin-bottom: 5px;
 }

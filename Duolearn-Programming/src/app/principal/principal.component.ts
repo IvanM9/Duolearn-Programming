@@ -11,6 +11,7 @@ import { PreLoaderComponent } from '../pre-loader/pre-loader.component';
 export class PrincipalComponent implements OnInit {
   public myItems: any;
   bol: boolean = true;
+  bol2: boolean = false;
   semaforo = true;
   @ViewChild("opcionesmenu") public enlacesMenu: ElementRef;
   @ViewChild("navegacion") public nav: ElementRef;
@@ -24,7 +25,11 @@ export class PrincipalComponent implements OnInit {
     AOS.init();
     setTimeout(() => {
       this.bol = !this.bol;
-    }, 3000);
+      this.bol2=!this.bol2;
+    }, 1250);
+    if(sessionStorage.getItem("user")!=null){
+      this.ruta.navigateByUrl("/dashboard");
+    }
   }
 
   scroll() {
