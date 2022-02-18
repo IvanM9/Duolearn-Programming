@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as AOS from 'aos';
 import { InstruccionesComponent } from '../instrucciones/instrucciones.component';
@@ -12,7 +12,7 @@ import { EstadisticasService } from '../servicios/estadisticas.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements AfterViewInit {
   bol: boolean = true;
   bol2: boolean = false;
 
@@ -47,6 +47,10 @@ export class DashboardComponent implements OnInit {
   public static modulo_select: any = "vacio";
   public nombre: string;
   json_general: any = {};
+
+  //
+  @ViewChild("lenguaje") public esc: ElementRef;
+
 
   //porcentajes
   public static porcentaje_mod1: any = 0;
@@ -97,20 +101,10 @@ export class DashboardComponent implements OnInit {
   estiloicono7: any;
   estiloicono8: any;
 
-  //archivo completo
-  jsonmod1: any = JSON.parse(sessionStorage.getItem("Variables y tipos de datos"));
-  jsonmod2: any = JSON.parse(sessionStorage.getItem("Condicionales"));
-  jsonmod3: any = JSON.parse(sessionStorage.getItem("Ciclos Repetitivos"));
-  jsonmod4: any = JSON.parse(sessionStorage.getItem("Funciones y Procedimientos"));
-  jsonmod5: any = JSON.parse(sessionStorage.getItem("Vectores"));
-  jsonmod6: any = JSON.parse(sessionStorage.getItem("Matrices"));
-  jsonmod7: any = JSON.parse(sessionStorage.getItem("Caracteres y cadenas de texto"));
-  jsonmod8: any = JSON.parse(sessionStorage.getItem("Archivos de texto"));
-
   //nummod
   nun_mod: any = 0;
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     setTimeout(() => {
       this.bol = !this.bol;
       this.bol2 = !this.bol2;
@@ -122,26 +116,28 @@ export class DashboardComponent implements OnInit {
         this.ruta.navigateByUrl("/principal");
       }
       else {
-        if(sessionStorage.getItem("lenguaje")=="java"){
+        if (sessionStorage.getItem("lenguaje") == "java") {
           this.estadisticas_serv.obtener_est_java({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
             this.json_general = resp;
             this.nombre = sessionStorage.getItem("user");
             console.log(this.json_general);
+            this.asigna_img();
             this.porcentaje();
             this.asignaporcentajes();
             this.verifica_porcentaje();
           });
-        }else if(sessionStorage.getItem("lenguaje")=="csh"){
+        } else if (sessionStorage.getItem("lenguaje") == "csh") {
           this.estadisticas_serv.obtener_est_csh({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
             this.json_general = resp;
             this.nombre = sessionStorage.getItem("user");
             console.log(this.json_general);
             this.porcentaje();
+            this.asigna_img();
             this.asignaporcentajes();
             this.verifica_porcentaje();
           });
         }
-        
+
       }
     });
   }
@@ -275,6 +271,41 @@ export class DashboardComponent implements OnInit {
     this.porcentaje_6 = DashboardComponent.porcentaje_mod6;
     this.porcentaje_7 = DashboardComponent.porcentaje_mod7;
     this.porcentaje_8 = DashboardComponent.porcentaje_mod8;
+  }
+
+  img: any = "";
+  elegir_leng() {
+    if (this.retornaselect(this.esc.nativeElement.options.selectedIndex) == "Java") {
+      sessionStorage.setItem("lenguaje", "java");
+    } else if (this.retornaselect(this.esc.nativeElement.options.selectedIndex) == "C#") {
+      sessionStorage.setItem("lenguaje", "csh");
+    }
+    if (sessionStorage.getItem("lenguaje") == "java") {
+      this.img = "../../assets/imagenes/logo-java.jpg";
+    } else {
+      this.img = "../../assets/imagenes/logo-csharp.png";
+    }
+    window.location.reload();
+  }
+
+
+  sel_java: boolean;
+  sel_csh: boolean;
+
+  asigna_img() {
+    if (sessionStorage.getItem("lenguaje") == "java") {
+      this.img = "../../assets/imagenes/logo-java.jpg";
+      this.sel_java = true;
+      this.sel_csh=false;
+    } else {
+      this.img = "../../assets/imagenes/logo-csharp.png";
+      this.sel_csh=true;
+      this.sel_java = false;
+    }
+  }
+
+  retornaselect(index: number): string {
+    return this.esc.nativeElement.options[index].innerText;
   }
 
 }

@@ -121,20 +121,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
   hacer_act(actividad: any) {
     sessionStorage.setItem("num_act", actividad);
     this.actividades(actividad);
-    //let json1 = this.crearjson1(actividad, this.actividades(actividad));
-    //sessionStorage.setItem(sessionStorage.getItem("modulo"), JSON.stringify(this.concatJSON(json1)));
-    //let json2 = this.crearjson2(actividad);
-    //sessionStorage.setItem(sessionStorage.getItem("modulo"), JSON.stringify(this.concatJSON(json2)));
-    //let json3 = {};
-    /*if (this.json_general.porcentaje == null) {
-      json3 = this.crearjson3();
-    } else {
-      json3 = this.json_general.porcentaje;
-    }*/
-    //sessionStorage.setItem(sessionStorage.getItem("modulo"), JSON.stringify(this.concatJSON(json3)));
-    //console.log(JSON.parse(sessionStorage.getItem(sessionStorage.getItem("modulo"))));
     this.ruta.navigateByUrl(this.actividades_rutas[this.random]);
-
   }
 
   concatJSON(obj2: any) {

@@ -25,16 +25,11 @@ user.listarUsuarios = async (req, res) => {
     }
 }
 user.getUsuario = async (req, res) => {
-<<<<<<< HEAD
     //console.log(req.session);
     const {usuario} = req.body;
     console.log(usuario);
     if (usuario != null) {
         let datos = await Usuario.getUser(usuario);
-=======
-    if (req.session.user != null) {
-        let datos = await Usuario.getUser(req.session.user);
->>>>>>> jordan2
         if (datos != null) {
             datos.estado = "1";
             res.json(datos);
@@ -45,21 +40,13 @@ user.getUsuario = async (req, res) => {
     else
         res.json({ estado: "0" });
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> jordan2
 user.iniciarSesion = async (req, res) => {
     const { usuario, clave } = req.body;
     if (usuario.length > 0 && clave.length > 0) {
         let datos = await Usuario.inciarSesion(usuario, clave);
         if (datos !== 0 && datos !== null) {
-<<<<<<< HEAD
             //req.session.user = usuario;
             //console.log(req.session.user);
-=======
-            req.session.user = usuario;
->>>>>>> jordan2
             res.json({ mensaje: "Sesion iniciada", estado: "1" });
         }
         else
@@ -68,7 +55,6 @@ user.iniciarSesion = async (req, res) => {
     else
         res.json({ mensaje: "campos vacios", estado: "0" });
 }
-<<<<<<< HEAD
 
 user.modificarUsuario = async (req, res) => {
     try {
@@ -76,13 +62,6 @@ user.modificarUsuario = async (req, res) => {
         if (usuario != null) {
             const { nombres, apellidos, correo, fecha_nacimiento } = req.body;
             let status = await Usuario.modificarUser(usuario, nombres, apellidos, correo, fecha_nacimiento);
-=======
-user.modificarUsuario = async (req, res) => {
-    try {
-        if (req.session.user != null) {
-            const { nombres, apellidos, correo, fecha_nacimiento } = req.body;
-            let status = await Usuario.modificarUser(req.session.user, nombres, apellidos, correo, fecha_nacimiento);
->>>>>>> jordan2
             console.log(status);
             if (status === 1)
                 res.json({ mensaje: "Modificado con exito", estado: "1" });
@@ -108,14 +87,9 @@ user.nuevoUsuario = async (req, res) => {
         res.json({ mensaje: "Registro fallido", estado: "0" });
 }
 user.elimnarUsuario = async (req, res) => {
-<<<<<<< HEAD
     const {usuario} = req.body;
     if (usuario != null) {
         let status = await Usuario.eliminarUser(usuario);
-=======
-    if (req.session.user != null) {
-        let status = await Usuario.eliminarUser(req.session.user);
->>>>>>> jordan2
         if (status === 1) {
             req.session.destroy();
             res.json({ mensaje: "Eliminado con éxito ", estado: "1" });

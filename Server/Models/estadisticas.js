@@ -14,7 +14,6 @@ Estadisticas.getJava= async(usuario)=>{
         return null;
     }
 }
-<<<<<<< HEAD
 Estadisticas.getCsharp= async(usuario)=>{
     try {
         let datos = await pool.query("select obtener_puntaje_csharp($1)",[usuario]);
@@ -23,6 +22,4 @@ Estadisticas.getCsharp= async(usuario)=>{
         return null;
     }
 }
-=======
->>>>>>> jordan2
 module.exports= {Estadisticas};

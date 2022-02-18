@@ -19,7 +19,7 @@
                         <span>Tablero</span> </a>
                 </li>
                 <li>
-                    <a href=""> <span><fa-icon [icon]="fachart"></fa-icon></span>
+                    <a routerLink="/estadisticas"> <span><fa-icon [icon]="fachart"></fa-icon></span>
                         <span>Estadísticas</span></a>
                 </li>
                 <li>
@@ -27,11 +27,11 @@
                         <span> Mi Perfil</span></a>
                 </li>
                 <li>
-                    <a href=""> <span><fa-icon [icon]="facomments"></fa-icon></span>
+                    <a> <span><fa-icon [icon]="facomments"></fa-icon></span>
                         <span>Foro Discusión</span></a>
                 </li>
                 <li>
-                    <a href=""> <span><fa-icon [icon]="facrown"></fa-icon></span>
+                    <a routerLink="/coronas"> <span><fa-icon [icon]="facrown"></fa-icon></span>
                         <span>Coronas</span></a>
                 </li>
                 <li (click)="close_session()">
@@ -52,16 +52,16 @@
             </h2>
 
             <div class="search-wrapper">
-                <select name="comboBox" id="combobox" #escogio3>
-                    <option selected disabled>Cambiar Lenguaje</option>
-                    <option #opcion1 value="opcion1">Java</option>
-                    <option #opcion2 value="opcion2">C#</option>
+                <select name="comboBox" id="combobox" #lenguaje (change)="elegir_leng()">
+                    <option disabled>Cambiar Lenguaje</option>
+                    <option [selected]="sel_java" #opcion1 value="opcion1">Java</option>
+                    <option [selected]="sel_csh" #opcion2 value="opcion2">C#</option>
                 </select>
             </div>
 
             <div class="user-wrapper">
                 <!--Cambiar el logo del lenguaje según el que se seleccione-->
-                <img src="../../assets/imagenes/logo-java.jpg" id="lenguaje-practicando" width="50px" height="50px" alt="foto-usuario-logueado">
+                <img [src]="img" id="lenguaje-practicando" width="50px" height="50px" alt="foto-usuario-logueado">
                 
                 <div>
                     <!--El nombres que aparecerá en este h4 debe ser traido de la BD con el usuario logueado-->

@@ -123,6 +123,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
 
   private respuestas: string[] = [];
   private puntos=5;
+  
   comprueba() {
     this.respuestas = [];
     for (let index = 0; index < 4; index++) {
