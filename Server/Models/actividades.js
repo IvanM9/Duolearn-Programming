@@ -12,6 +12,7 @@ activity.obtenerActividades = async (modulo, lenguaje, tipo, usuario) => {
         for (let index = 0; index < datos.rowCount; index++) {
             aux.push(datos.rows[index].obtener_actividades);
         }
+        console.log(aux);
         return aux;
     } catch (error) {
         return null

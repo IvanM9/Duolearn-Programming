@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.bol=!this.bol;
-    }, 3000);
+    }, 1250);
     this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
       if(resp.estado==1){
         this.ruta.navigateByUrl("/dashboard");
@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
       if (val == 1) {
         this.mensaje_bien(resp.mensaje);
         this.ruta.navigateByUrl("/login");
+        this.ingres();
       } else {
         this.mensaje_mal(resp.mensaje);
         this.ruta.navigateByUrl("/login");

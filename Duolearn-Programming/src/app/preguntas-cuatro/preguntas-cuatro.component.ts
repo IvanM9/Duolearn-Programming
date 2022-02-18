@@ -51,57 +51,59 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     if (sessionStorage.getItem("modulo") == null) {
       this.ruta.navigateByUrl("/dashboard");
     } else {
-      this.pregservice.get_questions({ modulo:sessionStorage.getItem("num_mod"), lenguaje:sessionStorage.getItem("lenguaje"), tipo:"CUESTIONARIO", usuario:sessionStorage.getItem("user") }).subscribe(resp => {
+      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "CUESTIONARIO", usuario: sessionStorage.getItem("user") }).subscribe(resp => {
         this.pregunta = resp;
-        //console.log(resp);
-        for (let index = 0; index < 4; index++) {
-          let rand = this.getRandomInt(0, this.pregunta.length - 1);
-          let bol = false;
-          for (let j = 0; j < this.aleatorios.length; j++) {
-            if (rand == this.aleatorios[j]["id"] - 1) {
-              bol = true;
-              break;
+        console.log(resp);
+        if (resp.length >= 4) {
+          for (let index = 0; index < 4; index++) {
+            let rand = this.getRandomInt(0, this.pregunta.length - 1);
+            let bol = false;
+            for (let j = 0; j < this.aleatorios.length; j++) {
+              if (resp[rand]["id"] == this.aleatorios[j]["id"]) {
+                bol = true;
+                break;
+              }
+            }
+            if (bol) {
+              index--;
+            } else {
+              this.aleatorios.push(resp[rand]);
             }
           }
-          if (bol) {
-            index--;
-          } else {
-            this.aleatorios.push(resp[rand]);
-          }
-        }
-        //console.log(aleatorios);
-        this.opcs = [this.opcion1, this.opcion2, this.opcion3, this.opcion4];
-        this.pregs = [this.preg1, this.preg2, this.preg3, this.preg4];
-        this.esc = [this.esc1, this.esc2, this.esc3, this.esc4];
-        for (let i = 0; i < 4; i++) {
-          let rnd = this.getRandomInt(0, 3);
-          let bol = true;
-          for (let j = 0; j <= this.salio.length; j++) {
-            if (this.salio[j] == rnd) {
-              bol = false;
+          console.log(this.aleatorios);
+          this.opcs = [this.opcion1, this.opcion2, this.opcion3, this.opcion4];
+          this.pregs = [this.preg1, this.preg2, this.preg3, this.preg4];
+          this.esc = [this.esc1, this.esc2, this.esc3, this.esc4];
+          for (let i = 0; i < 4; i++) {
+            let rnd = this.getRandomInt(0, 3);
+            let bol = true;
+            for (let j = 0; j <= this.salio.length; j++) {
+              if (this.salio[j] == rnd) {
+                bol = false;
+              }
+            }
+            if (bol) {
+              this.pregs[i].nativeElement.innerText = this.aleatorios[rnd]["pregunta"];
+              this.salio.push(rnd);
+            } else {
+              i--;
             }
           }
-          if (bol) {
-            this.pregs[i].nativeElement.innerText = this.aleatorios[rnd]["pregunta"];
-            this.salio.push(rnd);
-          } else {
-            i--;
-          }
-        }
-        this.salio = [];
-        for (let i = 0; i < 4; i++) {
-          let rnd = this.getRandomInt(0, 3);
-          let bol = true;
-          for (let j = 0; j <= this.salio.length; j++) {
-            if (this.salio[j] == rnd) {
-              bol = false;
+          this.salio = [];
+          for (let i = 0; i < 4; i++) {
+            let rnd = this.getRandomInt(0, 3);
+            let bol = true;
+            for (let j = 0; j <= this.salio.length; j++) {
+              if (this.salio[j] == rnd) {
+                bol = false;
+              }
             }
-          }
-          if (bol) {
-            this.opcs[i].nativeElement.innerText = this.aleatorios[rnd]["opcion_correcta"];
-            this.salio.push(rnd);
-          } else {
-            i--;
+            if (bol) {
+              this.opcs[i].nativeElement.innerText = this.aleatorios[rnd]["opcion_correcta"];
+              this.salio.push(rnd);
+            } else {
+              i--;
+            }
           }
         }
       });
@@ -122,8 +124,8 @@ export class PreguntasCuatroComponent implements AfterViewInit {
   }
 
   private respuestas: string[] = [];
-  private puntos=5;
-  
+  private puntos = 5;
+
   comprueba() {
     this.respuestas = [];
     for (let index = 0; index < 4; index++) {
@@ -133,8 +135,8 @@ export class PreguntasCuatroComponent implements AfterViewInit {
           let b = this.aleatorios[j];
           if (a == b.opcion_correcta) {
             console.log("correcto");
-            if(this.puntos!=20){
-              this.puntos+=5;
+            if (this.puntos != 20) {
+              this.puntos += 5;
             }
             this.respuestas.push("correcta");
             this.total_correctas++;
@@ -155,7 +157,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     //let json = this.crearjson2(PreguntasCuatroComponent.numact);
     //this.jsongeneral = this.concatJSON(json);
     //sessionStorage.setItem(sessionStorage.getItem("modulo"), JSON.stringify(this.jsongeneral));
-    
+
     this.poner_estilos();
     setTimeout(() => {
       this.ruta.navigateByUrl("/mapa-preguntas");
@@ -164,31 +166,31 @@ export class PreguntasCuatroComponent implements AfterViewInit {
 
   hoy = new Date();
   enviar_respuesta() {
-    for(let index=0;index<4;index++){
-      var fecha = this.hoy.getFullYear()+'-'+(this.hoy.getMonth() + 1) + '-'+this.hoy.getDate();
+    for (let index = 0; index < 4; index++) {
+      var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
       this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.aleatorios[index].id, fecha: fecha, minutos: 5, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
         console.log(resp);
       });
     }
   }
 
-    calc_num_act(): number {
+  calc_num_act(): number {
     if (sessionStorage.getItem("num_mod") == "1") {
-      return 0 +PreguntasCuatroComponent.numact;
-    }else if(sessionStorage.getItem("num_mod")=="2"){
-      return 10+PreguntasCuatroComponent.numact;
-    }else if(sessionStorage.getItem("num_mod")=="3"){
-      return 20+PreguntasCuatroComponent.numact;
-    }else if(sessionStorage.getItem("num_mod")=="4"){
-      return 30+PreguntasCuatroComponent.numact;
-    }else if(sessionStorage.getItem("num_mod")=="5"){
-      return 40+PreguntasCuatroComponent.numact;
-    }else if(sessionStorage.getItem("num_mod")=="6"){
-      return 50+PreguntasCuatroComponent.numact;
-    }else if(sessionStorage.getItem("num_mod")=="7"){
-      return 60+PreguntasCuatroComponent.numact;
-    }else if(sessionStorage.getItem("num_mod")=="8"){
-      return 70+PreguntasCuatroComponent.numact;
+      return 0 + PreguntasCuatroComponent.numact;
+    } else if (sessionStorage.getItem("num_mod") == "2") {
+      return 10 + PreguntasCuatroComponent.numact;
+    } else if (sessionStorage.getItem("num_mod") == "3") {
+      return 20 + PreguntasCuatroComponent.numact;
+    } else if (sessionStorage.getItem("num_mod") == "4") {
+      return 30 + PreguntasCuatroComponent.numact;
+    } else if (sessionStorage.getItem("num_mod") == "5") {
+      return 40 + PreguntasCuatroComponent.numact;
+    } else if (sessionStorage.getItem("num_mod") == "6") {
+      return 50 + PreguntasCuatroComponent.numact;
+    } else if (sessionStorage.getItem("num_mod") == "7") {
+      return 60 + PreguntasCuatroComponent.numact;
+    } else if (sessionStorage.getItem("num_mod") == "8") {
+      return 70 + PreguntasCuatroComponent.numact;
     }
   }
 

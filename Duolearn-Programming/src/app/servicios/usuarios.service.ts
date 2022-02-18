@@ -32,4 +32,8 @@ export class UsuariosService {
   update_info(datos_nuevos:Usuarios):Observable<any>{
     return this.clientHttp.put(this.Api+"/usuario/modificar",datos_nuevos);
   }
+
+  update_pass(datos_nuevos:Usuarios):Observable<any>{
+    return this.clientHttp.post(this.Api+"/cambio_clave",datos_nuevos);
+  }
 }
