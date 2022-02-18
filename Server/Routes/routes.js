@@ -22,9 +22,11 @@ router.post("/actividades/agregar", actividades.agregarActividad);
 router.post("/actividadades/temas", actividades.agregarTema);
 
 
+
 //estadisticas
 router.get("/usuario/estadisticas_java/:usuario", estadisticas.getJava);
 router.get("/usuario/estadisticas_csharp/:usuario", estadisticas.getCsharp);
+
 
 
 

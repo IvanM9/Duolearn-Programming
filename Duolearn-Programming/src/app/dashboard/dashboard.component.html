@@ -19,7 +19,7 @@
                         <span>Tablero</span> </a>
                 </li>
                 <li>
-                    <a href=""> <span><fa-icon [icon]="fachart"></fa-icon></span>
+                    <a routerLink="/estadisticas"> <span><fa-icon [icon]="fachart"></fa-icon></span>
                         <span>Estadísticas</span></a>
                 </li>
                 <li>
@@ -27,11 +27,11 @@
                         <span> Mi Perfil</span></a>
                 </li>
                 <li>
-                    <a href=""> <span><fa-icon [icon]="facomments"></fa-icon></span>
+                    <a> <span><fa-icon [icon]="facomments"></fa-icon></span>
                         <span>Foro Discusión</span></a>
                 </li>
                 <li>
-                    <a href=""> <span><fa-icon [icon]="facrown"></fa-icon></span>
+                    <a routerLink="/coronas"> <span><fa-icon [icon]="facrown"></fa-icon></span>
                         <span>Coronas</span></a>
                 </li>
                 <li (click)="close_session()">
@@ -52,14 +52,17 @@
             </h2>
 
             <div class="search-wrapper">
-                <span id="logo-buscar"><fa-icon [icon]="fasearch"></fa-icon></span>
-                <input type="search" placeholder="Buscar aquí" />
+                <select name="comboBox" id="combobox" #lenguaje (change)="elegir_leng()">
+                    <option disabled>Cambiar Lenguaje</option>
+                    <option [selected]="sel_java" #opcion1 value="opcion1">Java</option>
+                    <option [selected]="sel_csh" #opcion2 value="opcion2">C#</option>
+                </select>
             </div>
 
             <div class="user-wrapper">
-                <!--La imagen que aparece aquí debe ser traida de la BD con el usuario logueado-->
-                <img src="../../assets/imagenes/usuario-logueado.png" width="40px" height="40px"
-                    alt="foto-usuario-logueado">
+                <!--Cambiar el logo del lenguaje según el que se seleccione-->
+                <img [src]="img" id="lenguaje-practicando" width="50px" height="50px" alt="foto-usuario-logueado">
+                
                 <div>
                     <!--El nombres que aparecerá en este h4 debe ser traido de la BD con el usuario logueado-->
                     <h4>{{nombre}}</h4>
@@ -72,7 +75,7 @@
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
                 <div class="tarjetas-simples" [ngStyle]="estilo1" (click)="agregar_text('Variables y tipos de datos',1)">
                     <div>
-                        <h1> {{porcentaje_mod1}}% </h1>
+                        <h1> {{porcentaje_1}}% </h1>
                         <span [ngStyle]="estiloletra1">Variables y tipos de datos</span>
                     </div>
                     <div>
@@ -82,7 +85,7 @@
 
                 <div class="tarjetas-simples" [ngStyle]="estilo2" (click)="agregar_text('Condicionales',2)">
                     <div>
-                        <h1>{{porcentaje_mod2}}%</h1>
+                        <h1>{{porcentaje_2}}%</h1>
                         <span [ngStyle]="estiloletra2">IF-Else</span>
                     </div>
                     <div>
@@ -92,7 +95,7 @@
 
                 <div class="tarjetas-simples" [ngStyle]="estilo3" (click)="agregar_text('Ciclos Repetitivos',3)">
                     <div>
-                        <h1>{{porcentaje_mod3}}%</h1>
+                        <h1>{{porcentaje_3}}%</h1>
                         <span [ngStyle]="estiloletra3">Ciclos Repetitivos</span>
                     </div>
                     <div>
@@ -106,7 +109,7 @@
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
                 <div class="tarjetas-simples" [ngStyle]="estilo4" (click)="agregar_text('Funciones y Procedimientos',4)">
                     <div>
-                        <h1>{{porcentaje_mod4}}%</h1>
+                        <h1>{{porcentaje_4}}%</h1>
                         <span [ngStyle]="estiloletra4">Funciones y Procedimientos</span>
                     </div>
                     <div>
@@ -116,7 +119,7 @@
 
                 <div class="tarjetas-simples" [ngStyle]="estilo5" (click)="agregar_text('Vectores',5)">
                     <div>
-                        <h1>{{porcentaje_mod5}}%</h1>
+                        <h1>{{porcentaje_5}}%</h1>
                         <span [ngStyle]="estiloletra5">Vectores</span>
                     </div>
                     <div>
@@ -126,7 +129,7 @@
 
                 <div class="tarjetas-simples" [ngStyle]="estilo6" (click)="agregar_text('Matrices',6)">
                     <div>
-                        <h1>{{porcentaje_mod6}}%</h1>
+                        <h1>{{porcentaje_6}}%</h1>
                         <span [ngStyle]="estiloletra6">Matrices</span>
                     </div>
                     <div>
@@ -139,7 +142,7 @@
             <div class="tarjetas" data-aos="zoom-in" data-aos-duration="900">
                 <div class="tarjetas-simples" [ngStyle]="estilo7" (click)="agregar_text('Caracteres y cadenas de texto',7)">
                     <div>
-                        <h1>{{porcentaje_mod7}}%</h1>
+                        <h1>{{porcentaje_7}}%</h1>
                         <span [ngStyle]="estiloletra7">Caracteres y cadenas texto</span>
                     </div>
                     <div>
@@ -149,7 +152,7 @@
 
                 <div class="tarjetas-simples" [ngStyle]="estilo8" (click)="agregar_text('Archivos de texto',8)">
                     <div>
-                        <h1>{{porcentaje_mod8}}%</h1>
+                        <h1>{{porcentaje_8}}%</h1>
                         <span [ngStyle]="estiloletra8">Archivos de texto</span>
                     </div>
                     <div>

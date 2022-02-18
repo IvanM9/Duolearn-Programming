@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { MapaPreguntasComponent } from '../mapa-preguntas/mapa-preguntas.component';
 
-
-
 @Component({
   selector: 'app-preguntas',
   templateUrl: './preguntas.component.html',
@@ -33,24 +31,28 @@ export class PreguntasComponent implements OnInit {
 
 
   constructor(private pregservice: PreguntasService, public ruta: Router) {
-
     //this.datos = [this.opcion1, this.opcion2, this.opcion3, this.opcion4];
 
   }
 
+preg_aleatoria:any={};
+
   ngOnInit(): void {
-    if (sessionStorage.getItem("modulo")==null) {
+    if (sessionStorage.getItem("modulo") == null) {
       this.ruta.navigateByUrl("/dashboard");
     } else {
       this.valor = sessionStorage.getItem("modulo");
-      this.pregservice.get_questions({ "actividad": "CUESTIONARIO" }).subscribe(respuesta => {
+      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "CUESTIONARIO", usuario: sessionStorage.getItem("user") }).subscribe(respuesta => {
         //console.log(respuesta);
         this.Pregunta = respuesta;
-        console.log(this.Pregunta);
-        let rnd = this.getRandomInt(1, this.Pregunta.length);
+        //console.log(this.Pregunta);
+        let rnd = this.getRandomInt(0, this.Pregunta.length-1);
+        console.log(rnd);
+        this.preg_aleatoria=respuesta[rnd];
         this.cargar_elementos();
-        this.opciones = [respuesta[0].opcion_correcta, respuesta[0].opcion2, respuesta[0].opcion3, respuesta[0].opcion4]
-        this.pregunta.nativeElement.innerText = respuesta[0].pregunta;
+        console.log(this.preg_aleatoria);
+        this.opciones = [this.preg_aleatoria.opcion_correcta, this.preg_aleatoria.opcion2, this.preg_aleatoria.opcion3, this.preg_aleatoria.opcion4]
+        this.pregunta.nativeElement.innerText = this.preg_aleatoria.pregunta;
         for (let i = 0; i < 4; i++) {
           let rnd = this.getRandomInt(0, 3);
           let bol = true;
@@ -80,18 +82,19 @@ export class PreguntasComponent implements OnInit {
   }
 
 
-  jsongeneral:any={};
+  jsongeneral: any = {};
   ver_verde() {
     if (this.estilo1.border == "5px solid green" || this.estilo2.border == "5px solid green" || this.estilo3.border == "5px solid green" || this.estilo4.border == "5px solid green") {
       console.log("avanza");
       //console.log(this.puntos);
       //sessionStorage.setItem("estadoactividad"+PreguntasComponent.num_act, "completa");
-      this.jsongeneral=JSON.parse(sessionStorage.getItem(sessionStorage.getItem("modulo")));
-      this.jsongeneral.porcentaje=this.jsongeneral.porcentaje+10;
-      console.log(this.jsongeneral);
-      let json=this.crearjson2(PreguntasComponent.num_act);
-      this.jsongeneral=this.concatJSON(json);
-      sessionStorage.setItem(sessionStorage.getItem("modulo"),JSON.stringify(this.jsongeneral));
+      //this.jsongeneral = JSON.parse(sessionStorage.getItem(sessionStorage.getItem("modulo")));
+      //this.jsongeneral.porcentaje = this.jsongeneral.porcentaje + 10;
+      //console.log(this.jsongeneral);
+      //let json = this.crearjson2(PreguntasComponent.num_act);
+      //this.jsongeneral = this.concatJSON(json);
+      //sessionStorage.setItem(sessionStorage.getItem("modulo"), JSON.stringify(this.jsongeneral));
+      this.enviar_respuesta();
       //console.log(JSON.parse(sessionStorage.getItem(MapaPreguntasComponent.mapa_modulo)));
       this.ruta.navigateByUrl("/mapa-preguntas");
       //enviar pregunta resuelta
@@ -104,25 +107,25 @@ export class PreguntasComponent implements OnInit {
   crearjson2(actividad: any) {
     switch (actividad) {
       case 1:
-        return {estadoactividad1:"completa"}
+        return { estadoactividad1: "completa" }
       case 2:
-        return {estadoactividad2:"completa"}
+        return { estadoactividad2: "completa" }
       case 3:
-        return {estadoactividad3:"completa"}
+        return { estadoactividad3: "completa" }
       case 4:
-        return {estadoactividad4:"completa"}
+        return { estadoactividad4: "completa" }
       case 5:
-        return {estadoactividad5:"completa"}
+        return { estadoactividad5: "completa" }
       case 6:
-        return {estadoactividad6:"completa"}
+        return { estadoactividad6: "completa" }
       case 7:
-        return {estadoactividad7:"completa"}
+        return { estadoactividad7: "completa" }
       case 8:
-        return {estadoactividad8:"completa"}
+        return { estadoactividad8: "completa" }
       case 9:
-        return {estadoactividad9:"completa"}
+        return { estadoactividad9: "completa" }
       case 10:
-        return {estadoactividad10:"completa"}
+        return { estadoactividad10: "completa" }
     }
   }
 
@@ -201,22 +204,44 @@ export class PreguntasComponent implements OnInit {
     return this.jsongeneral;
   }
 
-  abandonar(){
+  abandonar() {
     this.ruta.navigateByUrl("/mapa-preguntas");
   }
 
-  concatJSON2(estilo:any){
+  concatJSON2(estilo: any) {
 
-    const estiloaux={"pointer-events" : "none" };
-    const merge = Object.assign({},estilo,estiloaux);  
+    const estiloaux = { "pointer-events": "none" };
+    const merge = Object.assign({}, estilo, estiloaux);
     return merge;
-   }
+  }
 
+  hoy = new Date();
 
   enviar_respuesta() {
-    this.pregservice.send_solves().subscribe(resp => {
-
+    var fecha = this.hoy.getFullYear()+'-'+(this.hoy.getMonth() + 1) + '-'+this.hoy.getDate();
+    this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.Pregunta[0].id, fecha: fecha, minutos: 5, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
+      console.log(resp);
     });
+  }
+
+  calc_num_act(): number {
+    if (sessionStorage.getItem("num_mod") == "1") {
+      return 0 + PreguntasComponent.num_act;
+    }else if(sessionStorage.getItem("num_mod")=="2"){
+      return 10+PreguntasComponent.num_act;
+    }else if(sessionStorage.getItem("num_mod")=="3"){
+      return 20+PreguntasComponent.num_act;
+    }else if(sessionStorage.getItem("num_mod")=="4"){
+      return 30+PreguntasComponent.num_act;
+    }else if(sessionStorage.getItem("num_mod")=="5"){
+      return 40+PreguntasComponent.num_act;
+    }else if(sessionStorage.getItem("num_mod")=="6"){
+      return 50+PreguntasComponent.num_act;
+    }else if(sessionStorage.getItem("num_mod")=="7"){
+      return 60+PreguntasComponent.num_act;
+    }else if(sessionStorage.getItem("num_mod")=="8"){
+      return 70+PreguntasComponent.num_act;
+    }
   }
 
 

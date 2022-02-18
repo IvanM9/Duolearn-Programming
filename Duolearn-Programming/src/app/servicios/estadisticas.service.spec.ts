@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PreloaderService } from './preloader.service';
+import { EstadisticasService } from './estadisticas.service';
 
-describe('PreloaderService', () => {
-  let service: PreloaderService;
+describe('EstadisticasService', () => {
+  let service: EstadisticasService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PreloaderService);
+    service = TestBed.inject(EstadisticasService);
   });
 
   it('should be created', () => {

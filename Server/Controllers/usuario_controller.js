@@ -46,8 +46,10 @@ user.getUsuario = async (req, res) => {
         res.json({ estado: "0" });
 }
 
+
 //Se verifica que los datos no estén vacios y 
 //se obtienen una verificación de que son correctos
+
 user.iniciarSesion = async (req, res) => {
     const { usuario, clave } = req.body;
     if (usuario.length > 0 && clave.length > 0) {
