@@ -7,24 +7,26 @@ const router = Router();
 //usuarios
 router.get("/admin/usuarios/listar", user.listarUsuarios);
 router.post("/usuario/nuevo", user.nuevoUsuario);
-router.post("/usuario/datos", user.getUsuario);
+router.get("/usuario/datos/:usuario", user.getUsuario);
 router.put("/usuario/modificar", user.modificarUsuario);
 router.post("/iniciar_sesion", user.iniciarSesion);
-router.get("/cerrar_sesion", user.cerrarSesion);
-router.delete('/usuario/eliminar', user.elimnarUsuario);
-router.post("/recuperar_clave", user.solicitarClave)
+router.delete('/usuario/eliminar/:usuario', user.elimnarUsuario);
+router.get("/recuperar_clave/:usuario", user.solicitarClave);
+router.post("/cambio_clave", user.cambiarClave);
 
 
 //actividades
-
 router.post("/actividades/obtener", actividades.obtenerActividades);
-
 router.post("/actividades/resolver", actividades.resolverActividad);
+router.post("/actividades/agregar", actividades.agregarActividad);
+router.post("/actividadades/temas", actividades.agregarTema);
 
 
-//estadisticass
-router.post("/usuario/estadisticas_java", estadisticas.getJava);
-router.post("/usuario/estadisticas_csharp", estadisticas.getCsharp);
+
+//estadisticas
+router.get("/usuario/estadisticas_java/:usuario", estadisticas.getJava);
+router.get("/usuario/estadisticas_csharp/:usuario", estadisticas.getCsharp);
+
 
 
 
