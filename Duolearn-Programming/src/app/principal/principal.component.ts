@@ -26,7 +26,7 @@ export class PrincipalComponent implements OnInit {
     setTimeout(() => {
       this.bol = !this.bol;
       this.bol2=!this.bol2;
-    }, 3000);
+    }, 1250);
     if(sessionStorage.getItem("user")!=null){
       this.ruta.navigateByUrl("/dashboard");
     }

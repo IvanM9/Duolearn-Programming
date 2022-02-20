@@ -59,18 +59,18 @@ export class MapaPreguntasComponent implements AfterViewInit {
 
 
   valor: any;
+  bol=true;
   actividades_rutas: any[] = ["/preguntas", "/preguntas-cuatro"];
 
   constructor(public ruta: Router, public estadisticas_serv: EstadisticasService) { }
 
   ngAfterViewInit(): void {
-    //sessionStorage.clear();
+
     if (sessionStorage.getItem("modulo") == null) {
       this.ruta.navigateByUrl("/dashboard");
     } else {
       MapaPreguntasComponent.mapa_modulo = DashboardComponent.modulo_select;
       this.valor = sessionStorage.getItem("modulo");
-      //this.json_general = JSON.parse(sessionStorage.getItem(sessionStorage.getItem("modulo")));
       if (sessionStorage.getItem("lenguaje") == "java") {
         this.estadisticas_serv.obtener_est_java({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
           this.json_general = resp;
@@ -82,7 +82,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
             this.verifica_usadas();
           }
         });
-      } else if (sessionStorage.getItem("lenguaje") == "chs") {
+      } else if (sessionStorage.getItem("lenguaje") == "csh") {
         this.estadisticas_serv.obtener_est_csh({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
           this.json_general = resp;
           //console.log(this.json_general);
@@ -122,65 +122,6 @@ export class MapaPreguntasComponent implements AfterViewInit {
     sessionStorage.setItem("num_act", actividad);
     this.actividades(actividad);
     this.ruta.navigateByUrl(this.actividades_rutas[this.random]);
-  }
-
-  concatJSON(obj2: any) {
-    this.json_general = Object.assign({}, this.json_general, obj2);
-    return this.json_general;
-  }
-
-  crearjson1(actividad: any, act: any) {
-    switch (actividad) {
-      case 1:
-        return { actividad1: act }
-      case 2:
-        return { actividad2: act }
-      case 3:
-        return { actividad3: act }
-      case 4:
-        return { actividad4: act }
-      case 5:
-        return { actividad5: act }
-      case 6:
-        return { actividad6: act }
-      case 7:
-        return { actividad7: act }
-      case 8:
-        return { actividad8: act }
-      case 9:
-        return { actividad9: act }
-      case 10:
-        return { actividad10: act }
-    }
-  }
-
-  crearjson2(actividad: any) {
-    switch (actividad) {
-      case 1:
-        return { estadoactividad1: "incompleto" }
-      case 2:
-        return { estadoactividad2: "incompleto" }
-      case 3:
-        return { estadoactividad3: "incompleto" }
-      case 4:
-        return { estadoactividad4: "incompleto" }
-      case 5:
-        return { estadoactividad5: "incompleto" }
-      case 6:
-        return { estadoactividad6: "incompleto" }
-      case 7:
-        return { estadoactividad7: "incompleto" }
-      case 8:
-        return { estadoactividad8: "incompleto" }
-      case 9:
-        return { estadoactividad9: "incompleto" }
-      case 10:
-        return { estadoactividad10: "incompleto" }
-    }
-  }
-
-  crearjson3() {
-    return { porcentaje: 0 };
   }
 
   verifica_usadas() {

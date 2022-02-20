@@ -108,7 +108,7 @@ export class DashboardComponent implements AfterViewInit {
     setTimeout(() => {
       this.bol = !this.bol;
       this.bol2 = !this.bol2;
-    }, 3000);
+    }, 1250);
     AOS.init();
     //console.log(sessionStorage.getItem("usuario"));
     this.user_serv.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {

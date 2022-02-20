@@ -26,10 +26,14 @@ export class UsuariosService {
   }
   
   get_user(user:any):Observable<any>{
-    return this.clientHttp.post(this.Api+"/usuario/datos",user);
+    return this.clientHttp.get(this.Api+"/usuario/datos/"+user.usuario);
   }
 
   update_info(datos_nuevos:Usuarios):Observable<any>{
     return this.clientHttp.put(this.Api+"/usuario/modificar",datos_nuevos);
+  }
+
+  update_pass(datos_nuevos:Usuarios):Observable<any>{
+    return this.clientHttp.post(this.Api+"/cambio_clave",datos_nuevos);
   }
 }

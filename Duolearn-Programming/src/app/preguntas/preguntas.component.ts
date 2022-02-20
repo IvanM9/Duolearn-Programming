@@ -43,7 +43,7 @@ preg_aleatoria:any={};
     } else {
       this.valor = sessionStorage.getItem("modulo");
       this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "CUESTIONARIO", usuario: sessionStorage.getItem("user") }).subscribe(respuesta => {
-        //console.log(respuesta);
+        console.log(respuesta);
         this.Pregunta = respuesta;
         //console.log(this.Pregunta);
         let rnd = this.getRandomInt(0, this.Pregunta.length-1);

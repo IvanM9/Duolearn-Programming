@@ -2,12 +2,14 @@ const { pool } = require("./conexion");
 
 const activity = {};
 
+
 //Se llama a la función para obtener las actividades
 activity.obtenerActividades = async (modulo, lenguaje, tipo, usuario) => {
     try {
         let datos = await pool.query(
             "select obtener_actividades($1, $2, $3, $4)",
             [tipo, modulo, lenguaje, usuario]);
+
         let aux = [];
         for (let index = 0; index < datos.rowCount; index++) {
             aux.push(datos.rows[index].obtener_actividades);
@@ -18,6 +20,7 @@ activity.obtenerActividades = async (modulo, lenguaje, tipo, usuario) => {
     }
 
 }
+
 
 //Se envian los datos de la actividad a la base de datos
 activity.resolverActividad = async (usuario, id_actividad, fecha, minutos, intentos, num_actividad, puntaje) => {
@@ -57,4 +60,5 @@ activity.añadirTema = async (modulo, lenguaje, titulo, concepto) => {
         return 0;
     }
 }
+
 module.exports = activity;

@@ -22,8 +22,10 @@ export class EstadisticasComponent implements OnInit {
   p7: any = 0;
   p8: any = 0;
   json_general: any = {};
+  bol = true;
 
   ngOnInit(): void {
+
     if (sessionStorage.getItem("lenguaje") == "java") {
       this.estadisticas_serv.obtener_est_java({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
         this.json_general = resp;
@@ -31,7 +33,7 @@ export class EstadisticasComponent implements OnInit {
         this.porcentaje();
         this.asignaporcentajes();
       });
-    } else if (sessionStorage.getItem("lenguaje") == "chs") {
+    } else if (sessionStorage.getItem("lenguaje") == "csh") {
       this.estadisticas_serv.obtener_est_csh({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
         this.json_general = resp;
         //console.log(this.json_general);
@@ -101,13 +103,13 @@ export class EstadisticasComponent implements OnInit {
 
   asignaporcentajes() {
     this.p1 = DashboardComponent.porcentaje_mod1;
-    this.p2= DashboardComponent.porcentaje_mod2;
-    this.p3= DashboardComponent.porcentaje_mod3;
-    this.p4= DashboardComponent.porcentaje_mod4;
-    this.p5= DashboardComponent.porcentaje_mod5;
-    this.p6= DashboardComponent.porcentaje_mod6;
-    this.p7= DashboardComponent.porcentaje_mod7;
-    this.p8= DashboardComponent.porcentaje_mod8;
+    this.p2 = DashboardComponent.porcentaje_mod2;
+    this.p3 = DashboardComponent.porcentaje_mod3;
+    this.p4 = DashboardComponent.porcentaje_mod4;
+    this.p5 = DashboardComponent.porcentaje_mod5;
+    this.p6 = DashboardComponent.porcentaje_mod6;
+    this.p7 = DashboardComponent.porcentaje_mod7;
+    this.p8 = DashboardComponent.porcentaje_mod8;
   }
 
 }
