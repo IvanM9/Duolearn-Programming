@@ -25,7 +25,6 @@ const user = {}
 user.listarUsuarios = async (req, res) => {
     try {
         const datos = await Usuario.listarUsuarios();
-        console.log(datos);
         res.json(datos);
     } catch (error) {
         console.log(error);
@@ -34,19 +33,24 @@ user.listarUsuarios = async (req, res) => {
 
 //Se obtiene los datos del usuario 
 user.getUsuario = async (req, res) => {
-    const { usuario } = req.params;
-    console.log(usuario);
-    if (usuario != null) {
-        let datos = await Usuario.getUser(usuario);
-        if (datos != null) {
-            datos.estado = "1";
-            res.json(datos);
+    try {
+        const { usuario } = req.params;
+        console.log(usuario);
+        if (usuario != null) {
+            let datos = await Usuario.getUser(usuario);
+            if (datos != null) {
+                datos.estado = "1";
+                res.json(datos);
+            }
+            else
+                res.json({ estado: "0" });
         }
         else
             res.json({ estado: "0" });
     }
-    else
-        res.json({ estado: "0" });
+    catch (error) {
+        console.error();
+    }
 }
 
 
@@ -54,17 +58,22 @@ user.getUsuario = async (req, res) => {
 //se obtienen una verificación de que son correctos
 
 user.iniciarSesion = async (req, res) => {
-    const { usuario, clave } = req.body;
-    if (usuario.length > 0 && clave.length > 0) {
-        let datos = await Usuario.inciarSesion(usuario, clave);
-        if (datos !== 0 && datos !== null) {
-            res.json({ mensaje: "Sesion iniciada", estado: "1" });
+    try {
+        const { usuario, clave } = req.body;
+        if (usuario.length > 0 && clave.length > 0) {
+            let datos = await Usuario.inciarSesion(usuario, clave);
+            if (datos !== 0 && datos !== null) {
+                res.json({ mensaje: "Sesion iniciada", estado: "1" });
+            }
+            else
+                res.json({ mensaje: "Ingreso fallido", estado: "0" });
         }
         else
-            res.json({ mensaje: "Ingreso fallido", estado: "0" });
+            res.json({ mensaje: "campos vacios", estado: "0" });
     }
-    else
-        res.json({ mensaje: "campos vacios", estado: "0" });
+    catch (error) {
+        console.log(error);
+    }
 }
 
 //Se obtienen todos los datos y luego se reemplaza con los valores actuales
@@ -89,66 +98,85 @@ user.modificarUsuario = async (req, res) => {
 
 //Se registra un nuevo usuario
 user.nuevoUsuario = async (req, res) => {
-    const { usuario, nombres, apellidos, correo, clave, fecha_nacimiento } = req.body;
-    let status = await Usuario.registrarUser(usuario, nombres, apellidos, correo, clave, fecha_nacimiento);
-    if (status === 1)
-        res.json({ mensaje: "Registro correcto", estado: "1" });
-    else
-        res.json({ mensaje: "Registro fallido", estado: "0" });
+    try {
+        const { usuario, nombres, apellidos, correo, clave, fecha_nacimiento } = req.body;
+        let status = await Usuario.registrarUser(usuario, nombres, apellidos, correo, clave, fecha_nacimiento);
+        if (status === 1)
+            res.json({ mensaje: "Registro correcto", estado: "1" });
+        else
+            res.json({ mensaje: "Registro fallido", estado: "0" });
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 //Se elimina un usuario
 user.elimnarUsuario = async (req, res) => {
-    const usuario = req.params.usuario;
-    if (usuario != null) {
-        let status = await Usuario.eliminarUser(usuario);
-        if (status === 1) {
-            res.json({ mensaje: "Eliminado con éxito ", estado: "1" });
+    try {
+        const usuario = req.params.usuario;
+        if (usuario != null) {
+            let status = await Usuario.eliminarUser(usuario);
+            if (status === 1) {
+                res.json({ mensaje: "Eliminado con éxito ", estado: "1" });
+            }
+            else
+                res.json({ mensaje: "Eliminación fallido ", estado: "0" });
+
         }
         else
-            res.json({ mensaje: "Eliminación fallido ", estado: "0" })
-
+            res.json({ mensaje: "El sesión no está iniciada", estado: "0" });
+    } catch (error) {
+        console.log(error);
     }
-    else
-        res.json({ mensaje: "El sesión no está iniciada", estado: "0" })
 }
 
 
 //Se envía un correo con una clave temporal
 user.solicitarClave = async (req, res) => {
-    const { usuario } = req.params;
+    try {
+        const { usuario } = req.params;
 
-    //! let datos = await Usuario.obtenerClave(usuario);
-    if (datos != null) {
-        let correo = Usuario.getUser(usuario).correo;
-        var mailOptions = {
-            from: "'Duolearn Admin' <" + process.env.CORREO + ">",
+        //! let datos = await Usuario.obtenerClave(usuario);
+        if (datos != null) {
+            let correo = Usuario.getUser(usuario).correo;
+            var mailOptions = {
+                from: "'Duolearn Admin' <" + process.env.CORREO + ">",
 
-            to: correo,
-            subject: 'Duolearn: recuperación de clave',
-            text: 'Su contraseña es: ' + datos
-        };
-        await transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email enviado: ' + info.response);
-            }
-        });
-        res.json({ estado: "1" });
+                to: correo,
+                subject: 'Duolearn: recuperación de clave',
+                text: 'Su contraseña es: ' + datos
+            };
+            await transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email enviado: ' + info.response);
+                }
+            });
+            res.json({ estado: "1" });
+        }
+        else
+            res.json({ estado: "0" });
     }
-    else
-        res.json({ estado: "0" });
+    catch (error) {
+        console.log(error);
+    }
 }
 
 //Cambio de clave
 user.cambiarClave = async (req, res) => {
-    const { usuario, clave_actual, clave_nueva } = req.body;
-    let status = await Usuario.cambiarClave(usuario, clave_actual, clave_nueva);
-    if (status === 1)
-        res.json({ estado: "1" });
-    else
-        res.json({ estado: "0" });
+    try {
+        const { usuario, clave_actual, clave_nueva } = req.body;
+        let status = await Usuario.cambiarClave(usuario, clave_actual, clave_nueva);
+        if (status === 1)
+            res.json({ estado: "1" });
+        else
+            res.json({ estado: "0" });
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 

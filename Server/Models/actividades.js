@@ -52,7 +52,7 @@ activity.añadirActividad = async (tema, pregunta, opcion_correcta, opcion2, opc
 activity.añadirTema = async (modulo, lenguaje, titulo, concepto) => {
     try {
         await pool.query(
-            "perform agregar_tema($1,$2,$3,$4)",
+            "select nuevo_tema($1,$2,$3,$4)",
             [modulo, lenguaje, concepto, titulo]);
         return 1;
     } catch (error) {
@@ -61,4 +61,67 @@ activity.añadirTema = async (modulo, lenguaje, titulo, concepto) => {
     }
 }
 
+// Se ejecuta para eliminar una actividad con una id especifica
+activity.eliminarActividad = async (id) => {
+    try {
+        let datos = await pool.query("select eliminar_actividad($1)", [id]);
+        return datos.rows[0].eliminar_actividad;
+    } catch (error) {
+        console.log(error);
+        return 0;
+    }
+}
+
+// Se elimina un tema con todas sus actividades
+activity.eliminarTema = async (id) => {
+    try {
+        let datos = await pool.query("select eliminar_tema($1)", [id]);
+        return datos.rows[0].eliminar_tema;
+    } catch (error) {
+        console.log(error);
+        return 0;
+    }
+
+}
+
+// Se modifican los datos de una actividad
+activity.modificarActividad = async (id, tema, pregunta, opcion_correcta, opcion2, opcion3, opcion4, tipo) => {
+    try {
+        let datos = await pool.query(
+            "select modificar_actividad($1,$2,$3,$4,$5,$6,$7,$8)",
+            [id, tema, pregunta, opcion_correcta, opcion2, opcion3, opcion4, tipo]);
+        return datos.rows[0].modificar_actividad;
+    } catch (error) {
+        console.log(error);
+        return 0;
+    }
+}
+
+// Se modifican los datos de un tema
+activity.modificarTema = async (id, modulo, lenguaje, concepto, titulo) => {
+    try {
+        let datos = await pool.query("select modificar_tema($1, $2, $3, $4, $5)", [id, modulo, lenguaje, concepto, titulo]);
+        return datos.rows[0].modificar_tema;
+    } catch (error) {
+
+    }
+}
+
+// Se obtiene todos los datos de la tabla temas
+activity.obtenerTemas = async (modulo, lenguaje) => {
+    try {
+        let datos = await pool.query(
+            "select obtener_temas($1,$2)",
+            [modulo, lenguaje]);
+
+        let aux = [];
+        datos.rows.forEach(element => {
+            aux.push(element.obtener_temas)
+        });
+
+        return aux;
+    } catch (error) {
+        return null;
+    }
+}
 module.exports = activity;

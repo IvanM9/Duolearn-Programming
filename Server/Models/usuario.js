@@ -5,8 +5,12 @@ const Usuario = {}
 //Devuelve todos los usuario registrados
 Usuario.listarUsuarios = async () => {
     try {
+        let aux = [];
         let datos = await pool.query("select listar_usuarios()");
-        return datos.rows;
+        datos.rows.forEach(element=>{
+            aux.push(element.listar_usuarios);
+        });
+        return aux;
     } catch (error) {
         console.log(error);
         return null;
@@ -69,23 +73,6 @@ Usuario.eliminarUser = async (usuario) => {
         return datos.rows[0].eliminar_usuario;
     } catch (error) {
         console.log(error);
-        return null;
-    }
-}
-Usuario.cambiarClave = async (usuario, clave_actual, clave_nuevo) =>{
-    try {
-        let datos = await pool.query("select cambiar_clave($1,$2,$3)", [usuario, clave_actual, clave_nuevo]);
-        console.log(datos.rows);
-        return datos.rows[0].cambiar_clave;
-    } catch (error) {
-        return null;
-    }
-}
-Usuario.obtenerClave = async(usuario)=>{
-    try {
-        let datos = await pool.query("select obtener_clave($1)",[usuario]);
-        return datos.rows[0].obtener_clave;
-    } catch (error) {
         return null;
     }
 }
