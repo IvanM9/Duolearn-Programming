@@ -60,12 +60,6 @@
     padding: 10px 15px;
 }
 
-#textoAllenar1, #textoAllenar2, #textoAllenar3, #textoAllenar4{
-    border: 2px solid black;
-    width: 20%;
-    height: 25%;
-}
-
 .codigoParaCompletar{
     margin-top: 30px;
     border-radius: 10px;
@@ -95,7 +89,9 @@
 
 .caja-opciones{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+
+    grid-template-columns: repeat(2, 1fr);
+
     margin: 30px 0;
     grid-gap: 15px;
 }
@@ -133,4 +129,13 @@
 
 .botones button:hover{
     box-shadow: 0 6px 5px rgba(19, 28, 56, 0.26);
+}
+
+#textoAllenar1,#textoAllenar2,#textoAllenar3,#textoAllenar4{
+    height: 0.80cm;
+    width: 5cm;
+    min-width: max-content;
+    border-radius: 10px;
+    text-align: inherit;
+    background-color: wheat ;
 }

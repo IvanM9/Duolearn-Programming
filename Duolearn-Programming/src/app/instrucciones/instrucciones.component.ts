@@ -16,6 +16,7 @@ export class InstruccionesComponent implements OnInit {
   ngOnInit(): void {
     AOS.init();
     this.valor_2=InstruccionesComponent.valor;
+    //sessionStorage.getItem("user");
   }
 
 }

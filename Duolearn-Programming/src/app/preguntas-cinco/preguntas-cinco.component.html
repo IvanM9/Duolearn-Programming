@@ -7,28 +7,28 @@
         </div>
     
         <div class="header">
-            <div class="puntuacion"><b>Puntuación: </b> 0</div>
-            <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+            <div class="puntuacion"><b>Puntuación: </b>{{puntos}}</div>
+            <div class="tiempo" #tiempo><b>Tiempo: </b> {{min}}:{{time}} </div>
         </div>
     
-        <div class="caja-pregunta" #pregunta >En la siguiente imagen, se muestra un trozo de código el cual contiene un error. Seleccione cual el el error que contiene el código.
+        <div class="caja-pregunta" >En la siguiente imagen, se muestra un trozo de código el cual contiene un error. Seleccione cual el el error que contiene el código.
         </div>
         <div class="caja-imagen">
-            <img src="../../assets/imagenes/codigo_de_prueba.png" alt="codigo-de-prueba"/>
+            <img  #pregunta alt="codigo-de-prueba"/>
         </div>
 
         <div class="caja-opciones">
-            <span #opcion1 id="opc" draggable="true">Hola mundo (1)</span>
-            <span #opcion2 id="opc" draggable="true">Hola mundo (2)</span>
-            <span #opcion3 id="opc" draggable="true">Hola mundo (3)</span>
-            <span #opcion4 id="opc" draggable="true">Hola mundo (4)</span>
+            <span #opcion1 [ngStyle]="estilo1" (click)="comprueba('opcion1')"></span>
+            <span #opcion2 [ngStyle]="estilo2" (click)="comprueba('opcion2')"></span>
+            <span #opcion3 [ngStyle]="estilo3" (click)="comprueba('opcion3')"></span>
+            <span #opcion4 [ngStyle]="estilo4" (click)="comprueba('opcion4')"></span>
         </div>
     
         <div class="botones">
-            <button>
+            <button (click)="ver_verde()">
                 Siguiente ▶
             </button>
-            <button>
+            <button (click)="abandonar()">
                 Abandonar ❌
             </button>
         </div>

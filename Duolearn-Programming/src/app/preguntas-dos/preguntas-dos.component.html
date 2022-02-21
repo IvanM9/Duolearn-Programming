@@ -7,8 +7,8 @@
         </div>
     
         <div class="header">
-            <div class="puntuacion"><b>Puntuación: </b> 0</div>
-            <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+            <div class="puntuacion"><b>Puntuación: </b> {{puntos}} </div>
+            <div class="tiempo"><b>Tiempo: </b>{{min}}:{{time}}</div>
         </div>
     
         <div class="caja-pregunta" #pregunta >Unir con lineas los códigos que arrojan los mismo resultados.
@@ -22,12 +22,11 @@
             <img #img5 *ngIf="mostrar5" [ngStyle]="estilo5"  (click)="comprueba('img5')">
             <img #img6 *ngIf="mostrar6" [ngStyle]="estilo6"  (click)="comprueba('img6')">
         </div>
-    
         <div class="botones">
-            <button>
+            <button (click)="enviar_respuesta()">
                 Siguiente ▶
             </button>
-            <button>
+            <button routerLink="/mapa-preguntas">
                 Abandonar ❌
             </button>
         </div>

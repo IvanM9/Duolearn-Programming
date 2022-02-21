@@ -14,9 +14,6 @@ import { InstruccionesComponent } from './instrucciones/instrucciones.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { PreloaderService } from './servicios/preloader.service';
-
-
 
 import { PreguntasDosComponent } from './preguntas-dos/preguntas-dos.component';
 import { PreguntasTresComponent } from './preguntas-tres/preguntas-tres.component';
@@ -31,6 +28,7 @@ import { CoronasComponent } from './coronas/coronas.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { ForoDiscusionComponent } from './foro-discusion/foro-discusion.component';
 import { TeoriasComponent } from './teorias/teorias.component';
+
 
 
 @NgModule({
@@ -67,7 +65,6 @@ import { TeoriasComponent } from './teorias/teorias.component';
     FontAwesomeModule
     ],
   providers: [
-    PreloaderService,
     InstruccionesComponent
   ],
   bootstrap: [AppComponent]
