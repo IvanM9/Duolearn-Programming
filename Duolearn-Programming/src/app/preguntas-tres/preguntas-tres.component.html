@@ -9,8 +9,8 @@
         </div>
 
         <div class="header" (drop)="drop($event)" (dragover)="allowDrop($event)">
-            <div class="puntuacion"><b>Puntuación: </b> 0</div>
-            <div class="tiempo"><b>Tiempo: </b> 00:00</div>
+            <div class="puntuacion"><b>Puntuación: </b> {{puntos}} </div>
+            <div class="tiempo"><b>Tiempo: </b>{{min}}:{{time}}</div>
         </div>
 
         <div class="caja-pregunta" #pregunta> Complete el siguiente código, arrastrando las opciones en donde usted crea
@@ -42,14 +42,11 @@
             <div (drop)="drop($event)" [ngStyle]="estilo4" (dragover)="allowDrop($event)" #texto4 id="textoAllenar4">
 
             </div>
-            <div>
-                {{linea5}}
-            </div>
         </div>
 
         <!--Borrar los hola mundo, ahí van las opciones extraidas de la BD-->
         <!--El draggable="true" es para que me permita arrastrar el span y hacer el drag and drop-->
-        <div class="caja-opciones" (drop)="drop($event)" (dragover)="allowDrop($event)" dropzone="true"
+        <div class="caja-opciones" (drop)="drop($event)" style="border: 2px solid transparent;height: fit-content;min-height: 2cm;" (dragover)="allowDrop($event)" dropzone="true"
             id="caja-opciones">
             <span #opcion1 id="opc1" (drag)="drag($event)" draggable="true"> {{opcion1.innerText}} </span>
             <span #opcion2 id="opc2" (drag)="drag($event)" draggable="true">{{opcion2.innerText}}</span>

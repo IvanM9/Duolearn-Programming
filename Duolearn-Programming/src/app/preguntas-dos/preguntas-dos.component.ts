@@ -1,33 +1,33 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { InstruccionesComponent } from '../instrucciones/instrucciones.component';
+import { PreguntasComponent } from '../preguntas/preguntas.component';
+import { PreguntasService } from '../servicios/preguntas.service';
 @Component({
   selector: 'app-preguntas-dos',
   templateUrl: './preguntas-dos.component.html',
   styleUrls: ['./preguntas-dos.component.css']
 })
 export class PreguntasDosComponent implements AfterViewInit {
-  valor = InstruccionesComponent.valor;
-  imgs: any[];
+
+  valor;
   private datos: ElementRef[];
-  private parejas: number[][] = [];
-  private nbimg: any[] = [];
-  private parejas2: number[][] = [];
-  private clicks: ElementRef[];
-  mostrar1:boolean=true;
-  mostrar2:boolean=true;
-  mostrar3:boolean=true;
-  mostrar4:boolean=true;
-  mostrar5:boolean=true;
-  mostrar6:boolean=true;
-
+  private pares: number[][] = [];
   private imgss: number[] = [];
+  faQuestion = iconos.faQuestionCircle;
+  private opciones: any[];
+  puntos = 20;
+  tiempo: number;
+  aleatorios: any[] = [];
 
-
-  img = "../../assets/imagenes/codigo_de_prueba.png";
-  ig = "../../assets/imagenes/logo-java.jpg";
-  im = "../../assets/imagenes/logo-csharp.png";
+  mostrar1: boolean = true;
+  mostrar2: boolean = true;
+  mostrar3: boolean = true;
+  mostrar4: boolean = true;
+  mostrar5: boolean = true;
+  mostrar6: boolean = true;
 
 
   @ViewChild("img1") public img1: ElementRef;
@@ -36,6 +36,7 @@ export class PreguntasDosComponent implements AfterViewInit {
   @ViewChild("img4") public img4: ElementRef;
   @ViewChild("img5") public img5: ElementRef;
   @ViewChild("img6") public img6: ElementRef;
+
   estilo1: any;
   estilo2: any;
   estilo3: any;
@@ -43,224 +44,225 @@ export class PreguntasDosComponent implements AfterViewInit {
   estilo5: any;
   estilo6: any;
 
-  faQuestion = iconos.faQuestionCircle;
-  private opciones: any[];
-  private salio: any[] = [];
-  click = 0;
-  constructor() { }
+
+  constructor(public ruta: Router, public pregservice: PreguntasService) { }
 
   ngAfterViewInit(): void {
-    this.opciones = [this.img, this.ig, this.im];
-    this.cargar_elementos();
-    this.cargar();
-    this.formapareja();
+    if (sessionStorage.getItem("modulo") == null) {
+      this.ruta.navigateByUrl("/dashboard");
+    } else {
+      this.valor = sessionStorage.getItem("modulo");
+      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "pares", usuario: sessionStorage.getItem("user") }).subscribe(resp => {
+        if (resp.length >= 3) {
+          this.startTimer();
+          for (let index = 0; index < 3; index++) {
+            let rand = this.getRandomInt(0, resp.length - 1);
+            let bol = false;
+            for (let j = 0; j < this.aleatorios.length; j++) {
+              if (resp[rand]["id"] == this.aleatorios[j]["id"]) {
+                bol = true;
+                break;
+              }
+            }
+            if (bol) {
+              index--;
+            } else {
+              this.aleatorios.push(resp[rand]);
+            }
+          }
+          this.opciones = [this.aleatorios[0].pregunta, this.aleatorios[1].pregunta, this.aleatorios[2].pregunta,
+          this.aleatorios[0].opcion_correcta, this.aleatorios[1].opcion_correcta, this.aleatorios[2].opcion_correcta];
+          this.datos = [this.img1, this.img2, this.img3, this.img4, this.img5, this.img6];
+          this.cargar();
+          //forma pares
+          for (let index = 0; index < 3; index++) {
+            this.pares.push([this.aleatorios[index].pregunta, this.aleatorios[index].opcion_correcta]);
+          }
+
+        }
+      });
+    }
   }
 
-  cargar_elementos() {
-    this.datos = [this.img1, this.img2, this.img3, this.img4, this.img5, this.img6];
-  }
   getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  palabra1 = -1;
-  palabra2 = -1;
+  palabra1 = null;
+  palabra2 = null;
 
   comprueba(img: any) {
     if (img == "img1") {
-      if (this.palabra1 == -1) {
-        this.palabra1 = 0;
+      if (this.palabra1 == null) {
+        this.palabra1 = this.img1;
         this.estilo1 = { 'border': '5px solid blue' };
       }
-      else if (this.palabra2 == -1) {
-        this.palabra2 = 0;
+      else if (this.palabra2 == null) {
+        this.palabra2 = this.img1;
         this.estilo1 = { 'border': '5px solid blue' };
-        for (let index = 0; index < this.parejas2.length; index++) {
-          if (this.palabra1 == this.parejas2[index][0] || this.palabra1 == this.parejas2[index][1]) {
-            if (this.palabra1 != this.palabra2) {
-              if (this.palabra2 == this.parejas2[index][0] || this.palabra2 == this.parejas2[index][1]) {
+        for (let index = 0; index < this.pares.length; index++) {
+          if (this.palabra1 != this.palabra2) {
+            if (this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
+              if (this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
                 this.ponervisto(this.palabra1);
                 this.ponervisto(this.palabra2);
                 break;
-              }else{
-                //mensaje incorrecto
-              }
-            }else{
-              if(this.palabra1==-1){
-                this.quitarborde(this.palabra2);
-              }else{
+              } else {
                 this.quitarborde(this.palabra1);
+                this.quitarborde(this.palabra2);
               }
             }
+          } else {
+            this.quitarborde(this.palabra2);
           }
         }
-        this.palabra1=-1;
-        this.palabra2=-1;
+        this.palabra1 = null;
+        this.palabra2 = null;
       }
     } else if (img == "img2") {
-      if (this.palabra1 == -1) {
-        this.palabra1 = 1;
+      if (this.palabra1 == null) {
+        this.palabra1 = this.img2;
         this.estilo2 = { 'border': '5px solid blue' };
       }
-      else if (this.palabra2 == -1) {
-        this.palabra2 = 1;
+      else if (this.palabra2 == null) {
+        this.palabra2 = this.img2;
         this.estilo2 = { 'border': '5px solid blue' };
-        for (let index = 0; index < this.parejas2.length; index++) {
-          if (this.palabra1 == this.parejas2[index][0] || this.palabra1 == this.parejas2[index][1]) {
-            if (this.palabra1 != this.palabra2) {
-              if (this.palabra2 == this.parejas2[index][0] || this.palabra2 == this.parejas2[index][1]) {
+        for (let index = 0; index < this.pares.length; index++) {
+          if (this.palabra1 != this.palabra2) {
+            if (this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
+              if (this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
                 this.ponervisto(this.palabra1);
                 this.ponervisto(this.palabra2);
                 break;
-              }else{
-                //mensaje incorrecto
-              }
-            }else{
-              if(this.palabra1==-1){
-                this.quitarborde(this.palabra2);
-              }else{
+              } else {
                 this.quitarborde(this.palabra1);
+                this.quitarborde(this.palabra2);
               }
             }
+          } else {
+            this.quitarborde(this.palabra2);
           }
         }
-        this.palabra1=-1;
-        this.palabra2=-1;
+        this.palabra1 = null;
+        this.palabra2 = null;
       }
-    }
-    else if (img == "img3") {
-      if (this.palabra1 == -1) {
-        this.palabra1 = 2;
+    } else if (img == "img3") {
+      if (this.palabra1 == null) {
+        this.palabra1 = this.img3;
         this.estilo3 = { 'border': '5px solid blue' };
       }
-      else if (this.palabra2 == -1) {
-        this.palabra2 = 2;
+      else if (this.palabra2 == null) {
+        this.palabra2 = this.img3;
         this.estilo3 = { 'border': '5px solid blue' };
-        for (let index = 0; index < this.parejas2.length; index++) {
-          if (this.palabra1 == this.parejas2[index][0] || this.palabra1 == this.parejas2[index][1]) {
-            if (this.palabra1 != this.palabra2) {
-              if (this.palabra2 == this.parejas2[index][0] || this.palabra2 == this.parejas2[index][1]) {
+        for (let index = 0; index < this.pares.length; index++) {
+          if (this.palabra1 != this.palabra2) {
+            if (this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
+              if (this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
                 this.ponervisto(this.palabra1);
                 this.ponervisto(this.palabra2);
                 break;
-              }else{
-                //mensaje incorrecto
-              }
-            }else{
-              if(this.palabra1==-1){
-                this.quitarborde(this.palabra2);
-              }else{
+              } else {
                 this.quitarborde(this.palabra1);
+                this.quitarborde(this.palabra2);
               }
             }
+          } else {
+            this.quitarborde(this.palabra2);
           }
         }
-        this.palabra1=-1;
-        this.palabra2=-1;
+        this.palabra1 = null;
+        this.palabra2 = null;
       }
-    }
-    else if (img == "img4") {
-      if (this.palabra1 == -1) {
-        this.palabra1 = 3;
+    } else if (img == "img4") {
+      if (this.palabra1 == null) {
+        this.palabra1 = this.img4;
         this.estilo4 = { 'border': '5px solid blue' };
       }
-      else if (this.palabra2 == -1) {
-        this.palabra2 = 3;
+      else if (this.palabra2 == null) {
+        this.palabra2 = this.img4;
         this.estilo4 = { 'border': '5px solid blue' };
-        for (let index = 0; index < this.parejas2.length; index++) {
-          if (this.palabra1 == this.parejas2[index][0] || this.palabra1 == this.parejas2[index][1]) {
-            if (this.palabra1 != this.palabra2) {
-              if (this.palabra2 == this.parejas2[index][0] || this.palabra2 == this.parejas2[index][1]) {
+        for (let index = 0; index < this.pares.length; index++) {
+          if (this.palabra1 != this.palabra2) {
+            if (this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
+              if (this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
                 this.ponervisto(this.palabra1);
                 this.ponervisto(this.palabra2);
                 break;
-              }else{
-                //mensaje incorrecto
-              }
-            }else{
-              if(this.palabra1==-1){
-                this.quitarborde(this.palabra2);
-              }else{
+              } else {
                 this.quitarborde(this.palabra1);
+                this.quitarborde(this.palabra2);
               }
             }
+          } else {
+            this.quitarborde(this.palabra2);
           }
         }
-        this.palabra1=-1;
-        this.palabra2=-1;
+        this.palabra1 = null;
+        this.palabra2 = null;
       }
-    }
-    else if (img == "img5") {
-      if (this.palabra1 == -1) {
-        this.palabra1 = 4;
+    } else if (img == "img5") {
+      if (this.palabra1 == null) {
+        this.palabra1 = this.img5;
         this.estilo5 = { 'border': '5px solid blue' };
       }
-      else if (this.palabra2 == -1) {
-        this.palabra2 = 4;
+      else if (this.palabra2 == null) {
+        this.palabra2 = this.img5;
         this.estilo5 = { 'border': '5px solid blue' };
-        for (let index = 0; index < this.parejas2.length; index++) {
-          if (this.palabra1 == this.parejas2[index][0] || this.palabra1 == this.parejas2[index][1]) {
-            if (this.palabra1 != this.palabra2) {
-              if (this.palabra2 == this.parejas2[index][0] || this.palabra2 == this.parejas2[index][1]) {
+        for (let index = 0; index < this.pares.length; index++) {
+          if (this.palabra1 != this.palabra2) {
+            if (this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
+              if (this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
                 this.ponervisto(this.palabra1);
                 this.ponervisto(this.palabra2);
                 break;
-              }else{
-                //mensaje incorrecto
-              }
-            }else{
-              if(this.palabra1==-1){
-                this.quitarborde(this.palabra2);
-              }else{
+              } else {
                 this.quitarborde(this.palabra1);
+                this.quitarborde(this.palabra2);
               }
             }
+          } else {
+            this.quitarborde(this.palabra2);
           }
         }
-        this.palabra1=-1;
-        this.palabra2=-1;
+        this.palabra1 = null;
+        this.palabra2 = null;
       }
-    }
-    else if (img == "img6") {
-      if (this.palabra1 == -1) {
-        this.palabra1 = 5;
+    } else if (img == "img6") {
+      if (this.palabra1 == null) {
+        this.palabra1 = this.img6;
         this.estilo6 = { 'border': '5px solid blue' };
       }
-      else if (this.palabra2 == -1) {
-        this.palabra2 = 5;
+      else if (this.palabra2 == null) {
+        this.palabra2 = this.img6;
         this.estilo6 = { 'border': '5px solid blue' };
-        for (let index = 0; index < this.parejas2.length; index++) {
-          if (this.palabra1 == this.parejas2[index][0] || this.palabra1 == this.parejas2[index][1]) {
-            if (this.palabra1 != this.palabra2) {
-              if (this.palabra2 == this.parejas2[index][0] || this.palabra2 == this.parejas2[index][1]) {
+        for (let index = 0; index < this.pares.length; index++) {
+          if (this.palabra1 != this.palabra2) {
+            if (this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra1.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
+              if (this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][0] || this.palabra2.nativeElement.attributes[1].nodeValue == this.pares[index][1]) {
                 this.ponervisto(this.palabra1);
                 this.ponervisto(this.palabra2);
                 break;
-              }else{
-                //mensaje incorrecto
-              }
-            }else{
-              if(this.palabra1==-1){
-                this.quitarborde(this.palabra2);
-              }else{
+              } else {
                 this.quitarborde(this.palabra1);
+                this.quitarborde(this.palabra2);
               }
             }
+          } else {
+            this.quitarborde(this.palabra2);
           }
         }
-        this.palabra1=-1;
-        this.palabra2=-1;
+        this.palabra1 = null;
+        this.palabra2 = null;
       }
     }
   }
 
   cargar() {
-    for (let i = 0; i < 3; i++) {
-      let rnd = this.getRandomInt(0, 2);
+    for (let i = 0; i < 6; i++) {
+      let rnd = this.getRandomInt(0, 5);
       let bool = false;
-      //if (rnd != 0) {
       for (let j = 0; j < i; j++) {
         if (this.imgss[j] == rnd) {
           bool = true;
@@ -272,95 +274,141 @@ export class PreguntasDosComponent implements AfterViewInit {
       } else {
         this.imgss.push(rnd);
       }
-      //}// else {
-      //i--;
-      //}
     }
     for (let index = 0; index < 6; index++) {
-      let random = this.getRandomInt(0, this.imgss.length - 1);
-      let g = 0;
-      for (let j = 0; j < index; j++) {
-        if (this.nbimg[j] == this.imgss[random]) {
-          g++;
-        }
-      }
-      if (g < 2) {
-        this.nbimg.push(this.imgss[random]);
-        this.datos[index].nativeElement.setAttribute("src", this.opciones[random]);
-        this.parejas.push([this.imgss[random], index]);
-      } else {
-        index--;
-      }
+      this.datos[index].nativeElement.setAttribute("src", this.opciones[this.imgss[index]]);
     }
-    console.log(this.parejas);
   }
 
-  formapareja() {
-    for (let index = 0; index < 6; index++) {
-      for (let j = index + 1; j < 6; j++) {
-        if (this.parejas[index][0] == this.parejas[j][0]) {
-          this.parejas2.push([this.parejas[index][1], this.parejas[j][1]]);
-        }
-      }
-    }
-    console.log(this.parejas2);
-  }
-
-  ponervisto(img: number) {
+  ponervisto(img: any) {
     switch (img) {
-      case 0:
+      case this.img1:
         this.estilo1 = { 'border': '5px solid green' };
-        this.mostrar1=false;
+        this.mostrar1 = false;
         break;
-      case 1:
+      case this.img2:
         this.estilo2 = { 'border': '5px solid green' };
-        this.mostrar2=false;
+        this.mostrar2 = false;
         break;
-      case 2:
+      case this.img3:
         this.estilo3 = { 'border': '5px solid green' };
-        this.mostrar3=false;
+        this.mostrar3 = false;
         break;
-      case 3:
+      case this.img4:
         this.estilo4 = { 'border': '5px solid green' };
-        this.mostrar4=false;
+        this.mostrar4 = false;
         break;
-      case 4:
+      case this.img5:
         this.estilo5 = { 'border': '5px solid green' };
-        this.mostrar5=false;
+        this.mostrar5 = false;
         break;
-      case 5:
+      case this.img6:
         this.estilo6 = { 'border': '5px solid green' };
-        this.mostrar6=false;
+        this.mostrar6 = false;
         break;
     }
   }
 
-  quitarborde(img:number){
+  quitarborde(img: any) {
     switch (img) {
-      case 0:
+      case this.img1:
         this.estilo1 = { 'border': '' };
         this.img1.nativeElement.setAttribute('aria-disabled', false);
         break;
-      case 1:
-        this.estilo2 ={ 'border': '' };
+      case this.img2:
+        this.estilo2 = { 'border': '' };
         this.img2.nativeElement.setAttribute('aria-disabled', false);
         break;
-      case 2:
-        this.estilo3 ={ 'border': '' };
+      case this.img3:
+        this.estilo3 = { 'border': '' };
         this.img3.nativeElement.setAttribute('aria-disabled', false);
         break;
-      case 3:
+      case this.img4:
         this.estilo4 = { 'border': '' };
         this.img4.nativeElement.setAttribute('aria-disabled', false);
         break;
-      case 4:
+      case this.img5:
         this.estilo5 = { 'border': '' };
         this.img5.nativeElement.setAttribute('aria-disabled', false);
         break;
-      case 5:
+      case this.img6:
         this.estilo6 = { 'border': '' };
         this.img6.nativeElement.setAttribute('aria-disabled', false);
         break;
     }
   }
+
+  //calc_num_act
+  calc_num_act(): number {
+    if (sessionStorage.getItem("num_mod") == "1") {
+      return 0 + Number.parseInt(sessionStorage.getItem("num_act"));
+    } else if (sessionStorage.getItem("num_mod") == "2") {
+      return 10 + Number.parseInt(sessionStorage.getItem("num_act"));
+    } else if (sessionStorage.getItem("num_mod") == "3") {
+      return 20 + Number.parseInt(sessionStorage.getItem("num_act"));
+    } else if (sessionStorage.getItem("num_mod") == "4") {
+      return 30 + Number.parseInt(sessionStorage.getItem("num_act"));
+    } else if (sessionStorage.getItem("num_mod") == "5") {
+      return 40 + Number.parseInt(sessionStorage.getItem("num_act"));
+    } else if (sessionStorage.getItem("num_mod") == "6") {
+      return 50 + Number.parseInt(sessionStorage.getItem("num_act"));
+    } else if (sessionStorage.getItem("num_mod") == "7") {
+      return 60 + Number.parseInt(sessionStorage.getItem("num_act"));
+    } else if (sessionStorage.getItem("num_mod") == "8") {
+      return 70 + Number.parseInt(sessionStorage.getItem("num_act"));
+    }
+  }
+
+  //enviar respuesta
+  hoy = new Date();
+  enviar_respuesta() {
+    this.pauseTimer();
+    if (this.min = "00") {
+      this.tiempo = 1;
+    } else {
+      this.tiempo = Number.parseInt(this.min);
+    }
+    for (let index = 0; index < 3; index++) {
+      var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
+      this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.aleatorios[index].id, fecha: fecha, minutos: 5, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
+        console.log(resp);
+      });
+    }
+    this.ruta.navigateByUrl("/mapa-preguntas");
+  }
+
+  //cronometro
+  time: string = '00';
+  min: string = '00';
+  interval;
+  play = false;
+
+  startTimer() {
+    this.play = true;
+    this.interval = setInterval(() => {
+      let seg = Number.parseInt(this.time);
+      seg++;
+      if (seg < 10) {
+        this.time = '0' + seg;
+      } else {
+        this.time = seg.toString();
+      }
+      if (this.time == '60') {
+        this.time = '00';
+        let m = Number.parseInt(this.min);
+        m++;
+        if (m < 10) {
+          this.min = '0' + m;
+        } else {
+          this.min = m.toString();
+        }
+      }
+    }, 1000)
+  }
+
+  pauseTimer() {
+    this.play = false;
+    clearInterval(this.interval);
+  }
+
 }
