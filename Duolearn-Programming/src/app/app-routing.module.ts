@@ -10,15 +10,13 @@ import { PreguntasCuatroComponent } from './preguntas-cuatro/preguntas-cuatro.co
 import { PreguntasCincoComponent } from './preguntas-cinco/preguntas-cinco.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { PrincipalComponent } from './principal/principal.component';
-
+import { ForoDiscusionComponent } from './foro-discusion/foro-discusion.component';
 import { MapaPreguntasComponent } from './mapa-preguntas/mapa-preguntas.component';
 import { OlvideContraseniaComponent } from './olvide-contrasenia/olvide-contrasenia.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
-
+import { TeoriasComponent } from './teorias/teorias.component';
 import { CoronasComponent } from './coronas/coronas.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
-
-
 
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"principal"},
@@ -36,7 +34,9 @@ const routes: Routes = [
   {path: "olvide-contrasenia", component:OlvideContraseniaComponent},
   {path: "coronas", component:CoronasComponent},
   {path: "estadisticas", component:EstadisticasComponent},
-  {path: "mapa-preguntas", component:MapaPreguntasComponent}
+  {path: "foro-discusion", component:ForoDiscusionComponent},
+  {path: "mapa-preguntas", component:MapaPreguntasComponent},
+  {path: "teorias", component:TeoriasComponent}
 ];
 
 @NgModule({
