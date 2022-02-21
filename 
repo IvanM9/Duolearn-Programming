@@ -1,0 +1,81 @@
+[33mbb3f121[m[33m ([m[1;36mHEAD -> [m[1;32mMoreira[m[33m, [m[1;31morigin/Moreira[m[33m)[m Merge remote-tracking branch 'origin' into Moreira
+[33mcb6edcb[m env
+[33m4ee762b[m Merge branch 'jordan2' into Moreira
+[33mf90846b[m[33m ([m[1;31morigin/jordan2[m[33m, [m[1;32mjordan2[m[33m)[m Jordan20-feb
+[33m8792796[m cambios
+[33m35e2f12[m actividades completas
+[33mebb9fc5[m[33m ([m[1;33mtag: v1.0[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #17 from IvanM9/Moreira
+[33m8a5f1dc[m Merge branch 'main' into Moreira
+[33m883de09[m correcciones
+[33md85b2f5[m cambio_clave
+[33m4ecf87c[m Merge pull request #16 from IvanM9/Manzaba
+[33m93d02f9[m Merge branch 'Moreira' into Manzaba
+[33me041932[m Merge branch 'Manzaba' of https://github.com/IvanM9/Duolearn-Programming into Manzaba
+[33md97d731[m nuevos módulos instalados e implementación de métodos para agregar actividades
+[33m740dc9b[m dashboard
+[33md75bcca[m Merge branch 'jordan2' into Moreira
+[33md7ec4db[m cambiosJordan17feb
+[33m410ca27[m inserta y retorna actividades de base de datos
+[33m12a5c7e[m Merge pull request #15 from IvanM9/Manzaba
+[33mb5122bb[m Merge branch 'Moreira' into Manzaba
+[33mef7665c[m c
+[33m96698d0[m cambios
+[33m3e8f343[m cambios
+[33mf2c7670[m arreglo del metodo para obtener las actividades y se agregó el método para obtener las calificaciones del lenguaje csharp
+[33m4b0842f[m Merge pull request #14 from IvanM9/Moreira
+[33m742fdf7[m Merge branch 'Manzaba' into Moreira
+[33ma6c4874[m volver a dashboard
+[33m8e1cc9b[m correciones-preguntas-mapa
+[33m0084986[m Merge desde el main (#13)
+[33m0b8f641[m Merge main (#12)
+[33mcfd5579[m correción de los metodos del usuario y se agregó metodos para las actividades (#11)
+[33m96d1a81[m Merge pull request #10 from IvanM9/Manzaba
+[33m58c9c41[m Merge pull request #9 from IvanM9/Moreira
+[33m3bc80ad[m Merge branch 'main' into Moreira
+[33ma9c496c[m Merge pull request #8 from IvanM9/jordan2
+[33m30dfa60[m Cambios Jordan
+[33mb8ccdb9[m Merge branch 'jordan2' of https://github.com/IvanM9/Duolearn-Programming into jordan2
+[33ma06a170[m Nuevos disenios y arreglo login
+[33m78b4c12[m correción de los metodos del usuario y se agregó metodos para las actividades
+[33m5910999[m pregunta 3,4,5
+[33m286b952[m Merge branch 'Manzaba' into Moreira
+[33m133ec46[m preguna 2-3
+[33m7561125[m Merge branch 'jordan2' of https://github.com/IvanM9/Duolearn-Programming into jordan2
+[33mdde1fce[m a
+[33me0afe37[m login, nuevas preguntas
+[33m01e51d5[m desarrollo de metodos para el usuario
+[33m05936ea[m estructura del backend
+[33m33e3932[m nuevos cambios (#7)
+[33mcc46219[m Merge pull request #6 from IvanM9/Moreira
+[33mc6719a3[m dashboard
+[33m642a693[m menu_inicio, ventana de carga, instrucciones
+[33m07a7e5c[m preloader
+[33m1824fd6[m login+usuariosservice
+[33m146a006[m e
+[33m0cd3d56[m e
+[33mdd06def[m a
+[33m792b9a1[m Merge pull request #5 from IvanM9/jordan2
+[33mcb6a550[m e
+[33m86491b1[m Merge remote-tracking branch 'origin/jordan2' into Moreira
+[33m09f6298[m e
+[33meef0228[m arreglo del angular
+[33m9b6bc06[m proyecto con angular
+[33m704ac4e[m delete
+[33m2e21dd4[m Merge branch 'Moreira' of https://github.com/IvanM9/Duolearn-Programming into Moreira
+[33m02414cf[m pull
+[33m7ce690b[m implementación de la vista inicio de sesión y el registro con la página principal
+[33md5b24c5[m Integración de página principal (#3)
+[33mc391a90[m Manzaba (#2)
+[33m48965ed[m login (#1)
+[33me9ab23d[m Merge branch 'Moreira' of https://github.com/IvanM9/Duolearn-Programming into Moreira
+[33mcf93c93[m login
+[33m6109f1d[m Merge branch 'main' of https://github.com/IvanM9/Duolearn-Programming
+[33m4f33061[m Squashed commit of the following:
+[33mc6dab44[m se referencia a bootstrap en el index.html
+[33m2aaa875[m Se añade el index.html
+[33m6df3c44[m Se añade bootstrap
+[33m5583834[m Merge branch 'main' of https://github.com/IvanM9/Duolearn-Programming
+[33m0996816[m reorganizacion
+[33m598e3e1[m Update README.md
+[33m347707d[m organización de carpetas
+[33m54276c2[m first commit
