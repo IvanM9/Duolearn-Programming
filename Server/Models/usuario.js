@@ -5,8 +5,12 @@ const Usuario = {}
 //Devuelve todos los usuario registrados
 Usuario.listarUsuarios = async () => {
     try {
+        let aux = [];
         let datos = await pool.query("select listar_usuarios()");
-        return datos.rows;
+        datos.rows.forEach(element=>{
+            aux.push(element.listar_usuarios);
+        });
+        return aux;
     } catch (error) {
         console.log(error);
         return null;
