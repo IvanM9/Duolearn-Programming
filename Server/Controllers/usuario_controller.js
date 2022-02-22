@@ -1,21 +1,19 @@
 const Usuario = require("../Models/usuario");
+const { google } = require("googleapis");
+var nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 
 //Configuración para el envío de correos
-var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    secure: 'false',
-
-    auth: {
-        user: process.env.CORREO,
-        pass: process.env.CLAVE_CORREO
-    },
-    tls: {
-        rejectUnauthorized: false,
-    },
-});
+const client_id = "670624648440-p8o6pnd7pan6cfi8922goq645pr9nnds.apps.googleusercontent.com";
+const client_secret = "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";
+const oAuth2 = new google.auth.OAuth2(
+    client_id,
+    client_secret,
+    "https://developers.google.com/oauthplayground"
+);
+oAuth2.setCredentials({ refresh_token: "1//04n86mQeX3n5DCgYIARAAGAQSNwF-L9IrCtx-PWfdSOO-2xscnPX1wJ7jTMKRvRDoSc4NMP6NGQsYO3Odt9qXLG9J5zfN5N95U-0" });
 
 //* Se crea el objeto/clase
 const user = {}
@@ -136,17 +134,31 @@ user.elimnarUsuario = async (req, res) => {
 user.solicitarClave = async (req, res) => {
     try {
         const { usuario } = req.params;
+        if (usuario != null) {
 
-        //! let datos = await Usuario.obtenerClave(usuario);
-        if (datos != null) {
-            let correo = Usuario.getUser(usuario).correo;
+            let link = await crearToken(usuario);
+            // console.log(link);
+            const access_Token = await oAuth2.getAccessToken();
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    type: "OAuth2",
+                    user: "doulearnp@gmail.com",
+                    clientId: client_id,
+                    clientSecret: client_secret,
+                    refreshToken: "1//04n86mQeX3n5DCgYIARAAGAQSNwF-L9IrCtx-PWfdSOO-2xscnPX1wJ7jTMKRvRDoSc4NMP6NGQsYO3Odt9qXLG9J5zfN5N95U-0",
+                    accessToken: access_Token
+                },
+            });
+
+            let datos = await Usuario.getUser(usuario);
             var mailOptions = {
-                from: "'Duolearn Admin' <" + process.env.CORREO + ">",
-
-                to: correo,
-                subject: 'Duolearn: recuperación de clave',
-                text: 'Su contraseña es: ' + datos
+                from: "'Duolearn Admin' <doulearnp@gmail.com>",
+                to: datos.correo,
+                subject: "Reseteo de su clave duolearn",
+                text: "link de reseteo de su clave: " + link
             };
+
             await transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
                     console.log(error);
@@ -163,7 +175,35 @@ user.solicitarClave = async (req, res) => {
         console.log(error);
     }
 }
+const crearToken = async (usuario) => {
+    try {
+        let resetToken = jwt.sign({ username: usuario }, "studentreset", { expiresIn: '10m' });
+        await Usuario.asignarToken(usuario, resetToken);
+        return "http://localhost:4200/olvide-contrasenia/" + resetToken
 
+    } catch (error) {
+        return null
+    }
+}
+
+user.resetearClave = async (req, res) => {
+    try {
+        const { usuario, nueva_clave } = req.body;
+        const token = req.headers.reset;
+        jwt.verify(token, "studentreset",(err, decoded)=>{
+            await Usuario.asignarToken(usuario, null);
+        });
+        let status = await Usuario.resetClave(usuario, nueva_clave, token);
+        if (status != null && status != 0)
+            res.json({ mensaje: "clave cambiada exitosamente", estado: 1 });
+        else
+            res.json({ estado: "0" });
+
+    } catch (error) {
+        console.log(error);
+        res.json({ estado: "0", error });
+    }
+}
 //Cambio de clave
 user.cambiarClave = async (req, res) => {
     try {
@@ -176,6 +216,7 @@ user.cambiarClave = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: "0" });
     }
 }
 

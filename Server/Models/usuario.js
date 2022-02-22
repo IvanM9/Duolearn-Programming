@@ -7,7 +7,7 @@ Usuario.listarUsuarios = async () => {
     try {
         let aux = [];
         let datos = await pool.query("select listar_usuarios()");
-        datos.rows.forEach(element=>{
+        datos.rows.forEach(element => {
             aux.push(element.listar_usuarios);
         });
         return aux;
@@ -81,13 +81,30 @@ Usuario.eliminarUser = async (usuario) => {
 Usuario.cambiarClave = async (usuario, clave_actual, clave_nuevo) => {
     try {
         let datos = await pool.query("select cambiar_clave($1,$2,$3)", [usuario, clave_actual, clave_nuevo]);
-        console.log(datos.rows);
         return datos.rows[0].cambiar_clave;
     } catch (error) {
         return null;
     }
 }
 
+Usuario.asignarToken = async (usuario, token) => {
+    try {
+        let status = await pool.query("select agregar_token($1,$2)", [usuario, token]);
+        return status.rows[0].agregar_token;
+    } catch (error) {
+        console.log(error);
+        return 0;
+    }
+
+}
+Usuario.resetClave = async (usuario, nueva_clave, token) => {
+    try {
+        let status = await pool.query("select reset_clave($1,$2,$3)", [usuario, nueva_clave, token]);
+        return status.rows[0].reset_clave;
+    } catch (error) {
+        return 0;
+    }
+}
 
 
 module.exports = Usuario;

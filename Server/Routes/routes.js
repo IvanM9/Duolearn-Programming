@@ -21,8 +21,9 @@ router.get("/usuario/datos/:usuario", user.getUsuario);
 router.put("/usuario/modificar", user.modificarUsuario);
 router.post("/iniciar_sesion", user.iniciarSesion);
 router.delete('/usuario/eliminar/:usuario', user.elimnarUsuario);
-router.get("/recuperar_clave/:usuario", user.solicitarClave);
+router.post("/resetear_clave", user.resetearClave);
 router.post("/cambio_clave", user.cambiarClave);
+router.get("/solicitar_clave/:usuario", user.solicitarClave);
 
 
 //actividades
