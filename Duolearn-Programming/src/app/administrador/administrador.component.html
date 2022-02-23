@@ -1,0 +1,130 @@
+
+<div class="box" id="resultScreen">
+
+    <div class="barra">
+        <span>Duolearn Programming</span>
+        <span>Administrador</span>
+        <span id="cerrar-sesion"><a href="#">Cerrar sesión <fa-icon [icon]="faCerrarSesion"></fa-icon></a></span>
+    </div>
+
+    <div class="body">
+        <div class="caja" id="screenPreguntas">
+            <div class="cuestionario">
+                <div class="titulo">
+                    <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+                    Agregar nuevas preguntas
+                    <span><fa-icon [icon]="faPlus"></fa-icon></span>
+                </div>
+            
+                <!--Los comboBox para seleccionar tipo de pregunta y tema-->
+                <div class="header">
+                    <div class="tipo-pregunta"><b>Tipo de Pregunta: </b>
+                        <select>
+                            <option selected disabled>--- Seleccione ---</option>
+                            <option>Cuestionario</option>
+                            <option>Pares</option>
+                            <option>Drag and drop</option>
+                            <option>Error</option>
+                        </select>
+                    </div> 
+                    <div class="tema"><b>Tema: </b>
+                        <select>
+                            <option selected disabled>--- Seleccione ---</option>
+                            <option>if-else</option>
+                            <option>Enteros</option>
+                            <option>Caracteres</option>
+                        </select>  
+                    </div>
+                </div>
+            </div>
+
+            <!--Para ingresar preguntas de tipo cuestionario-->
+            <div class="tipo-cuestionario">
+                <div class="caja-pregunta" #pregunta >
+                    <h5>Ingrese la pregunta: </h5>
+                    <span><i><b>Nota: </b> En caso de ser de tipo Drag and drop, ingrese la pregunta (comentarios) línea a línea.</i></span>
+                    <textarea></textarea> 
+                </div>
+                
+                <div class="caja-opciones">
+                    <h5>Ingrese las Opciones: </h5>
+                    <span><b>Nota: </b> No ingrese literales (a,b,c,d), solo el texto.</span>
+                    <input type="text" placeholder=" Opción A (Correcta)"/>
+                    <input type="text" placeholder=" Opción B"/>
+                    <input type="text" placeholder=" Opción C"/>
+                    <input type="text" placeholder=" Opción D"/>
+                </div>
+            </div>
+        
+            <!--Para ingresar 2 imágenes en la pregunta de tipo pares-->
+            <div class="pares">
+                <h5>Suba una imagen de algún código de muestra: </h5>
+                <span><i><b>Nota: </b> Deberá subir 2 imágenes, una como pregunta y la otra como opción correcta</i></span>
+                <div class="contenedor-imagen-pares">
+                    <div class="imagenes-a-cargar">
+                        <br/>
+                        <img src="" alt="" id="img-vista-previa"/>
+                        <img src="../../assets/imagenes/codigo_de_prueba.png" alt="" id="img-vista-previa"/>
+                    </div>
+                </div>
+
+                <div class="form-pares">
+                    <input type="file" id="file" onchange="vista_preliminar(event)"/>
+                    <input type="button" value="Subir imagen 🔼" class="btn-subir-img" onclick="document.getElementById('file').click()"/>
+                </div>
+            </div>
+
+
+            <!--Pregunta para encontrar errores-->
+            <div class="error">
+                <h5>Suba una imagen de algún código de muestra: </h5>
+                <span><i><b>Nota: </b> Debe subir una imagen el cual el código contendrá un error</i></span>
+                <div class="contenedor-imagen-pares">
+                    <div class="imagenes-a-cargar">
+                        <br/><!--La imagen que puse aquí es de prueba, debes borrar esa imagen y dejar en blanco-->
+                        <img src="../../assets/imagenes/codigo_de_prueba.png" alt="" id="img-vista-previa"/>
+                    </div>
+
+                    <div class="form-pares">
+                        <input type="file" id="file" onchange="vista_preliminar(event)"/>
+                        <input type="button" value="Subir imagen 🔼" class="btn-subir-img" onclick="document.getElementById('file').click()"/>
+                    </div>
+                </div>
+
+                <div class="caja-opciones">
+                    <h5>Ingrese las Opciones: </h5>
+                    <span><i><b>Nota: </b> No ingrese literales (a,b,c,d), solo el texto.</i></span>
+                    <input type="text" placeholder=" Opción A (Correcta)"/>
+                    <input type="text" placeholder=" Opción B"/>
+                    <input type="text" placeholder=" Opción C"/>
+                    <input type="text" placeholder=" Opción D"/>
+                </div>
+            </div>
+
+            <!--Boton para guardar los cambios-->
+            <div class="botones">
+                <button>
+                    Guardar cambios 💾
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Este script JS hace mostrar la imagen en vista previa-->
+<script>
+    let vista_preliminar = (event)=>{
+        let leer_img = new FileReader();
+        let id_img = document.getElementById('img-vista-previa');
+
+        leer_img.onload = () =>{
+            if(leer_img.readyState ==2){
+                id_img.src = leer_img.result;
+            }
+        }
+        leer_img.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+<!--https://www.youtube.com/watch?v=7kAJUQOkJqo-->
