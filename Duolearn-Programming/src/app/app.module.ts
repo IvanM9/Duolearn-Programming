@@ -31,6 +31,7 @@ import { CoronasComponent } from './coronas/coronas.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { ForoDiscusionComponent } from './foro-discusion/foro-discusion.component';
 import { TeoriasComponent } from './teorias/teorias.component';
+import { AdministradorComponent } from './administrador/administrador.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { TeoriasComponent } from './teorias/teorias.component';
     CoronasComponent,
     EstadisticasComponent,
     ForoDiscusionComponent,
-    TeoriasComponent
+    TeoriasComponent,
+    AdministradorComponent
   ],
   imports: [
     BrowserModule,

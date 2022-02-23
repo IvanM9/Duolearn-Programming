@@ -17,6 +17,7 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 import { TeoriasComponent } from './teorias/teorias.component';
 import { CoronasComponent } from './coronas/coronas.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { AdministradorComponent } from './administrador/administrador.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"principal"},
@@ -36,7 +37,8 @@ const routes: Routes = [
   {path: "estadisticas", component:EstadisticasComponent},
   {path: "foro-discusion", component:ForoDiscusionComponent},
   {path: "mapa-preguntas", component:MapaPreguntasComponent},
-  {path: "teorias", component:TeoriasComponent}
+  {path: "teorias", component:TeoriasComponent},
+  {path: "administrador", component:AdministradorComponent}
 ];
 
 @NgModule({
