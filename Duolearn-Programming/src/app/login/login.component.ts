@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     }, 1250);
     this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
       if(resp.estado==1){
-        if(resp.tipo=="administrador"){
+        if(resp.tipo.trim()=="administrador"){
           this.ruta.navigateByUrl("/administrador");
         }else{
           this.ruta.navigateByUrl("/dashboard");
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('user', this.form_login.value.usuario);
         this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
           if(resp.estado==1){
-            if(resp.tipo=="administrador"){
+            if(resp.tipo.trim()=="administrador"){
               this.ruta.navigateByUrl("/administrador");
             }else{
               this.ruta.navigateByUrl("/elegir-lenguaje");

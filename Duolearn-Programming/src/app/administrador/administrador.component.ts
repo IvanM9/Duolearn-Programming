@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { PreguntasService } from '../servicios/preguntas.service';
 import { TemasService } from '../servicios/temas.service';
@@ -31,7 +32,7 @@ export class AdministradorComponent implements AfterViewInit {
   faCerrarSesion = iconos.faSignOutAlt;
 
 
-  constructor(public tema_serv: TemasService, public act_serv: PreguntasService) { }
+  constructor(public tema_serv: TemasService, public act_serv: PreguntasService, public ruta:Router) { }
 
   ngAfterViewInit(): void {
     this.formData=new FormData();
@@ -119,5 +120,11 @@ export class AdministradorComponent implements AfterViewInit {
       });
     }
   }
+
+  close_session() {
+    sessionStorage.clear();
+    this.ruta.navigateByUrl("/principal");
+  }
+
 
 }
