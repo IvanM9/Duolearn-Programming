@@ -64,8 +64,6 @@
 
 
 .mensajes-otros-usuarios{
-    border-radius: 10px;
-    padding: 10px;
     background-color: wheat;
     border: 1px solid gray;
     border-radius: 10px;
@@ -76,10 +74,8 @@
 
 .mensajes-usuario-actual{
     border-radius: 10px;
-    padding: 10px;
     background-color: wheat;
     border: 1px solid gray;
-    border-radius: 10px;
     padding: 10px 15px;
     margin-bottom: 10px;
     width: 75%;

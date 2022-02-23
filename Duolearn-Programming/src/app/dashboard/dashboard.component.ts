@@ -189,9 +189,7 @@ export class DashboardComponent implements AfterViewInit {
     sessionStorage.setItem("modulo", entrada);
     this.nun_mod = number;
     sessionStorage.setItem("num_mod", number);
-    DashboardComponent.modulo_select = entrada;
-    InstruccionesComponent.valor = entrada;
-    this.ruta.navigateByUrl("/mapa-preguntas");
+    this.ruta.navigateByUrl("/teorias");
   }
 
   close_session() {

@@ -13,19 +13,6 @@ export class PreguntasService {
 
   constructor(private clientHttp:HttpClient) { }
 
-  obtener_pregunta():Observable<any>{
-    return this.clientHttp.get(this.Api+"preguntas");
-  }
-
-  obtener_pregunta3():Observable<any>{
-    return this.clientHttp.get(this.Api+"preguntas4");
-  }
-
-  obtener_preguntadd():Observable<any>{
-    return this.clientHttp.get(this.Api+"preguntasdd");
-  }
-
-
   get_questions(datos:any):Observable<any>{
     return this.clientHttp.post(this.Api+"actividades/obtener",datos);
   }
