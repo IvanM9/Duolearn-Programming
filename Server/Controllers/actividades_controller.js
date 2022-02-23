@@ -55,7 +55,7 @@ actividades.agregarActividad = async (req, res) => {
         const { tema, pregunta, opcion_correcta, opcion2, opcion3, opcion4, tipo } = req.body;
         let status, _pregunta, _opcion1;
         switch (tipo) {
-            case "elegir-error":
+            case "encontrar-error":
                 _pregunta = (await cloudinary.v2.uploader.upload(req.files[0].path)).secure_url;
                 _opcion1 = opcion_correcta;
                 break;

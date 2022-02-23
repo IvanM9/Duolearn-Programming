@@ -93,14 +93,14 @@ export class PreguntasCincoComponent implements AfterViewInit {
     let texto;
     switch (opcion) {
       case "opcion1":
-
         texto = this.opcion1.nativeElement.innerText;
-        if (texto == this.Pregunta[0].opcion_correcta) {
+        if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
           console.log("correcto");
           this.estilo1 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo2 = this.concatJSON2(this.estilo2);
           this.estilo3 = this.concatJSON2(this.estilo3);
           this.estilo4 = this.concatJSON2(this.estilo4);
+          this.pauseTimer();
         } else {
           console.log("incorrecto");
           this.estilo1 = { 'border': '5px solid red', "pointer-events": "none" };
@@ -109,8 +109,9 @@ export class PreguntasCincoComponent implements AfterViewInit {
         break;
       case "opcion2":
         texto = this.opcion2.nativeElement.innerText;
-        if (texto == this.Pregunta[0].opcion_correcta) {
+        if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
           console.log("correcto");
+          this.pauseTimer();
           this.estilo2 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo1 = this.concatJSON2(this.estilo1);
           this.estilo3 = this.concatJSON2(this.estilo3);
@@ -123,8 +124,9 @@ export class PreguntasCincoComponent implements AfterViewInit {
         break;
       case "opcion3":
         texto = this.opcion3.nativeElement.innerText;
-        if (texto == this.Pregunta[0].opcion_correcta) {
+        if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
           console.log("correcto");
+          this.pauseTimer();
           this.estilo3 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo2 = this.concatJSON2(this.estilo2);
           this.estilo1 = this.concatJSON2(this.estilo1);
@@ -137,8 +139,9 @@ export class PreguntasCincoComponent implements AfterViewInit {
         break;
       case "opcion4":
         texto = this.opcion4.nativeElement.innerText;
-        if (texto == this.Pregunta[0].opcion_correcta) {
+        if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
           console.log("correcto");
+          this.pauseTimer();
           this.estilo4 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo2 = this.concatJSON2(this.estilo2);
           this.estilo3 = this.concatJSON2(this.estilo3);
