@@ -42,7 +42,7 @@ export class PreguntasComponent implements OnInit {
       this.ruta.navigateByUrl("/dashboard");
     } else {
       this.valor = sessionStorage.getItem("modulo");
-      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "CUESTIONARIO", usuario: sessionStorage.getItem("user") }).subscribe(respuesta => {
+      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "cuestionario", usuario: sessionStorage.getItem("user") }).subscribe(respuesta => {
         console.log(respuesta);
         this.Pregunta = respuesta;
         this.startTimer();

@@ -51,7 +51,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     if (sessionStorage.getItem("modulo") == null) {
       this.ruta.navigateByUrl("/dashboard");
     } else {
-      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "CUESTIONARIO", usuario: sessionStorage.getItem("user") }).subscribe(resp => {
+      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "cuestionario", usuario: sessionStorage.getItem("user") }).subscribe(resp => {
         this.pregunta = resp;
         console.log(resp);
         this.startTimer();

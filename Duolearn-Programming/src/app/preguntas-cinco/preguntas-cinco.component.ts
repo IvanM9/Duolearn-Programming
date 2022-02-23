@@ -42,7 +42,7 @@ export class PreguntasCincoComponent implements AfterViewInit {
       this.ruta.navigateByUrl("/dashboard");
     } else {
       this.valor = sessionStorage.getItem("modulo");
-      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "elegir-error", usuario: sessionStorage.getItem("user") }).subscribe(respuesta => {
+      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "encontrar-error", usuario: sessionStorage.getItem("user") }).subscribe(respuesta => {
         console.log(respuesta);
         this.startTimer();
         this.Pregunta = respuesta;
