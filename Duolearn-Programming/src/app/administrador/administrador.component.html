@@ -40,16 +40,16 @@
                 <div class="caja-pregunta" #pregunta >
                     <h5>Ingrese la pregunta: </h5>
                     <span><i><b>Nota: </b> En caso de ser de tipo Drag and drop, ingrese la pregunta (comentarios) línea a línea.</i></span>
-                    <textarea></textarea> 
+                    <textarea #pregunta_cuestionario></textarea> 
                 </div>
                 
                 <div class="caja-opciones">
                     <h5>Ingrese las Opciones: </h5>
                     <span><b>Nota: </b> No ingrese literales (a,b,c,d), solo el texto.</span>
-                    <input type="text" placeholder=" Opción A (Correcta)"/>
-                    <input type="text" placeholder=" Opción B"/>
-                    <input type="text" placeholder=" Opción C"/>
-                    <input type="text" placeholder=" Opción D"/>
+                    <input #opcion_a_cuestionario type="text" placeholder=" Opción A (Correcta)"/>
+                    <input #opcion_b_cuestionario type="text" placeholder=" Opción B"/>
+                    <input #opcion_c_cuestionario type="text" placeholder=" Opción C"/>
+                    <input #opcion_d_cuestionario type="text" placeholder=" Opción D"/>
                 </div>
             </div>
         
@@ -81,7 +81,7 @@
                 <div class="contenedor-imagen-pares">
                     <div class="imagenes-a-cargar">
                         <br/><!--La imagen que puse aquí es de prueba, debes borrar esa imagen y dejar en blanco-->
-                        <img alt="" id="img-vista-previa3"/>
+                        <img #imagen3 alt="" id="img-vista-previa3"/>
                     </div>
 
                     <div class="form-pares">
@@ -93,16 +93,16 @@
                 <div class="caja-opciones">
                     <h5>Ingrese las Opciones: </h5>
                     <span><i><b>Nota: </b> No ingrese literales (a,b,c,d), solo el texto.</i></span>
-                    <input type="text" placeholder=" Opción A (Correcta)"/>
-                    <input type="text" placeholder=" Opción B"/>
-                    <input type="text" placeholder=" Opción C"/>
-                    <input type="text" placeholder=" Opción D"/>
+                    <input #opcion_a_error type="text" placeholder=" Opción A (Correcta)"/>
+                    <input #opcion_b_error type="text" placeholder=" Opción B"/>
+                    <input #opcion_c_error type="text" placeholder=" Opción C"/>
+                    <input #opcion_d_error type="text" placeholder=" Opción D"/>
                 </div>
             </div>
 
             <!--Boton para guardar los cambios-->
             <div class="botones">
-                <button>
+                <button (click)="send_question()">
                     Guardar cambios 💾
                 </button>
             </div>

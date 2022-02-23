@@ -7,9 +7,8 @@ import { Usuarios } from './usuarios';
   providedIn: 'root'
 })
 export class UsuariosService {
-  //Api:string='http://localhost:8080/basedatos/';
-  Api:string='http://localhost:2000/api';
 
+  Api:string='http://localhost:2000/api';
 
   constructor(private clientHttp:HttpClient) { }
 

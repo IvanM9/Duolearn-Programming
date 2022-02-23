@@ -47,7 +47,11 @@ export class LoginComponent implements OnInit {
     }, 1250);
     this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
       if(resp.estado==1){
-        this.ruta.navigateByUrl("/dashboard");
+        if(resp.tipo=="administrador"){
+          this.ruta.navigateByUrl("/administrador");
+        }else{
+          this.ruta.navigateByUrl("/dashboard");
+        }
       }
     });
   }
@@ -57,18 +61,21 @@ export class LoginComponent implements OnInit {
       let val = resp.estado;
       if (val == 1) {
         this.mensaje_bien(resp.mensaje);
-        this.saveData();
-        this.ruta.navigateByUrl("/elegir-lenguaje");
+        sessionStorage.setItem('user', this.form_login.value.usuario);
+        this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
+          if(resp.estado==1){
+            if(resp.tipo=="administrador"){
+              this.ruta.navigateByUrl("/administrador");
+            }else{
+              this.ruta.navigateByUrl("/elegir-lenguaje");
+            }
+          }
+        });
       } else {
         this.mensaje_mal(resp.mensaje);
         this.ruta.navigateByUrl("/login");
       }
     });
-  }
-
-  saveData() {
-    sessionStorage.setItem('user', this.form_login.value.usuario);
-    //sessionStorage.setItem('location', 'Pakistan');
   }
 
   registro_user(): any {

@@ -1,5 +1,4 @@
 const activity = require("../Models/actividades");
-
 const fs = require('fs-extra');
 const cloudinary = require('cloudinary');
 const actividades = {};
@@ -15,7 +14,6 @@ cloudinary.config({
 //Se obtiene las actividades por medio de varios restricciones
 actividades.obtenerActividades = async (req, res) => {
     try {
-
         const { modulo, lenguaje, tipo, usuario } = req.body;
         let datos = await activity.obtenerActividades(modulo, lenguaje, tipo, usuario);
         if (datos != null) {
@@ -48,7 +46,6 @@ actividades.resolverActividad = async (req, res) => {
     }
 }
 
-
 //Se inserta una nueva actividad a la base de datos
 actividades.agregarActividad = async (req, res) => {
     try {
@@ -78,7 +75,7 @@ actividades.agregarActividad = async (req, res) => {
             opcion4,
             tipo
         );
-
+        
         req.files.forEach(async element => {
             await fs.unlink(element.path);
         });
