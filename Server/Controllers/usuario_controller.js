@@ -51,7 +51,6 @@ user.getUsuario = async (req, res) => {
     }
 }
 
-
 //Se verifica que los datos no estén vacios y 
 //se obtienen una verificación de que son correctos
 
@@ -191,7 +190,7 @@ user.resetearClave = async (req, res) => {
         const { usuario, nueva_clave } = req.body;
         const token = req.headers.reset;
         jwt.verify(token, "studentreset",(err, decoded)=>{
-            await Usuario.asignarToken(usuario, null);
+             Usuario.asignarToken(usuario, null);
         });
         let status = await Usuario.resetClave(usuario, nueva_clave, token);
         if (status != null && status != 0)
