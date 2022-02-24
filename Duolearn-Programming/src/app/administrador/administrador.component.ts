@@ -32,10 +32,10 @@ export class AdministradorComponent implements AfterViewInit {
   faCerrarSesion = iconos.faSignOutAlt;
 
 
-  constructor(public tema_serv: TemasService, public act_serv: PreguntasService, public ruta:Router) { }
+  constructor(public tema_serv: TemasService, public act_serv: PreguntasService, public ruta: Router) { }
 
   ngAfterViewInit(): void {
-    this.formData=new FormData();
+    this.formData = new FormData();
   }
 
 
@@ -53,7 +53,7 @@ export class AdministradorComponent implements AfterViewInit {
   vista_preliminar2 = (event) => {
     let id_img = document.getElementById('img-vista-previa2');
     let path = URL.createObjectURL(event.target.files[0]);
-    this.img2= event.target.files[0];
+    this.img2 = event.target.files[0];
     id_img.setAttribute("src", path);
   }
 
@@ -66,7 +66,7 @@ export class AdministradorComponent implements AfterViewInit {
     id_img.setAttribute("src", path);
   }
 
-  formdata=new FormData();
+  formdata = new FormData();
 
   send_question() {
     if (this.seleccionado == 2) {
@@ -83,10 +83,10 @@ export class AdministradorComponent implements AfterViewInit {
         this.seleccionado = 0;
       });
     } else if (this.seleccionado == 3) {
-      this.formData.append("tema",this.tema_select.toString());
-      this.formData.append("images",this.img1);
-      this.formData.append("images",this.img2);
-      this.formData.append("tipo","pares");
+      this.formData.append("tema", this.tema_select.toString());
+      this.formData.append("images", this.img1);
+      this.formData.append("images", this.img2);
+      this.formData.append("tipo", "pares");
       this.act_serv.realiza_pregunta(this.formData).subscribe(resp => {
         console.log(resp);
         this.seleccionado = 0;
@@ -106,13 +106,13 @@ export class AdministradorComponent implements AfterViewInit {
         this.seleccionado = 0;
       });
     } else if (this.seleccionado == 5) {
-      this.formData.append("tema",this.tema_select.toString());
-      this.formData.append("images",this.img3);
-      this.formData.append("opcion_correcta",this.opcion_a_error.nativeElement.value);
-      this.formData.append("opcion2",this.opcion_b_error.nativeElement.value);
-      this.formData.append("opcion3",this.opcion_c_error.nativeElement.value);
-      this.formData.append("opcion4",this.opcion_d_error.nativeElement.value);
-      this.formData.append("tipo","encontrar-error");
+      this.formData.append("tema", this.tema_select.toString());
+      this.formData.append("images", this.img3);
+      this.formData.append("opcion_correcta", this.opcion_a_error.nativeElement.value);
+      this.formData.append("opcion2", this.opcion_b_error.nativeElement.value);
+      this.formData.append("opcion3", this.opcion_c_error.nativeElement.value);
+      this.formData.append("opcion4", this.opcion_d_error.nativeElement.value);
+      this.formData.append("tipo", "encontrar-error");
       this.act_serv.realiza_pregunta(this.formData).subscribe(resp => {
         console.log(resp);
         this.seleccionado = 0;
