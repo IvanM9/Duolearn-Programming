@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: "preguntas-cinco", component:PreguntasCincoComponent},
   {path:"instrucciones", component:InstruccionesComponent},
   {path: "mi-perfil", component:PerfilUsuarioComponent},
-  {path: "olvide-contrasenia", component:OlvideContraseniaComponent},
+  {path: "olvide-contrasenia/:token", component:OlvideContraseniaComponent},
   {path: "coronas", component:CoronasComponent},
   {path: "estadisticas", component:EstadisticasComponent},
   {path: "foro-discusion", component:ForoDiscusionComponent},

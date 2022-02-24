@@ -189,6 +189,7 @@ user.resetearClave = async (req, res) => {
     try {
         const { usuario, nueva_clave } = req.body;
         const token = req.headers.reset;
+        console.log(req.body);
         jwt.verify(token, "studentreset",(err, decoded)=>{
              Usuario.asignarToken(usuario, null);
         });
