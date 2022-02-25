@@ -18,7 +18,6 @@ export class DashboardComponent implements AfterViewInit {
 
   constructor(
     public ruta: Router,
-    private instr: InstruccionesComponent,
     private user_serv: UsuariosService,
     public estadisticas_serv: EstadisticasService
   ) { }
@@ -272,6 +271,7 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   img: any = "";
+
   elegir_leng() {
     if (this.retornaselect(this.esc.nativeElement.options.selectedIndex) == "Java") {
       sessionStorage.setItem("lenguaje", "java");
