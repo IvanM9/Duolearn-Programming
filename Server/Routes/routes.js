@@ -13,6 +13,7 @@ router.delete("/admin/temas/eliminar/:id", actividades.eliminarTema);
 router.post("/admin/actividades/agregar", actividades.agregarActividad);
 router.put("/admin/actividades/modificar", actividades.modificarActividad);
 router.delete("/admin/actividades/eliminar/:id", actividades.eliminarActividad);
+router.get("/admin/temas/obtener", actividades.listarTemas);
 
 
 //usuarios

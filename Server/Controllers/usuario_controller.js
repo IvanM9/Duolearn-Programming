@@ -130,7 +130,7 @@ user.elimnarUsuario = async (req, res) => {
 }
 
 
-//Se envía un correo con una clave temporal
+//Se envía un correo con una token temporal
 user.solicitarClave = async (req, res) => {
     try {
         const { usuario } = req.params;
@@ -175,6 +175,8 @@ user.solicitarClave = async (req, res) => {
         console.log(error);
     }
 }
+
+// Se genera un nuevo token para el cambio de contraseña 
 const crearToken = async (usuario) => {
     try {
         let resetToken = jwt.sign({ username: usuario }, "studentreset", { expiresIn: '10m' });
@@ -186,11 +188,12 @@ const crearToken = async (usuario) => {
     }
 }
 
+// Se ingresa nueva clave y se hace la verificación del token
 user.resetearClave = async (req, res) => {
     try {
         const { usuario, nueva_clave } = req.body;
         const token = req.headers.reset;
-        jwt.verify(token, "studentreset",(err, decoded)=>{
+        jwt.verify(token, "studentreset", async (err, decoded) => {
             await Usuario.asignarToken(usuario, null);
         });
         let status = await Usuario.resetClave(usuario, nueva_clave, token);
@@ -204,6 +207,7 @@ user.resetearClave = async (req, res) => {
         res.json({ estado: "0", error });
     }
 }
+
 //Cambio de clave
 user.cambiarClave = async (req, res) => {
     try {
