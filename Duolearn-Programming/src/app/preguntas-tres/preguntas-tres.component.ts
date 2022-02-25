@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { PreguntasComponent } from '../preguntas/preguntas.component';
 import { PreguntasService } from '../servicios/preguntas.service';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -129,10 +130,10 @@ export class PreguntasTresComponent implements AfterViewInit {
       }
     }
     this.pauseTimer();
-    if(this.min="00"){
-      this.tiempo=1;
-    }else{
-      this.tiempo=Number.parseInt(this.min);
+    if (this.min = "00") {
+      this.tiempo = 1;
+    } else {
+      this.tiempo = Number.parseInt(this.min);
     }
     this.enviar_respuesta();
     setTimeout(() => {
@@ -150,6 +151,63 @@ export class PreguntasTresComponent implements AfterViewInit {
 
   allowDrop(ev) {
     ev.preventDefault();
+  }
+
+  timer;
+  // Tiempo mínimo del touch sostenido para considerarse como un arrastre
+  touchDuration = 500;
+  // Indicador de drag and drop en dispositivos móviles
+  dragMobile = false;
+  // Elemento que está siendo arrastrado
+  element;
+
+  touchstart(ev) {
+
+    // Inicio del 
+    let dragMobileaux = false;
+    // Se captura el elemento sobre el que se inicia el evento touch
+    this.element = this;
+    this.elemn = ev.target.id;
+    this.dragMobile = true;
+
+    /*this.timer = setTimeout(function () {
+      // Se asigna el elemento src a la imagen auxiliar
+      //ev.dataTransfer.setData("text", ev.target.id);
+      // Se indica que se ha iniciado el dragging en dispositivo móvil
+      dragMobileaux = true;
+    }, this.touchDuration);*/
+  }
+
+  touchend(ev) {
+    // Se reinicia el timer que controla el tiempo mínimo que debe transcurrir
+    // para considerarse un arrastre en dispositivo móvil        
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    // Se valida que se haya capturado el elemento arrastrado
+    if (this.element) {
+      // Se valida que el elemento sea arrastrable y que se haya iniciado
+      if (this.dragMobile) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        // Se oculta la imagen auxiliar de arrastre
+        //var data = ev.dataTransfer.getData("text");
+        console.log("entra " + this.elemn + "en el " + ev.target.id);
+        ev.target.appendChild(document.getElementById(this.elemn));
+        // Se pone en falso la bandera que indica que se ha finalizado el evento 
+        // drag and drop en mobile
+        this.dragMobile = false;
+      }
+    }
+  }
+
+  touchmove(ev) {
+    // Valida si se ha iniciado un arrastre en dispositivo móvil
+    if (this.dragMobile) {
+      // Se modifica la posición de la imagen auxiliar con opacidad al 80%
+      // que sigue el movimiento del dedo a lo largo de la pantalla
+      ev.preventDefault();
+    }
   }
 
   drag(ev) {
@@ -184,12 +242,12 @@ export class PreguntasTresComponent implements AfterViewInit {
 
   enviar_respuesta() {
     this.pauseTimer();
-    if(this.min="00"){
-      this.tiempo=1;
-    }else{
-      this.tiempo=Number.parseInt(this.min);
+    if (this.min = "00") {
+      this.tiempo = 1;
+    } else {
+      this.tiempo = Number.parseInt(this.min);
     }
-    var fecha = this.hoy.getFullYear()+'-'+(this.hoy.getMonth() + 1) + '-'+this.hoy.getDate();
+    var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
     this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.preg_aleatoria.id, fecha: fecha, minutos: this.tiempo, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
       console.log(resp);
     });
