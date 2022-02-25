@@ -6,7 +6,6 @@ import { UsuariosService } from '../servicios/usuarios.service';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 
 import Swal from 'sweetalert2';
-import { PreLoaderComponent } from '../pre-loader/pre-loader.component';
 
 @Component({
   selector: 'app-login',
@@ -101,6 +100,7 @@ export class LoginComponent implements OnInit {
       timer: 1500
     })
   }
+
   mensaje_mal(mensaje:any) {
     Swal.fire({
       icon: 'error',
@@ -110,6 +110,7 @@ export class LoginComponent implements OnInit {
       timer: 1500
     });
   }
+
   MostrarElegirLenguaje() {
     this.ruta.navigateByUrl("/elegir-lenguaje");
   }
