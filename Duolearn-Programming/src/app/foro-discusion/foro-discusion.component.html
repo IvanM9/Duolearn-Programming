@@ -1,0 +1,33 @@
+<div class="body">
+    <div class="caja" id="screenPreguntas">
+
+        <div class="titulo">
+            <h6>
+                <fa-icon [icon]="facomments"></fa-icon> Foro de Discusión
+            </h6>
+        </div>
+
+        <div class="scroll-bg">
+            <div class="scroll-div" id="contenido" #contenido>
+                <div class="scroll-object" *ngFor="let chat of chats">
+                    <div [ngClass]="devuelve_estilo(chat.usuario)"><b>{{chat.usuario}}: </b>{{chat.mensaje}}</div>
+                </div>
+            </div>
+
+
+            <div class="entrada-texto">
+                <textarea #mensaje_enviar placeholder="Escribe un mensaje . . ."></textarea>
+                <button id="boton-enviar" (click)="enviar_mensaje()">
+                    <fa-icon [icon]="fapaperplane" id="icono-chat"></fa-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="botones">
+            <button routerLink="/dashboard">
+                ◀ Volver al menú
+            </button>
+        </div>
+
+    </div>
+</div>

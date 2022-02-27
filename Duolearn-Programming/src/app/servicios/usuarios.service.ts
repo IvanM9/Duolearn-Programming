@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuarios } from './usuarios';
 
@@ -7,33 +7,46 @@ import { Usuarios } from './usuarios';
   providedIn: 'root'
 })
 export class UsuariosService {
-  //Api:string='http://localhost:8080/basedatos/';
-  Api:string='http://localhost:2000/api';
 
+  Api: string = 'http://localhost:2000/api';
 
-  constructor(private clientHttp:HttpClient) { }
+  constructor(private clientHttp: HttpClient) { }
 
-  user_login(datos_login:Usuarios):Observable<any>{
-    return this.clientHttp.post(this.Api+"/iniciar_sesion",datos_login);
+  user_login(datos_login: Usuarios): Observable<any> {
+    return this.clientHttp.post(this.Api + "/iniciar_sesion", datos_login);
   }
 
-  user_register(datos_registro:Usuarios):Observable<any>{
-    return this.clientHttp.post(this.Api+"/usuario/nuevo",datos_registro);
+  user_register(datos_registro: Usuarios): Observable<any> {
+    return this.clientHttp.post(this.Api + "/usuario/nuevo", datos_registro);
   }
 
-  close_session():Observable<any>{
-    return this.clientHttp.get(this.Api+"/cerrar_sesion");
-  }
-  
-  get_user(user:any):Observable<any>{
-    return this.clientHttp.get(this.Api+"/usuario/datos/"+user.usuario);
+  solicita_password(usuario: any): Observable<any> {
+    return this.clientHttp.get(this.Api + "/solicitar_clave/" + usuario);
   }
 
-  update_info(datos_nuevos:Usuarios):Observable<any>{
-    return this.clientHttp.put(this.Api+"/usuario/modificar",datos_nuevos);
+  resetea_password(datos: any, token: any): Observable<any> {
+    console.log(datos);
+    const opciones = {
+      headers: new HttpHeaders({
+        'reset': token, 'Content-Type': 'application/json', 'Accept':'*/*'
+      })
+    };
+    return this.clientHttp.post(this.Api + "/resetear_clave", datos, opciones);
   }
 
-  update_pass(datos_nuevos:Usuarios):Observable<any>{
-    return this.clientHttp.post(this.Api+"/cambio_clave",datos_nuevos);
+  close_session(): Observable<any> {
+    return this.clientHttp.get(this.Api + "/cerrar_sesion");
+  }
+
+  get_user(user: any): Observable<any> {
+    return this.clientHttp.get(this.Api + "/usuario/datos/" + user.usuario);
+  }
+
+  update_info(datos_nuevos: Usuarios): Observable<any> {
+    return this.clientHttp.put(this.Api + "/usuario/modificar", datos_nuevos);
+  }
+
+  update_pass(datos_nuevos: Usuarios): Observable<any> {
+    return this.clientHttp.post(this.Api + "/cambio_clave", datos_nuevos);
   }
 }

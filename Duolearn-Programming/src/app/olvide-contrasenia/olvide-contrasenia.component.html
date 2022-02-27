@@ -3,24 +3,30 @@
         <div class="imagen">
             <img src="../../assets/imagenes/logo_pag_principal.png" alt="logo-Duolearn-programming" />
         </div>
-       
-        
+
+
         <div class="titulo">
             <h1>Proceso de recuperación de contraseña</h1>
         </div>
 
         <div class="texto">
-            <p>Si no recuerda su contraseña, el equipo de desarrollo le ayudará con esto. Ingrese su nombre de usuario en el campo correspondiente y automáticamente le enviaremos un correo electrónico con su información; de esta manera recuperará el acceso a Duolearn Programming</p> 
+            <p>Si no recuerda su contraseña, el equipo de desarrollo le ayudará con esto. Ingrese su nombre de usuario
+                en el campo correspondiente y automáticamente le enviaremos un correo electrónico con su información; de
+                esta manera recuperará el acceso a Duolearn Programming</p>
         </div>
 
         <div class="credenciales">
             <h5><b>Nombre de usuario: </b></h5>
-            <input type="text" placeholder="Usuario">
+            <input #usuario type="text" placeholder="Usuario">
         </div>
 
+        <div *ngIf="token" class="credenciales">
+            <h5><b>Ingrese nueva contraseña: </b></h5>
+            <input #password type="password" placeholder="password">
+        </div>
         <!--Al clickear este botón, muestra mensaje de successfully y lo redirige al login-->
         <div class="botones">
-            <button>
+            <button (click)="reseteo()">
                 Siguiente ▶
             </button>
         </div>

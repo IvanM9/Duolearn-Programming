@@ -69,26 +69,25 @@
 }
 
 .caja-imagen img{
-    max-width: 35%;
+    max-width: 80%;
 }
 
 .caja-opciones{
     margin-top: 20px;
     margin-bottom: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
 }
 
 .caja-opciones span{
     background-color: wheat;
     border-radius: 10px;
+    padding: 10px;
+    
     border: 1px solid wheat;
-    height: 40px;
-    width: 245px;
-    padding: 6.5px 15px;
-    text-align: center;
-    justify-content: space-between;
+    border-radius: 10px;
+    padding: 10px 15px;
 }
 
 .botones{

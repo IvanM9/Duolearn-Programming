@@ -23,7 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api/", require("./Routes/routes"));
 
-app.listen(process.env.PORT);
+const puerto = process.env.PORT ? process.env.PORT : 2000;
+app.listen(puerto);
 
-console.log("http://localhost:" + process.env.PORT);
+console.log("http://localhost:" + puerto);
 

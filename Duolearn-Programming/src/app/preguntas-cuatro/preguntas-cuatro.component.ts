@@ -35,7 +35,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
   pregunta: any;
   pregs_Salieron: number[] = [];
   total_correctas: number = 0;
-
+  tiempo: number;
 
   opcs: any[] = [];
   esc: any[] = [];
@@ -51,9 +51,10 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     if (sessionStorage.getItem("modulo") == null) {
       this.ruta.navigateByUrl("/dashboard");
     } else {
-      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "CUESTIONARIO", usuario: sessionStorage.getItem("user") }).subscribe(resp => {
+      this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "cuestionario", usuario: sessionStorage.getItem("user") }).subscribe(resp => {
         this.pregunta = resp;
         console.log(resp);
+        this.startTimer();
         if (resp.length >= 4) {
           for (let index = 0; index < 4; index++) {
             let rand = this.getRandomInt(0, this.pregunta.length - 1);
@@ -110,12 +111,12 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     }
 
   }
+
   getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
 
   jsongeneral: any = {};
 
@@ -124,7 +125,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
   }
 
   private respuestas: string[] = [];
-  private puntos = 5;
+  puntos = 5;
 
   comprueba() {
     this.respuestas = [];
@@ -149,15 +150,6 @@ export class PreguntasCuatroComponent implements AfterViewInit {
       }
     }
     this.enviar_respuesta();
-
-
-    //this.jsongeneral = JSON.parse(sessionStorage.getItem(sessionStorage.getItem("modulo")));
-    //this.jsongeneral.porcentaje = this.jsongeneral.porcentaje + 10;
-    //console.log(this.jsongeneral);
-    //let json = this.crearjson2(PreguntasCuatroComponent.numact);
-    //this.jsongeneral = this.concatJSON(json);
-    //sessionStorage.setItem(sessionStorage.getItem("modulo"), JSON.stringify(this.jsongeneral));
-
     this.poner_estilos();
     setTimeout(() => {
       this.ruta.navigateByUrl("/mapa-preguntas");
@@ -166,6 +158,12 @@ export class PreguntasCuatroComponent implements AfterViewInit {
 
   hoy = new Date();
   enviar_respuesta() {
+    this.pauseTimer();
+    if(this.min="00"){
+      this.tiempo=1;
+    }else{
+      this.tiempo=Number.parseInt(this.min);
+    }
     for (let index = 0; index < 4; index++) {
       var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
       this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.aleatorios[index].id, fecha: fecha, minutos: 5, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
@@ -176,21 +174,21 @@ export class PreguntasCuatroComponent implements AfterViewInit {
 
   calc_num_act(): number {
     if (sessionStorage.getItem("num_mod") == "1") {
-      return 0 + PreguntasCuatroComponent.numact;
+      return 0 + Number.parseInt(sessionStorage.getItem("num_act"));
     } else if (sessionStorage.getItem("num_mod") == "2") {
-      return 10 + PreguntasCuatroComponent.numact;
+      return 10 + Number.parseInt(sessionStorage.getItem("num_act"));
     } else if (sessionStorage.getItem("num_mod") == "3") {
-      return 20 + PreguntasCuatroComponent.numact;
+      return 20 + Number.parseInt(sessionStorage.getItem("num_act"));
     } else if (sessionStorage.getItem("num_mod") == "4") {
-      return 30 + PreguntasCuatroComponent.numact;
+      return 30 + Number.parseInt(sessionStorage.getItem("num_act"));
     } else if (sessionStorage.getItem("num_mod") == "5") {
-      return 40 + PreguntasCuatroComponent.numact;
+      return 40 + Number.parseInt(sessionStorage.getItem("num_act"));
     } else if (sessionStorage.getItem("num_mod") == "6") {
-      return 50 + PreguntasCuatroComponent.numact;
+      return 50 + Number.parseInt(sessionStorage.getItem("num_act"));
     } else if (sessionStorage.getItem("num_mod") == "7") {
-      return 60 + PreguntasCuatroComponent.numact;
+      return 60 + Number.parseInt(sessionStorage.getItem("num_act"));
     } else if (sessionStorage.getItem("num_mod") == "8") {
-      return 70 + PreguntasCuatroComponent.numact;
+      return 70 + Number.parseInt(sessionStorage.getItem("num_act"));
     }
   }
 
@@ -256,6 +254,38 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     return select.nativeElement.options[index].innerText;
   }
 
+  //cronometro
+  time: string = '00';
+  min: string = '00';
+  interval;
+  play = false;
 
+  startTimer() {
+    this.play = true;
+    this.interval = setInterval(() => {
+      let seg = Number.parseInt(this.time);
+      seg++;
+      if (seg < 10) {
+        this.time = '0' + seg;
+      } else {
+        this.time = seg.toString();
+      }
+      if (this.time == '60') {
+        this.time = '00';
+        let m = Number.parseInt(this.min);
+        m++;
+        if (m < 10) {
+          this.min = '0' + m;
+        } else {
+          this.min = m.toString();
+        }
+      }
+    }, 1000)
+  }
+
+  pauseTimer() {
+    this.play = false;
+    clearInterval(this.interval);
+  }
 
 }

@@ -60,7 +60,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
 
   valor: any;
   bol=true;
-  actividades_rutas: any[] = ["/preguntas", "/preguntas-cuatro"];
+  actividades_rutas: any[] = ["/preguntas", "/preguntas-dos","/preguntas-tres","/preguntas-cuatro","/preguntas-cinco"];
 
   constructor(public ruta: Router, public estadisticas_serv: EstadisticasService) { }
 
