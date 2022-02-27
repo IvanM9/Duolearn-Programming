@@ -53,12 +53,14 @@ actividades.agregarActividad = async (req, res) => {
         let status, _pregunta, _opcion1;
         switch (tipo) {
             case "encontrar-error":
-                _pregunta = (await cloudinary.v2.uploader.upload(req.files[0].path)).secure_url;
+
+                _pregunta = (await cloudinary.v2.uploader.upload(req.files[0].path)).secure_url.trim();
+
                 _opcion1 = opcion_correcta;
                 break;
             case "pares":
-                _pregunta = (await cloudinary.v2.uploader.upload(req.files[0].path)).secure_url;
-                _opcion1 = (await cloudinary.v2.uploader.upload(req.files[1].path)).secure_url;
+                _pregunta = (await cloudinary.v2.uploader.upload(req.files[0].path)).secure_url.trim();
+                _opcion1 = (await cloudinary.v2.uploader.upload(req.files[1].path)).secure_url.trim();
                 break;
             default:
                 _pregunta = pregunta;
@@ -156,10 +158,24 @@ actividades.obtenerTemas = async (req, res) => {
             res.json(datos);
         }
         else
-            res.json(null);
+            res.json({ estado: 0 });
     } catch (error) {
-
+        console.log(error);
+        res.json({ estado: 0 });
     }
 }
 
+// Obtenemos todos los temas registrados
+actividades.listarTemas = async (req, res) => {
+    try {
+        let datos = await activity.listarTemas();
+        if (datos != null)
+            res.json(datos);
+        else
+            res.json({ estado: 0 });
+    } catch (error) {
+        console.log(error);
+        res.json({ estado: 0 });
+    }
+}
 module.exports = actividades;

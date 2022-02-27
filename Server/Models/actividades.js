@@ -124,4 +124,18 @@ activity.obtenerTemas = async (modulo, lenguaje) => {
         return null;
     }
 }
+
+// Se obtiene todos los temas desde la base de datos
+activity.listarTemas = async () => {
+    try {
+        let datos = await pool.query("select listar_temas()");
+        let aux = [];
+        datos.rows.forEach(element => {
+            aux.push(element.listar_temas);
+        });
+        return aux;
+    } catch (error) {
+        return null;
+    }
+}
 module.exports = activity;

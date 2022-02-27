@@ -104,6 +104,7 @@ Usuario.cambiarClave = async (usuario, clave_actual, clave_nuevo) => {
     }
 }
 
+// Se alamacena el token en la base de datos
 Usuario.asignarToken = async (usuario, token) => {
     try {
         let status = await pool.query("select agregar_token($1,$2)", [usuario, token]);
@@ -114,6 +115,9 @@ Usuario.asignarToken = async (usuario, token) => {
     }
 
 }
+
+// Se compara el token con el almacenado en la base de datos
+// Se cambia la contraseña
 Usuario.resetClave = async (usuario, nueva_clave, token) => {
     try {
         let status = await pool.query("select reset_clave($1,$2,$3)", [usuario, nueva_clave, token]);
