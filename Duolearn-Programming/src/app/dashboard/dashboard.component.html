@@ -27,7 +27,7 @@
                         <span> Mi Perfil</span></a>
                 </li>
                 <li>
-                    <a> <span><fa-icon [icon]="facomments"></fa-icon></span>
+                    <a routerLink="/foro-discusion"> <span><fa-icon [icon]="facomments"></fa-icon></span>
                         <span>Foro Discusión</span></a>
                 </li>
                 <li>
@@ -61,11 +61,12 @@
 
             <div class="user-wrapper">
                 <!--Cambiar el logo del lenguaje según el que se seleccione-->
-                <img [src]="img" id="lenguaje-practicando" width="50px" height="50px" alt="foto-usuario-logueado">
+                <img [src]="img" id="lenguaje-practicando" width="50px" height="50px">
                 
                 <div>
-                    <!--El nombres que aparecerá en este h4 debe ser traido de la BD con el usuario logueado-->
+
                     <h4>{{nombre}}</h4>
+
                 </div>
             </div>
         </header>

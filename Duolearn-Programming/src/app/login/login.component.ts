@@ -6,7 +6,6 @@ import { UsuariosService } from '../servicios/usuarios.service';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 
 import Swal from 'sweetalert2';
-import { PreLoaderComponent } from '../pre-loader/pre-loader.component';
 
 @Component({
   selector: 'app-login',
@@ -47,7 +46,11 @@ export class LoginComponent implements OnInit {
     }, 1250);
     this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
       if(resp.estado==1){
-        this.ruta.navigateByUrl("/dashboard");
+        if(resp.tipo.trim()=="administrador"){
+          this.ruta.navigateByUrl("/administrador");
+        }else{
+          this.ruta.navigateByUrl("/dashboard");
+        }
       }
     });
   }
@@ -57,18 +60,21 @@ export class LoginComponent implements OnInit {
       let val = resp.estado;
       if (val == 1) {
         this.mensaje_bien(resp.mensaje);
-        this.saveData();
-        this.ruta.navigateByUrl("/elegir-lenguaje");
+        sessionStorage.setItem('user', this.form_login.value.usuario);
+        this.user_service.get_user({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
+          if(resp.estado==1){
+            if(resp.tipo.trim()=="administrador"){
+              this.ruta.navigateByUrl("/administrador");
+            }else{
+              this.ruta.navigateByUrl("/elegir-lenguaje");
+            }
+          }
+        });
       } else {
         this.mensaje_mal(resp.mensaje);
         this.ruta.navigateByUrl("/login");
       }
     });
-  }
-
-  saveData() {
-    sessionStorage.setItem('user', this.form_login.value.usuario);
-    //sessionStorage.setItem('location', 'Pakistan');
   }
 
   registro_user(): any {
@@ -94,6 +100,7 @@ export class LoginComponent implements OnInit {
       timer: 1500
     })
   }
+
   mensaje_mal(mensaje:any) {
     Swal.fire({
       icon: 'error',
@@ -103,6 +110,7 @@ export class LoginComponent implements OnInit {
       timer: 1500
     });
   }
+
   MostrarElegirLenguaje() {
     this.ruta.navigateByUrl("/elegir-lenguaje");
   }

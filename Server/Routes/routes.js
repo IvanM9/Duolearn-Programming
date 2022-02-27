@@ -21,6 +21,7 @@ router.post("/usuario/nuevo", user.nuevoUsuario);
 router.get("/usuario/datos/:usuario", user.getUsuario);
 router.put("/usuario/modificar", user.modificarUsuario);
 router.post("/iniciar_sesion", user.iniciarSesion);
+
 router.delete('/usuario/eliminar/:usuario', user.elimnarUsuario);
 router.post("/resetear_clave", user.resetearClave);
 router.post("/cambio_clave", user.cambiarClave);
@@ -40,6 +41,7 @@ router.get("/usuario/estadisticas_csharp/:usuario", estadisticas.getCsharp);
 // Foro - chat
 router.post("/chat/nuevo", chat.nuevoMensaje);
 router.get("/chat/obtener", chat.obtenerMensajes);
+
 
 
 

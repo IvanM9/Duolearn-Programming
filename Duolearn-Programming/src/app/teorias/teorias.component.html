@@ -1,0 +1,36 @@
+
+<div class="box" id="resultScreen">
+    <div class="body">
+        <div class="caja" id="screenPreguntas">
+            <div class="titulo">
+                <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+                <i class="fas fa-book"></i> Soporte teórico
+            </div>
+
+            <div class="contenido">
+                <div class="titulo-contenido">
+                    <h1>{{modulo}}</h1>
+                </div>
+                <div *ngFor="let tema of temas"> 
+                    <div class="subtitulo-contenido">
+                        <h3> {{tema.titulo}} </h3>
+                    </div>
+                    <div class="teoria-contenido">
+                        <p>{{tema.concepto}}</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="confirmacion">
+                <input #checkbox type="checkbox"> <b> He leído la teoría</b>
+                <p><i>Si ya leyó la teoría y no quiere volver a ver esta ventana, marque la casilla.</i></p>
+            </div>
+            
+            <div class="botones">
+                <button (click)="redirecciona()">
+                    Continuar a los ejercicios ▶
+                </button>
+            </div>
+        </div>
+    </div>
+    

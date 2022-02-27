@@ -14,11 +14,8 @@ cloudinary.config({
 //Se obtiene las actividades por medio de varios restricciones
 actividades.obtenerActividades = async (req, res) => {
     try {
-
         const { modulo, lenguaje, tipo, usuario } = req.body;
         let datos = await activity.obtenerActividades(modulo, lenguaje, tipo, usuario);
-
-
         if (datos != null) {
             res.json(datos);
         }
@@ -49,7 +46,6 @@ actividades.resolverActividad = async (req, res) => {
     }
 }
 
-
 //Se inserta una nueva actividad a la base de datos
 actividades.agregarActividad = async (req, res) => {
     try {
@@ -57,7 +53,9 @@ actividades.agregarActividad = async (req, res) => {
         let status, _pregunta, _opcion1;
         switch (tipo) {
             case "encontrar-error":
+
                 _pregunta = (await cloudinary.v2.uploader.upload(req.files[0].path)).secure_url.trim();
+
                 _opcion1 = opcion_correcta;
                 break;
             case "pares":
@@ -79,7 +77,7 @@ actividades.agregarActividad = async (req, res) => {
             opcion4,
             tipo
         );
-
+        
         req.files.forEach(async element => {
             await fs.unlink(element.path);
         });

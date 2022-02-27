@@ -1,0 +1,118 @@
+
+<div class="box" id="resultScreen">
+
+    <div class="barra">
+        <span>Duolearn Programming</span>
+        <span>Administrador</span>
+        <span id="cerrar-sesion"><a (click)="close_session()">Cerrar sesión <fa-icon [icon]="faCerrarSesion"></fa-icon></a></span>
+    </div>
+
+    <div class="body">
+        <div class="caja" id="screenPreguntas">
+            <div class="cuestionario">
+                <div class="titulo">
+                    <!--Este titulo habría que traerlo de la base da datos, o de la pagina anterior, ya que el nombre del módulo aparece según el modulo que el usuario elige-->
+                    Agregar nuevas preguntas
+                    <span><fa-icon [icon]="faPlus"></fa-icon></span>
+                </div>
+            
+                <!--Los comboBox para seleccionar tipo de pregunta y tema-->
+                <div class="header">
+                    <div class="tipo-pregunta"><b>Tipo de Pregunta: </b>
+                        <select #escoge1 [(ngModel)]="seleccionado" >
+                            <option [value]="1" selected disabled>--- Seleccione ---</option>
+                            <option [value]="2">Cuestionario</option>
+                            <option [value]="3">Pares</option>
+                            <option [value]="4">Drag and drop</option>
+                            <option [value]="5">Error</option>
+                        </select>
+                    </div> 
+                    <div class="tema"><b>Tema: </b>
+                        <select [(ngModel)]="tema_select">
+                            <option [value]="1" >String</option>
+                        </select>  
+                    </div>
+                </div>
+            </div>
+
+            <!--Para ingresar preguntas de tipo cuestionario-->
+            <div *ngIf="(seleccionado==2 || seleccionado==4)"  class="tipo-cuestionario">
+                <div class="caja-pregunta" #pregunta >
+                    <h5>Ingrese la pregunta: </h5>
+                    <span><i><b>Nota: </b> En caso de ser de tipo Drag and drop, ingrese la pregunta (comentarios) línea a línea.</i></span>
+                    <textarea #pregunta_cuestionario></textarea> 
+                </div>
+                
+                <div class="caja-opciones">
+                    <h5>Ingrese las Opciones: </h5>
+                    <span><b>Nota: </b> No ingrese literales (a,b,c,d), solo el texto.</span>
+                    <input #opcion_a_cuestionario type="text" placeholder=" Opción A (Correcta)"/>
+                    <input #opcion_b_cuestionario type="text" placeholder=" Opción B"/>
+                    <input #opcion_c_cuestionario type="text" placeholder=" Opción C"/>
+                    <input #opcion_d_cuestionario type="text" placeholder=" Opción D"/>
+                </div>
+            </div>
+        
+            <!--Para ingresar 2 imágenes en la pregunta de tipo pares-->
+            <div *ngIf="(seleccionado==3)" class="pares">
+                <h5>Suba una imagen de algún código de muestra: </h5>
+                <span><i><b>Nota: </b> Deberá subir 2 imágenes, una como pregunta y la otra como opción correcta</i></span>
+                <div class="contenedor-imagen-pares">
+                    <div class="imagenes-a-cargar">
+                        <br/>
+                        <img alt="" id="img-vista-previa1"/>
+                        <img alt="" id="img-vista-previa2"/>
+                    </div>
+                </div>
+
+                <div class="form-pares">
+                    <input type="file" id="file1" (change)="vista_preliminar1($event)"/>
+                    <input type="button" value="Subir imagen 1🔼" class="btn-subir-img" onclick="document.getElementById('file1').click()"/>
+                    <input type="file" id="file2" (change)="vista_preliminar2($event)"/>
+                    <input type="button" value="Subir imagen 2🔼" class="btn-subir-img" onclick="document.getElementById('file2').click()"/>
+                </div>
+            </div>
+
+
+            <!--Pregunta para encontrar errores-->
+            <div *ngIf="(seleccionado==5)" class="error">
+                <h5>Suba una imagen de algún código de muestra: </h5>
+                <span><i><b>Nota: </b> Debe subir una imagen el cual el código contendrá un error</i></span>
+                <div class="contenedor-imagen-pares">
+                    <div class="imagenes-a-cargar">
+                        <br/><!--La imagen que puse aquí es de prueba, debes borrar esa imagen y dejar en blanco-->
+                        <img #imagen3 alt="" id="img-vista-previa3"/>
+                    </div>
+
+                    <div class="form-pares">
+                        <input type="file" id="file3" (change)="vista_preliminar3($event)"/>
+                        <input type="button" value="Subir imagen 🔼" class="btn-subir-img" onclick="document.getElementById('file3').click()"/>
+                    </div>
+                </div>
+
+                <div class="caja-opciones">
+                    <h5>Ingrese las Opciones: </h5>
+                    <span><i><b>Nota: </b> No ingrese literales (a,b,c,d), solo el texto.</i></span>
+                    <input #opcion_a_error type="text" placeholder=" Opción A (Correcta)"/>
+                    <input #opcion_b_error type="text" placeholder=" Opción B"/>
+                    <input #opcion_c_error type="text" placeholder=" Opción C"/>
+                    <input #opcion_d_error type="text" placeholder=" Opción D"/>
+                </div>
+            </div>
+
+            <!--Boton para guardar los cambios-->
+            <div class="botones">
+                <button (click)="send_question()">
+                    Guardar cambios 💾
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Este script JS hace mostrar la imagen en vista previa-->
+<script>
+</script>
+
+<!--https://www.youtube.com/watch?v=7kAJUQOkJqo-->
