@@ -26,6 +26,7 @@ user.listarUsuarios = async (req, res) => {
         res.json(datos);
     } catch (error) {
         console.log(error);
+        res.json({ estado: 0 });
     }
 }
 
@@ -48,6 +49,7 @@ user.getUsuario = async (req, res) => {
     }
     catch (error) {
         console.error();
+        res.json({ estado: 0 });
     }
 }
 
@@ -70,6 +72,7 @@ user.iniciarSesion = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: 0 });
     }
 }
 
@@ -105,6 +108,7 @@ user.nuevoUsuario = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: 0 });
     }
 }
 
@@ -125,6 +129,7 @@ user.elimnarUsuario = async (req, res) => {
             res.json({ mensaje: "El sesión no está iniciada", estado: "0" });
     } catch (error) {
         console.log(error);
+        res.json({ estado: 0 });
     }
 }
 
@@ -172,6 +177,7 @@ user.solicitarClave = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: 0 });
     }
 }
 
@@ -183,7 +189,7 @@ const crearToken = async (usuario) => {
         return "http://localhost:4200/olvide-contrasenia/" + resetToken
 
     } catch (error) {
-        return null
+        return null;
     }
 }
 

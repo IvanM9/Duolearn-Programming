@@ -103,7 +103,7 @@ activity.modificarTema = async (id, modulo, lenguaje, concepto, titulo) => {
         let datos = await pool.query("select modificar_tema($1, $2, $3, $4, $5)", [id, modulo, lenguaje, concepto, titulo]);
         return datos.rows[0].modificar_tema;
     } catch (error) {
-
+        return null;
     }
 }
 
