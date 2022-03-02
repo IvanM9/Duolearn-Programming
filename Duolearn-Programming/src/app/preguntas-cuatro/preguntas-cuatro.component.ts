@@ -53,7 +53,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     } else {
       this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "cuestionario", usuario: sessionStorage.getItem("user") }).subscribe(resp => {
         this.pregunta = resp;
-        console.log(resp);
+        //console.log(resp);
         this.startTimer();
         if (resp.length >= 4) {
           for (let index = 0; index < 4; index++) {
@@ -71,7 +71,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
               this.aleatorios.push(resp[rand]);
             }
           }
-          console.log(this.aleatorios);
+          //console.log(this.aleatorios);
           this.opcs = [this.opcion1, this.opcion2, this.opcion3, this.opcion4];
           this.pregs = [this.preg1, this.preg2, this.preg3, this.preg4];
           this.esc = [this.esc1, this.esc2, this.esc3, this.esc4];
@@ -135,14 +135,14 @@ export class PreguntasCuatroComponent implements AfterViewInit {
         if (this.pregs[index].nativeElement.innerText == this.aleatorios[j].pregunta) {
           let b = this.aleatorios[j];
           if (a == b.opcion_correcta) {
-            console.log("correcto");
+            //console.log("correcto");
             if (this.puntos != 20) {
               this.puntos += 5;
             }
             this.respuestas.push("correcta");
             this.total_correctas++;
           } else {
-            console.log("incorrecto");
+            //console.log("incorrecto");
             this.respuestas.push("incorrecta");
 
           }
@@ -167,7 +167,7 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     for (let index = 0; index < 4; index++) {
       var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
       this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.aleatorios[index].id, fecha: fecha, minutos: 5, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
-        console.log(resp);
+        //console.log(resp);
       });
     }
   }

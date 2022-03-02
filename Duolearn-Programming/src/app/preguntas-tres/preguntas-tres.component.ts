@@ -90,40 +90,40 @@ export class PreguntasTresComponent implements AfterViewInit {
 
   comprueba() {
     if (this.texto1.nativeElement.outerText == this.preg_aleatoria.opcion_correcta) {
-      console.log("DYD 1 CORRECTO");
+      //console.log("DYD 1 CORRECTO");
       this.estilo1 = { 'border': '5px solid green', "pointer-events": "none" };
     } else {
-      console.log("DYD 1 INCORRECTO");
+      //console.log("DYD 1 INCORRECTO");
       this.estilo1 = { 'border': '5px solid red', "pointer-events": "none" };
       if (this.puntos > 5) {
         this.puntos -= 5;
       }
     }
     if (this.texto2.nativeElement.outerText == this.preg_aleatoria.opcion2) {
-      console.log("DYD 1 CORRECTO");
+      //console.log("DYD 1 CORRECTO");
       this.estilo2 = { 'border': '5px solid green', "pointer-events": "none" };
     } else {
-      console.log("DYD 2 INCORRECTO");
+      //console.log("DYD 2 INCORRECTO");
       this.estilo2 = { 'border': '5px solid red', "pointer-events": "none" };
       if (this.puntos > 5) {
         this.puntos -= 5;
       }
     }
     if (this.texto3.nativeElement.outerText == this.preg_aleatoria.opcion3) {
-      console.log("DYD 3 CORRECTO");
+      //console.log("DYD 3 CORRECTO");
       this.estilo3 = { 'border': '5px solid green', "pointer-events": "none" };
     } else {
-      console.log("DYD 3 INCORRECTO");
+      //console.log("DYD 3 INCORRECTO");
       this.estilo3 = { 'border': '5px solid red', "pointer-events": "none" };
       if (this.puntos > 5) {
         this.puntos -= 5;
       }
     }
     if (this.texto4.nativeElement.outerText == this.preg_aleatoria.opcion4) {
-      console.log("DYD 4 CORRECTO");
+      //console.log("DYD 4 CORRECTO");
       this.estilo4 = { 'border': '5px solid green', "pointer-events": "none" };
     } else {
-      console.log("DYD 4 INCORRECTO");
+      //console.log("DYD 4 INCORRECTO");
       this.estilo4 = { 'border': '5px solid red', "pointer-events": "none" };
       if (this.puntos > 5) {
         this.puntos -= 5;
@@ -145,7 +145,7 @@ export class PreguntasTresComponent implements AfterViewInit {
   drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    console.log("entra " + this.elemn + "en el " + ev.target.id);
+    //console.log("entra " + this.elemn + "en el " + ev.target.id);
     ev.target.appendChild(document.getElementById(this.elemn));
   }
 
@@ -192,7 +192,7 @@ export class PreguntasTresComponent implements AfterViewInit {
         ev.stopPropagation();
         // Se oculta la imagen auxiliar de arrastre
         //var data = ev.dataTransfer.getData("text");
-        console.log("entra " + this.elemn + "en el " + ev.target.id);
+        //console.log("entra " + this.elemn + "en el " + ev.target.id);
         ev.target.appendChild(document.getElementById(this.elemn));
         // Se pone en falso la bandera que indica que se ha finalizado el evento 
         // drag and drop en mobile
@@ -249,7 +249,7 @@ export class PreguntasTresComponent implements AfterViewInit {
     }
     var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
     this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.preg_aleatoria.id, fecha: fecha, minutos: this.tiempo, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
-      console.log(resp);
+      //console.log(resp);
     });
   }
 

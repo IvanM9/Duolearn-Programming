@@ -371,7 +371,7 @@ export class PreguntasDosComponent implements AfterViewInit {
     for (let index = 0; index < 3; index++) {
       var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
       this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.aleatorios[index].id, fecha: fecha, minutos: this.tiempo, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
-        console.log(resp);
+        //console.log(resp);
       });
     }
     this.ruta.navigateByUrl("/mapa-preguntas");

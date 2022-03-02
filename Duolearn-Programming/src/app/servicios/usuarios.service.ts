@@ -25,7 +25,7 @@ export class UsuariosService {
   }
 
   resetea_password(datos: any, token: any): Observable<any> {
-    console.log(datos);
+    //console.log(datos);
     const opciones = {
       headers: new HttpHeaders({
         'reset': token, 'Content-Type': 'application/json', 'Accept':'*/*'

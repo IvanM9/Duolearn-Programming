@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   fanombre = iconos.faClosedCaptioning;
 
   @ViewChild("container") public contenedor: ElementRef;
+
   constructor(public ruta: Router,
     public formulario: FormBuilder,
     public formulario_registro: FormBuilder,
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
       clave: ['']
     });
   }
+  
   ngOnInit(): void {
     setTimeout(() => {
       this.bol=!this.bol;

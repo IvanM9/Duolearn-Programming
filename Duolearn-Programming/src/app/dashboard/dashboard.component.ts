@@ -129,7 +129,7 @@ export class DashboardComponent implements AfterViewInit {
           this.estadisticas_serv.obtener_est_csh({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
             this.json_general = resp;
             this.nombre = sessionStorage.getItem("user");
-            console.log(this.json_general);
+            //console.log(this.json_general);
             this.porcentaje();
             this.asigna_img();
             this.asignaporcentajes();
@@ -147,37 +147,37 @@ export class DashboardComponent implements AfterViewInit {
       this.estiloicono1 = { 'color': '#fff' };
       this.estiloletra1 = { 'color': '#fff' };
     }
-    if (DashboardComponent.porcentaje_mod1 == 100) {
+    if (DashboardComponent.porcentaje_mod2 == 100) {
       this.estilo2 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
       this.estiloicono2 = { 'color': '#fff' };
       this.estiloletra2 = { 'color': '#fff' };
     }
-    if (DashboardComponent.porcentaje_mod1 == 100) {
+    if (DashboardComponent.porcentaje_mod3 == 100) {
       this.estilo3 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
       this.estiloicono3 = { 'color': '#fff' };
       this.estiloletra3 = { 'color': '#fff' };
     }
-    if (DashboardComponent.porcentaje_mod1 == 100) {
+    if (DashboardComponent.porcentaje_mod4 == 100) {
       this.estilo4 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
       this.estiloicono4 = { 'color': '#fff' };
       this.estiloletra4 = { 'color': '#fff' };
     }
-    if (DashboardComponent.porcentaje_mod1 == 100) {
+    if (DashboardComponent.porcentaje_mod5 == 100) {
       this.estilo5 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
       this.estiloicono5 = { 'color': '#fff' };
       this.estiloletra5 = { 'color': '#fff' };
     }
-    if (DashboardComponent.porcentaje_mod1 == 100) {
+    if (DashboardComponent.porcentaje_mod6 == 100) {
       this.estilo6 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
       this.estiloicono6 = { 'color': '#fff' };
       this.estiloletra6 = { 'color': '#fff' };
     }
-    if (DashboardComponent.porcentaje_mod1 == 100) {
+    if (DashboardComponent.porcentaje_mod7 == 100) {
       this.estilo7 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
       this.estiloicono7 = { 'color': '#fff' };
       this.estiloletra7 = { 'color': '#fff' };
     }
-    if (DashboardComponent.porcentaje_mod1 == 100) {
+    if (DashboardComponent.porcentaje_mod8 == 100) {
       this.estilo8 = { 'background-color': 'rgb(5, 196, 88)', 'color': '#fff', "pointer-events": "none" };
       this.estiloicono8 = { 'color': '#fff' };
       this.estiloletra8 = { 'color': '#fff' };
@@ -285,7 +285,6 @@ export class DashboardComponent implements AfterViewInit {
     }
     window.location.reload();
   }
-
 
   sel_java: boolean;
   sel_csh: boolean;

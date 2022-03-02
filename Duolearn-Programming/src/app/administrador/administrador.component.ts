@@ -47,7 +47,7 @@ export class AdministradorComponent implements AfterViewInit {
           this.Temas[index]["lenguaje"] = "C#";
         }
       }
-      console.log(this.Temas);
+      //console.log(this.Temas);
     });
   }
 
