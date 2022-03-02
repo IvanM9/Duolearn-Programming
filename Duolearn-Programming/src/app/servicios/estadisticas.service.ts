@@ -18,4 +18,5 @@ export class EstadisticasService {
   obtener_est_csh(user:any):Observable<any>{
     return this.clientHttp.get(this.Api+"usuario/estadisticas_csharp/"+user.usuario);
   }
+
 }

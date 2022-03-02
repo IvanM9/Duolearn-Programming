@@ -24,6 +24,4 @@ export class PreguntasService {
   realiza_pregunta(datos: any): Observable<any> {
     return this.clientHttp.post(this.Api + "admin/actividades/agregar", datos);
   }
-
-
 }

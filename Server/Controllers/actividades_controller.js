@@ -78,12 +78,13 @@ actividades.agregarActividad = async (req, res) => {
             tipo
         );
         
+        res.json({ estado: status });
+
         req.files.forEach(async element => {
             await fs.unlink(element.path);
         });
 
-        res.json({ estado: status });
-    }
+    }   
     catch (error) {
         console.log(error);
     }

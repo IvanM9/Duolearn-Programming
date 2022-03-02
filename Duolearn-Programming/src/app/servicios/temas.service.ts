@@ -15,4 +15,8 @@ export class TemasService {
     return this.clientHttp.post(this.Api+"temas/obtener",datos);
   }
 
+  listar_temas():Observable<any>{
+    return this.clientHttp.get(this.Api+"/admin/temas/obtener");
+  }
+
 }

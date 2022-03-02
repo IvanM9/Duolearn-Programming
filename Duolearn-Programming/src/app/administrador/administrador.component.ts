@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 import { PreguntasService } from '../servicios/preguntas.service';
 import { TemasService } from '../servicios/temas.service';
 
@@ -28,14 +29,26 @@ export class AdministradorComponent implements AfterViewInit {
 
   seleccionado = 0;
   tema_select = 0;
+  Temas: any;
   faPlus = iconos.faPlusCircle;
   faCerrarSesion = iconos.faSignOutAlt;
-
+  img1;
+  img2;
+  img3;
 
   constructor(public tema_serv: TemasService, public act_serv: PreguntasService, public ruta: Router) { }
 
   ngAfterViewInit(): void {
     this.formData = new FormData();
+    this.tema_serv.listar_temas().subscribe(resp => {
+      this.Temas = resp;
+      for (let index = 0; index < this.Temas.length; index++) {
+        if (this.Temas[index]["lenguaje"] == "csh") {
+          this.Temas[index]["lenguaje"] = "C#";
+        }
+      }
+      console.log(this.Temas);
+    });
   }
 
 
@@ -47,17 +60,13 @@ export class AdministradorComponent implements AfterViewInit {
     this.img1 = event.target.files[0];
 
   }
-  img1;
-  img2;
-  img3;
+
   vista_preliminar2 = (event) => {
     let id_img = document.getElementById('img-vista-previa2');
     let path = URL.createObjectURL(event.target.files[0]);
     this.img2 = event.target.files[0];
     id_img.setAttribute("src", path);
   }
-
-  formData = new FormData();
 
   vista_preliminar3 = (event) => {
     let id_img = document.getElementById('img-vista-previa3');
@@ -66,7 +75,7 @@ export class AdministradorComponent implements AfterViewInit {
     id_img.setAttribute("src", path);
   }
 
-  formdata = new FormData();
+  formData = new FormData();
 
   send_question() {
     if (this.seleccionado == 2) {
@@ -79,7 +88,11 @@ export class AdministradorComponent implements AfterViewInit {
         opcion4: this.opcion_d_cuestionario.nativeElement.value,
         tipo: "cuestionario"
       }).subscribe(resp => {
-        console.log(resp);
+        if (resp.estado == 1) {
+          this.mensaje_bien("Se ha agregado la pregunta");
+        } else {
+          this.mensaje_mal("No se agrego la imagen");
+        }
         this.seleccionado = 0;
       });
     } else if (this.seleccionado == 3) {
@@ -88,9 +101,12 @@ export class AdministradorComponent implements AfterViewInit {
       this.formData.append("images", this.img2);
       this.formData.append("tipo", "pares");
       this.act_serv.realiza_pregunta(this.formData).subscribe(resp => {
-        console.log(resp);
+        if (resp.estado == 1) {
+          this.mensaje_bien("Se ha agregado la pregunta");
+        } else {
+          this.mensaje_mal("No se agrego la imagen");
+        }
         this.seleccionado = 0;
-        window.location.reload();
       });
     } else if (this.seleccionado == 4) {
       this.act_serv.realiza_pregunta({
@@ -102,7 +118,11 @@ export class AdministradorComponent implements AfterViewInit {
         opcion4: this.opcion_d_cuestionario.nativeElement.value,
         tipo: "drag-and-drop"
       }).subscribe(resp => {
-        console.log(resp);
+        if (resp.estado == 1) {
+          this.mensaje_bien("Se ha agregado la pregunta");
+        } else {
+          this.mensaje_mal("No se agrego la imagen");
+        }
         this.seleccionado = 0;
       });
     } else if (this.seleccionado == 5) {
@@ -114,9 +134,12 @@ export class AdministradorComponent implements AfterViewInit {
       this.formData.append("opcion4", this.opcion_d_error.nativeElement.value);
       this.formData.append("tipo", "encontrar-error");
       this.act_serv.realiza_pregunta(this.formData).subscribe(resp => {
-        console.log(resp);
+        if (resp.estado == 1) {
+          this.mensaje_bien("Se ha agregado la pregunta");
+        } else {
+          this.mensaje_mal("No se agrego la imagen");
+        }
         this.seleccionado = 0;
-        window.location.reload();
       });
     }
   }
@@ -126,5 +149,23 @@ export class AdministradorComponent implements AfterViewInit {
     this.ruta.navigateByUrl("/principal");
   }
 
+  mensaje_bien(mensaje: any) {
+    Swal.fire({
+      icon: 'success',
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  mensaje_mal(mensaje: any) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: mensaje,
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
 
 }

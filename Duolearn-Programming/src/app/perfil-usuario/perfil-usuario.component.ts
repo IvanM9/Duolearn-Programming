@@ -59,12 +59,12 @@ export class PerfilUsuarioComponent implements AfterViewInit {
   update_info() {
     this.user_Service.update_info(this.form_registro.value).subscribe(resp => {
       if (resp.estado == 1) {
-        this.mensaje_bien(resp.mensaje);
+        this.mensaje_bien("Se ha modificado");
         setTimeout(() => {
           this.ruta.navigateByUrl("/dashboard");
         }, 1500);
       } else {
-        this.mensaje_mal(resp.mensaje);
+        this.mensaje_mal("No se ha modificado");
         setTimeout(() => {
           this.ruta.navigateByUrl("/mi-perfil");
         }, 1500);

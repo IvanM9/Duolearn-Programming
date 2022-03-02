@@ -119,7 +119,7 @@ export class DashboardComponent implements AfterViewInit {
           this.estadisticas_serv.obtener_est_java({ usuario: sessionStorage.getItem("user") }).subscribe(resp => {
             this.json_general = resp;
             this.nombre = sessionStorage.getItem("user");
-            console.log(this.json_general);
+            //console.log(this.json_general);
             this.asigna_img();
             this.porcentaje();
             this.asignaporcentajes();
