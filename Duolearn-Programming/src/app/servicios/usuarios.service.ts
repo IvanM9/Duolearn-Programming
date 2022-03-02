@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuarios } from './usuarios';
+import {environment} from 'src/environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
 
-  Api: string = 'http://localhost:2000/api';
+  Api: string = environment.api;
 
   constructor(private clientHttp: HttpClient) { }
 
-  user_login(datos_login: Usuarios): Observable<any> {
+  user_login(datos_login: any): Observable<any> {
     return this.clientHttp.post(this.Api + "/iniciar_sesion", datos_login);
   }
 
-  user_register(datos_registro: Usuarios): Observable<any> {
+  user_register(datos_registro: any): Observable<any> {
     return this.clientHttp.post(this.Api + "/usuario/nuevo", datos_registro);
   }
 
@@ -42,11 +42,11 @@ export class UsuariosService {
     return this.clientHttp.get(this.Api + "/usuario/datos/" + user.usuario);
   }
 
-  update_info(datos_nuevos: Usuarios): Observable<any> {
+  update_info(datos_nuevos: any): Observable<any> {
     return this.clientHttp.put(this.Api + "/usuario/modificar", datos_nuevos);
   }
 
-  update_pass(datos_nuevos: Usuarios): Observable<any> {
+  update_pass(datos_nuevos: any): Observable<any> {
     return this.clientHttp.post(this.Api + "/cambio_clave", datos_nuevos);
   }
 }
