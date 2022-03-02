@@ -24,6 +24,8 @@ actividades.obtenerActividades = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ mensaje: "vacio", estado: "0" });
+
     }
 }
 
@@ -43,6 +45,8 @@ actividades.resolverActividad = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: "0" });
+
     }
 }
 
@@ -91,6 +95,7 @@ actividades.agregarActividad = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: "0" });
     }
 }
 
