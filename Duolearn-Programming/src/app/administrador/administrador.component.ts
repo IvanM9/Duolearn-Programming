@@ -91,7 +91,7 @@ export class AdministradorComponent implements AfterViewInit {
         if (resp.estado == 1) {
           this.mensaje_bien("Se ha agregado la pregunta");
         } else {
-          this.mensaje_mal("No se agrego la imagen");
+          this.mensaje_mal("No se agrego la pregunta");
         }
         this.seleccionado = 0;
       });
@@ -121,7 +121,7 @@ export class AdministradorComponent implements AfterViewInit {
         if (resp.estado == 1) {
           this.mensaje_bien("Se ha agregado la pregunta");
         } else {
-          this.mensaje_mal("No se agrego la imagen");
+          this.mensaje_mal("No se agrego la pregunta");
         }
         this.seleccionado = 0;
       });
