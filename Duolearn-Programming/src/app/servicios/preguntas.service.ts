@@ -13,14 +13,14 @@ export class PreguntasService {
   constructor(private clientHttp: HttpClient) { }
 
   get_questions(datos: any): Observable<any> {
-    return this.clientHttp.post(this.Api + "actividades/obtener", datos);
+    return this.clientHttp.post(this.Api + "/actividades/obtener", datos);
   }
 
   send_solves(datos: any): Observable<any> {
-    return this.clientHttp.post(this.Api + "actividades/resolver", datos);
+    return this.clientHttp.post(this.Api + "/actividades/resolver", datos);
   }
 
   realiza_pregunta(datos: any): Observable<any> {
-    return this.clientHttp.post(this.Api + "admin/actividades/agregar", datos);
+    return this.clientHttp.post(this.Api + "/admin/actividades/agregar", datos);
   }
 }
