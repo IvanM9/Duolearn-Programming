@@ -29,7 +29,7 @@ export class OlvideContraseniaComponent implements OnInit {
   reseteo() {
     if (this.reset_token != 0) {
       this.user_ser.resetea_password({ usuario: this.usuario.nativeElement.value, nueva_clave: this.password.nativeElement.value }, this.reset_token).subscribe(resp => {
-        console.log(resp);
+        //console.log(resp);
         if (resp.estado == 1) {
           this.mensaje_bien("Se ha cambiado la contraseña", 1500)
           setTimeout(() => {
@@ -44,7 +44,7 @@ export class OlvideContraseniaComponent implements OnInit {
       });
     } else {
       this.user_ser.solicita_password(this.usuario.nativeElement.value).subscribe(resp => {
-        console.log(resp);
+        //console.log(resp);
         if (resp.estado == 1) {
           this.mensaje_bien("Se ha enviado un link al correo asociado con el nombre de usuario", 3000);
           setTimeout(() => {

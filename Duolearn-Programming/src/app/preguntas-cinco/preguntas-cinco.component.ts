@@ -43,15 +43,15 @@ export class PreguntasCincoComponent implements AfterViewInit {
     } else {
       this.valor = sessionStorage.getItem("modulo");
       this.pregservice.get_questions({ modulo: sessionStorage.getItem("num_mod"), lenguaje: sessionStorage.getItem("lenguaje"), tipo: "encontrar-error", usuario: sessionStorage.getItem("user") }).subscribe(respuesta => {
-        console.log(respuesta);
+        //console.log(respuesta);
         this.startTimer();
         this.Pregunta = respuesta;
         //console.log(this.Pregunta);
         let rnd = this.getRandomInt(0, this.Pregunta.length - 1);
-        console.log(rnd);
+        //console.log(rnd);
         this.preg_aleatoria = respuesta[rnd];
         this.cargar_elementos();
-        console.log(this.preg_aleatoria);
+        //console.log(this.preg_aleatoria);
         this.opciones = [this.preg_aleatoria.opcion_correcta, this.preg_aleatoria.opcion2, this.preg_aleatoria.opcion3, this.preg_aleatoria.opcion4]
         this.pregunta.nativeElement.src = this.preg_aleatoria.pregunta;
         for (let i = 0; i < 4; i++) {
@@ -95,14 +95,14 @@ export class PreguntasCincoComponent implements AfterViewInit {
       case "opcion1":
         texto = this.opcion1.nativeElement.innerText;
         if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
-          console.log("correcto");
+          //console.log("correcto");
           this.estilo1 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo2 = this.concatJSON2(this.estilo2);
           this.estilo3 = this.concatJSON2(this.estilo3);
           this.estilo4 = this.concatJSON2(this.estilo4);
           this.pauseTimer();
         } else {
-          console.log("incorrecto");
+          //console.log("incorrecto");
           this.estilo1 = { 'border': '5px solid red', "pointer-events": "none" };
           this.puntos -= 5;
         }
@@ -110,14 +110,14 @@ export class PreguntasCincoComponent implements AfterViewInit {
       case "opcion2":
         texto = this.opcion2.nativeElement.innerText;
         if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
-          console.log("correcto");
+          //console.log("correcto");
           this.pauseTimer();
           this.estilo2 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo1 = this.concatJSON2(this.estilo1);
           this.estilo3 = this.concatJSON2(this.estilo3);
           this.estilo4 = this.concatJSON2(this.estilo4);
         } else {
-          console.log("incorrecto");
+          //console.log("incorrecto");
           this.estilo2 = { 'border': '5px solid red', "pointer-events": "none" };
           this.puntos -= 5;
         }
@@ -125,14 +125,14 @@ export class PreguntasCincoComponent implements AfterViewInit {
       case "opcion3":
         texto = this.opcion3.nativeElement.innerText;
         if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
-          console.log("correcto");
+          //console.log("correcto");
           this.pauseTimer();
           this.estilo3 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo2 = this.concatJSON2(this.estilo2);
           this.estilo1 = this.concatJSON2(this.estilo1);
           this.estilo4 = this.concatJSON2(this.estilo4);
         } else {
-          console.log("incorrecto");
+          //console.log("incorrecto");
           this.estilo3 = { 'border': '5px solid red', "pointer-events": "none" };
           this.puntos -= 5;
         }
@@ -140,14 +140,14 @@ export class PreguntasCincoComponent implements AfterViewInit {
       case "opcion4":
         texto = this.opcion4.nativeElement.innerText;
         if (texto == this.preg_aleatoria.opcion_correcta.trim()) {
-          console.log("correcto");
+          //console.log("correcto");
           this.pauseTimer();
           this.estilo4 = { 'border': '5px solid green', "pointer-events": "none" };
           this.estilo2 = this.concatJSON2(this.estilo2);
           this.estilo3 = this.concatJSON2(this.estilo3);
           this.estilo1 = this.concatJSON2(this.estilo1);
         } else {
-          console.log("incorrecto");
+          //console.log("incorrecto");
           this.estilo4 = { 'border': '5px solid red', "pointer-events": "none" };
           this.puntos -= 5;
         }
@@ -188,18 +188,18 @@ export class PreguntasCincoComponent implements AfterViewInit {
     }
     var fecha = this.hoy.getFullYear()+'-'+(this.hoy.getMonth() + 1) + '-'+this.hoy.getDate();
     this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.Pregunta[0].id, fecha: fecha, minutos: this.tiempo, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
-      console.log(resp);
+      //console.log(resp);
     });
   }
 
   //comprueba que eligio algo
   ver_verde() {
     if (this.estilo1.border == "5px solid green" || this.estilo2.border == "5px solid green" || this.estilo3.border == "5px solid green" || this.estilo4.border == "5px solid green") {
-      console.log("avanza");
+      //console.log("avanza");
       this.enviar_respuesta();
       this.ruta.navigateByUrl("/mapa-preguntas");
     } else {
-      console.log("no avanza");
+      //console.log("no avanza");
     }
   }
 

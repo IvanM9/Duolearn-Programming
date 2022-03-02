@@ -24,6 +24,8 @@ actividades.obtenerActividades = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ mensaje: "vacio", estado: "0" });
+
     }
 }
 
@@ -43,6 +45,8 @@ actividades.resolverActividad = async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: "0" });
+
     }
 }
 
@@ -77,15 +81,21 @@ actividades.agregarActividad = async (req, res) => {
             opcion4,
             tipo
         );
-        
-        req.files.forEach(async element => {
-            await fs.unlink(element.path);
-        });
+
+
+        if (req.files != undefined) {
+            req.files.forEach(async element => {
+                await fs.unlink(element.path);
+            });
+        }
+
 
         res.json({ estado: status });
+
     }
     catch (error) {
         console.log(error);
+        res.json({ estado: "0" });
     }
 }
 

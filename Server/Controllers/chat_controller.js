@@ -25,7 +25,7 @@ chat.obtenerMensajes = async (req, res) => {
         else
             res.json({ estado: 0 });
     } catch (error) {
-
+        res.json({ estado: 0 });
     }
 }
 
