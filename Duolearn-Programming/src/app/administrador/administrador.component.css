@@ -122,7 +122,7 @@
 }
 
 /*----------------------------------------Subir imagen para pares--------------------------*/
-#file{
+#file1,#file2,#file3{
     display: none;
 }
 
@@ -144,6 +144,7 @@
     font-size: 17px;
     width: 245px;
     color: white;
+    margin-right: 30px;
 }
 
 

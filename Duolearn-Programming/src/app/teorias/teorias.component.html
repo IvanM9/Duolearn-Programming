@@ -9,45 +9,25 @@
 
             <div class="contenido">
                 <div class="titulo-contenido">
-                    <h1>Variables y tipos de datos</h1>
+                    <h1>{{modulo}}</h1>
                 </div>
-
-                <div class="subtitulo-contenido">
-                    <h3>Variables de tipo entero</h3>
-                </div>
-                <div class="teoria-contenido">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum officia in eligendi magnam quia, porro at rem officiis animi, delectus qui inventore quod ipsum reiciendis dolor cum quidem. Architecto nam cumque nesciunt neque dignissimos impedit veritatis doloribus iste quasi, laborum quas commodi distinctio quod incidunt cupiditate ea deleniti possimus voluptatum.</p>
-                </div>
-
-                <div class="subtitulo-contenido">
-                    <h3>Variables de tipo decimales</h3>
-                </div>
-                <div class="teoria-contenido">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum officia in eligendi magnam quia, porro at rem officiis animi, delectus qui inventore quod ipsum reiciendis dolor cum quidem. Architecto nam cumque nesciunt neque dignissimos impedit veritatis doloribus iste quasi, laborum quas commodi distinctio quod incidunt cupiditate ea deleniti possimus voluptatum.</p>
-                </div>
-
-                <div class="subtitulo-contenido">
-                    <h3>Variables de tipo String</h3>
-                </div>
-                <div class="teoria-contenido">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum officia in eligendi magnam quia, porro at rem officiis animi, delectus qui inventore quod ipsum reiciendis dolor cum quidem. Architecto nam cumque nesciunt neque dignissimos impedit veritatis doloribus iste quasi, laborum quas commodi distinctio quod incidunt cupiditate ea deleniti possimus voluptatum.</p>
-                </div>
-
-                <div class="subtitulo-contenido">
-                    <h3>Variables Adicionales</h3>
-                </div>
-                <div class="teoria-contenido">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum officia in eligendi magnam quia, porro at rem officiis animi, delectus qui inventore quod ipsum reiciendis dolor cum quidem. Architecto nam cumque nesciunt neque dignissimos impedit veritatis doloribus iste quasi, laborum quas commodi distinctio quod incidunt cupiditate ea deleniti possimus voluptatum.</p>
+                <div *ngFor="let tema of temas"> 
+                    <div class="subtitulo-contenido">
+                        <h3> {{tema.titulo}} </h3>
+                    </div>
+                    <div class="teoria-contenido">
+                        <p>{{tema.concepto}}</p>
+                    </div>
                 </div>
             </div>
         
             <div class="confirmacion">
-                <input type="checkbox"> <b> He leído la teoría</b>
+                <input #checkbox type="checkbox"> <b> He leído la teoría</b>
                 <p><i>Si ya leyó la teoría y no quiere volver a ver esta ventana, marque la casilla.</i></p>
             </div>
             
             <div class="botones">
-                <button>
+                <button (click)="redirecciona()">
                     Continuar a los ejercicios ▶
                 </button>
             </div>
