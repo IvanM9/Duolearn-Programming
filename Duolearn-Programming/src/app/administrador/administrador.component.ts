@@ -39,7 +39,6 @@ export class AdministradorComponent implements AfterViewInit {
   constructor(public tema_serv: TemasService, public act_serv: PreguntasService, public ruta: Router) { }
 
   ngAfterViewInit(): void {
-    this.formData = new FormData();
     this.tema_serv.listar_temas().subscribe(resp => {
       this.Temas = resp;
       for (let index = 0; index < this.Temas.length; index++) {
@@ -57,14 +56,15 @@ export class AdministradorComponent implements AfterViewInit {
     let id_img = document.getElementById('img-vista-previa1');
     let path = URL.createObjectURL(event.target.files[0]);
     id_img.setAttribute("src", path);
+    console.log(event.target.files);
     this.img1 = event.target.files[0];
-
   }
 
   vista_preliminar2 = (event) => {
     let id_img = document.getElementById('img-vista-previa2');
     let path = URL.createObjectURL(event.target.files[0]);
     this.img2 = event.target.files[0];
+    console.log(event.target.files);
     id_img.setAttribute("src", path);
   }
 
@@ -142,6 +142,7 @@ export class AdministradorComponent implements AfterViewInit {
         this.seleccionado = 0;
       });
     }
+    this.formData = new FormData();
   }
 
   close_session() {
