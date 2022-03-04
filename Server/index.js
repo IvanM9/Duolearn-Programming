@@ -13,7 +13,7 @@ const fecha = Date.now();
 const storage = multer.diskStorage({
     destination: path.join(__dirname, 'public/uploads'),
     filename: (req, files, cb) => {
-        cb(null, fecha + path.extname(files.originalname));
+        cb(null,files.originalname);
     }
 })
 app.use(multer({ storage }).array('images'));
