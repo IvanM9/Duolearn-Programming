@@ -79,7 +79,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
             this.ruta.navigateByUrl("/dashboard");
           }
           else {
-            this.verifica_usadas();window.location.reload();
+            this.verifica_usadas();
           }
         });
       } else if (sessionStorage.getItem("lenguaje") == "csh") {
@@ -90,7 +90,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
             this.ruta.navigateByUrl("/dashboard");
           }
           else {
-            this.verifica_usadas();window.location.reload();
+            this.verifica_usadas();
           }
         });
       }
