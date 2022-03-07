@@ -5,7 +5,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { PreguntasCuatroComponent } from '../preguntas-cuatro/preguntas-cuatro.component';
 import { PreguntasComponent } from '../preguntas/preguntas.component';
 import { EstadisticasService } from '../servicios/estadisticas.service';
-import { $ } from '../../../node_modules/jquery';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-mapa-preguntas',
@@ -77,7 +77,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
           }
           else {
             this.verifica_usadas();
-            $("#screenPreguntas").load(" #screenPreguntas");
+            
           }
         });
       } else if (sessionStorage.getItem("lenguaje") == "csh") {

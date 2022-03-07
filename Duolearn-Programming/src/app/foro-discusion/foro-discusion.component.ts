@@ -1,13 +1,15 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { ChatsService } from '../servicios/chats.service';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-foro-discusion',
   templateUrl: './foro-discusion.component.html',
   styleUrls: ['./foro-discusion.component.css']
 })
-export class ForoDiscusionComponent implements OnInit {
+export class ForoDiscusionComponent implements AfterViewInit {
 
   //chats
   chats: any = [];
@@ -21,16 +23,21 @@ export class ForoDiscusionComponent implements OnInit {
   fapaperplane = iconos.faPaperPlane;
   facomments = iconos.faComments;
 
-  constructor(public chat_serv: ChatsService) { }
 
-  ngOnInit(): void {
+
+  constructor(private chat_serv: ChatsService) { }
+
+  ngAfterViewInit(): void {
     this.chat_serv.get_messages().subscribe(resp => {
       this.chats = resp;
     });
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 60000);
+    setInterval(() => {
+      window.setTimeout(() => {
+        this.chat_serv.get_messages().subscribe(resp => {
+          this.chats = resp;
+        });
+      }, 500);
+    }, 500);
   }
 
   devuelve_estilo(user: any): any {
@@ -39,6 +46,10 @@ export class ForoDiscusionComponent implements OnInit {
     } else {
       return "mensajes-usuario-actual";
     }
+  }
+
+  scrollToTop() {
+    document.getElementById("#contenido").scroll(20,20);
   }
 
   hoy = new Date();
@@ -51,9 +62,6 @@ export class ForoDiscusionComponent implements OnInit {
         //console.log(resp);
       });
     }
-    this.chat_serv.get_messages().subscribe(resp => {
-      this.chats = resp;
-    });
     this.mensaje.nativeElement.value = "";
   }
 
