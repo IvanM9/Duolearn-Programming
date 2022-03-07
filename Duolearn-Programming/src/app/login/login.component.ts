@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   fanombre = iconos.faClosedCaptioning;
 
   @ViewChild("container") public contenedor: ElementRef;
+
   constructor(public ruta: Router,
     public formulario: FormBuilder,
     public formulario_registro: FormBuilder,
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
       clave: ['']
     });
   }
+  
   ngOnInit(): void {
     setTimeout(() => {
       this.bol=!this.bol;
@@ -82,11 +84,11 @@ export class LoginComponent implements OnInit {
       //console.log(resp);
       let val = resp.estado;
       if (val == 1) {
-        this.mensaje_bien(resp.mensaje);
+        this.mensaje_bien("Usuario registrado con éxito");
         this.ruta.navigateByUrl("/login");
         this.ingres();
       } else {
-        this.mensaje_mal(resp.mensaje);
+        this.mensaje_mal("Usuario no registrado");
         this.ruta.navigateByUrl("/login");
       }
     });

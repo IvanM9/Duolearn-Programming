@@ -30,7 +30,7 @@ export class ForoDiscusionComponent implements OnInit {
 
     setTimeout(() => {
       window.location.reload();
-    }, 10000);
+    }, 60000);
   }
 
   devuelve_estilo(user: any): any {
@@ -48,7 +48,7 @@ export class ForoDiscusionComponent implements OnInit {
     var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
     if (this.mensaje.nativeElement.value != "") {
       this.chat_serv.send_message({ usuario: sessionStorage.getItem("user"), mensaje: this.mensaje.nativeElement.value, fecha: fecha }).subscribe(resp => {
-        console.log(resp);
+        //console.log(resp);
       });
     }
     this.chat_serv.get_messages().subscribe(resp => {

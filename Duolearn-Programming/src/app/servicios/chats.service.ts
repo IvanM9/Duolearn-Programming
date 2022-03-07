@@ -7,7 +7,9 @@ import {environment} from 'src/environments/environment'
   providedIn: 'root'
 })
 export class ChatsService {
+
   constructor(public clientHttp:HttpClient) { }
+
   Api: string = environment.api;
 
   send_message(datos:any):Observable<any>{

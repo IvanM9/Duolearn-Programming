@@ -13,7 +13,11 @@ export class TemasService {
   constructor(private clientHttp:HttpClient) { }
 
   obtener_temas(datos:any):Observable<any>{
-    return this.clientHttp.post(this.Api+"temas/obtener",datos);
+    return this.clientHttp.post(this.Api+"/temas/obtener",datos);
+  }
+
+  listar_temas():Observable<any>{
+    return this.clientHttp.get(this.Api+"/admin/temas/obtener");
   }
 
 }

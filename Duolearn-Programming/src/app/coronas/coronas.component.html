@@ -11,17 +11,17 @@
 
             <div class="caja-texto">
                 <span class="texto"><b>Coronas conseguidas: </b></span>
-                <span class="numero">5 <fa-icon [icon]="facrown"></fa-icon></span>
+                <span class="numero">{{coronas_tiene}} <fa-icon [icon]="facrown"></fa-icon></span>
                 <span class="texto"><b>Coronas por conseguir: </b></span>
-                <span class="numero">3 <fa-icon [icon]="facrown"></fa-icon></span>
+                <span class="numero">{{coronas_faltan}} <fa-icon [icon]="facrown"></fa-icon></span>
                 <span class="texto"><b>Coronas total del curso: </b></span>
-                <span class="numero">8 <fa-icon [icon]="facrown"></fa-icon></span>
+                <span class="numero">{{coronas_totales}} <fa-icon [icon]="facrown"></fa-icon></span>
             </div>
         </form>
         
 
         <div class="botones">
-            <button>
+            <button routerLink="/dashboard">
                 ◀ Entendido, volver
             </button>
         </div>

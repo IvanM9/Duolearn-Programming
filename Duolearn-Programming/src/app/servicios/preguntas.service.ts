@@ -7,24 +7,20 @@ import {environment} from 'src/environments/environment'
   providedIn: 'root'
 })
 export class PreguntasService {
-  //Api:string='http://localhost:8080/basedatos/';
 
-  Api: string = "http://localhost:2000/api/";
-
+  Api: string = environment.api;
 
   constructor(private clientHttp: HttpClient) { }
 
   get_questions(datos: any): Observable<any> {
-    return this.clientHttp.post(this.Api + "actividades/obtener", datos);
+    return this.clientHttp.post(this.Api + "/actividades/obtener", datos);
   }
 
   send_solves(datos: any): Observable<any> {
-    return this.clientHttp.post(this.Api + "actividades/resolver", datos);
+    return this.clientHttp.post(this.Api + "/actividades/resolver", datos);
   }
 
   realiza_pregunta(datos: any): Observable<any> {
-    return this.clientHttp.post(this.Api + "admin/actividades/agregar", datos);
+    return this.clientHttp.post(this.Api + "/admin/actividades/agregar", datos);
   }
-
-
 }
