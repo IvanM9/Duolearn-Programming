@@ -1,14 +1,11 @@
-
-import { R3BoundTarget } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { InstruccionesComponent } from '../instrucciones/instrucciones.component';
 import { PreguntasCuatroComponent } from '../preguntas-cuatro/preguntas-cuatro.component';
 import { PreguntasComponent } from '../preguntas/preguntas.component';
 import { EstadisticasService } from '../servicios/estadisticas.service';
-
+import { $ } from '../../../node_modules/jquery';
 
 @Component({
   selector: 'app-mapa-preguntas',
@@ -80,6 +77,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
           }
           else {
             this.verifica_usadas();
+            $("#screenPreguntas").load(" #screenPreguntas");
           }
         });
       } else if (sessionStorage.getItem("lenguaje") == "csh") {
