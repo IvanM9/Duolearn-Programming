@@ -59,7 +59,9 @@ export class MapaPreguntasComponent implements AfterViewInit {
   bol=true;
   actividades_rutas: any[] = ["/preguntas", "/preguntas-dos","/preguntas-tres","/preguntas-cuatro","/preguntas-cinco"];
 
-  constructor(public ruta: Router, public estadisticas_serv: EstadisticasService) { }
+  constructor(public ruta: Router, public estadisticas_serv: EstadisticasService) {
+    this.ngAfterViewInit();
+   }
 
   ngAfterViewInit(): void {
 
@@ -77,7 +79,6 @@ export class MapaPreguntasComponent implements AfterViewInit {
           }
           else {
             this.verifica_usadas();
-            
           }
         });
       } else if (sessionStorage.getItem("lenguaje") == "csh") {
@@ -97,6 +98,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
   }
 
   random: any;
+
   actividades(actividad: any) {
     this.random = this.getRandomInt(0, this.actividades_rutas.length - 1);
     if (this.random == 0) {

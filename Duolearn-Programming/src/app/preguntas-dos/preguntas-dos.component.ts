@@ -374,7 +374,13 @@ export class PreguntasDosComponent implements AfterViewInit {
         //console.log(resp);
       });
     }
-    this.ruta.navigateByUrl("/mapa-preguntas");
+
+    this.ruta.navigateByUrl('/mapa-preguntas', {
+      skipLocationChange: true
+    }).then(() =>
+      this.ruta.navigate([PreguntasDosComponent])
+    );
+
   }
 
   //cronometro
@@ -410,5 +416,4 @@ export class PreguntasDosComponent implements AfterViewInit {
     this.play = false;
     clearInterval(this.interval);
   }
-
 }

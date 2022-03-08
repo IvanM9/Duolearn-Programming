@@ -90,7 +90,14 @@ export class PreguntasComponent implements OnInit {
     if (this.estilo1.border == "5px solid green" || this.estilo2.border == "5px solid green" || this.estilo3.border == "5px solid green" || this.estilo4.border == "5px solid green") {
       //console.log("avanza");
       this.enviar_respuesta();
-      this.ruta.navigateByUrl("/mapa-preguntas");
+      
+      this.ruta.navigateByUrl('/mapa-preguntas', {
+        skipLocationChange: true
+      }).then(() =>
+        this.ruta.navigate([PreguntasComponent])
+      );
+
+      //this.ruta.navigateByUrl("/mapa-preguntas");
     } else {
       //console.log("no avanza");
     }

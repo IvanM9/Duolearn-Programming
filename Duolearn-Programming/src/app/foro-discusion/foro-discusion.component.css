@@ -64,22 +64,28 @@
 
 
 .mensajes-otros-usuarios{
+
+    width: 75%;
+    margin-bottom: -20px;
     background-color: wheat;
-    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid wheat;
     border-radius: 10px;
     padding: 10px 15px;
-    margin-bottom: 10px;
-    width: 75%;
 }
 
 .mensajes-usuario-actual{
-    border-radius: 10px;
-    background-color: wheat;
-    border: 1px solid gray;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    width: 75%;
     margin-left: 25%;
+    width: 75%;
+    margin-bottom: -20px;
+    background-color: rgb(250, 204, 51);
+    border-radius: 10px;
+    padding: 10px;
+    
+    border: 1px solid rgb(250, 204, 51);
+    border-radius: 10px;
+    padding: 10px 15px;
 }
 
 
