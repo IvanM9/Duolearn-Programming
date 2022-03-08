@@ -1,14 +1,11 @@
-
-import { R3BoundTarget } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as iconos from '@fortawesome/free-solid-svg-icons';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { InstruccionesComponent } from '../instrucciones/instrucciones.component';
 import { PreguntasCuatroComponent } from '../preguntas-cuatro/preguntas-cuatro.component';
 import { PreguntasComponent } from '../preguntas/preguntas.component';
 import { EstadisticasService } from '../servicios/estadisticas.service';
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-mapa-preguntas',
@@ -62,7 +59,9 @@ export class MapaPreguntasComponent implements AfterViewInit {
   bol=true;
   actividades_rutas: any[] = ["/preguntas", "/preguntas-dos","/preguntas-tres","/preguntas-cuatro","/preguntas-cinco"];
 
-  constructor(public ruta: Router, public estadisticas_serv: EstadisticasService) { }
+  constructor(public ruta: Router, public estadisticas_serv: EstadisticasService) {
+    this.ngAfterViewInit();
+   }
 
   ngAfterViewInit(): void {
 
@@ -79,7 +78,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
             this.ruta.navigateByUrl("/dashboard");
           }
           else {
-            this.verifica_usadas();window.location.reload();
+            this.verifica_usadas();
           }
         });
       } else if (sessionStorage.getItem("lenguaje") == "csh") {
@@ -90,7 +89,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
             this.ruta.navigateByUrl("/dashboard");
           }
           else {
-            this.verifica_usadas();window.location.reload();
+            this.verifica_usadas();
           }
         });
       }
@@ -99,6 +98,7 @@ export class MapaPreguntasComponent implements AfterViewInit {
   }
 
   random: any;
+
   actividades(actividad: any) {
     this.random = this.getRandomInt(0, this.actividades_rutas.length - 1);
     if (this.random == 0) {

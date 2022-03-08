@@ -152,7 +152,11 @@ export class PreguntasCuatroComponent implements AfterViewInit {
     this.enviar_respuesta();
     this.poner_estilos();
     setTimeout(() => {
-      this.ruta.navigateByUrl("/mapa-preguntas");
+      this.ruta.navigateByUrl('/mapa-preguntas', {
+        skipLocationChange: true
+      }).then(() =>
+        this.ruta.navigate([PreguntasCuatroComponent])
+      );
     }, 3000);
   }
 

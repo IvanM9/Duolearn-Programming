@@ -181,12 +181,12 @@ export class PreguntasCincoComponent implements AfterViewInit {
 
   enviar_respuesta() {
     this.pauseTimer();
-    if(this.min="00"){
-      this.tiempo=1;
-    }else{
-      this.tiempo=Number.parseInt(this.min);
+    if (this.min = "00") {
+      this.tiempo = 1;
+    } else {
+      this.tiempo = Number.parseInt(this.min);
     }
-    var fecha = this.hoy.getFullYear()+'-'+(this.hoy.getMonth() + 1) + '-'+this.hoy.getDate();
+    var fecha = this.hoy.getFullYear() + '-' + (this.hoy.getMonth() + 1) + '-' + this.hoy.getDate();
     this.pregservice.send_solves({ usuario: sessionStorage.getItem("user"), id_actividad: this.Pregunta[0].id, fecha: fecha, minutos: this.tiempo, intentos: 1, num_actividad: this.calc_num_act(), puntaje: this.puntos }).subscribe(resp => {
       //console.log(resp);
     });
@@ -197,7 +197,11 @@ export class PreguntasCincoComponent implements AfterViewInit {
     if (this.estilo1.border == "5px solid green" || this.estilo2.border == "5px solid green" || this.estilo3.border == "5px solid green" || this.estilo4.border == "5px solid green") {
       //console.log("avanza");
       this.enviar_respuesta();
-      this.ruta.navigateByUrl("/mapa-preguntas");
+      this.ruta.navigateByUrl('/mapa-preguntas', {
+        skipLocationChange: true
+      }).then(() =>
+        this.ruta.navigate([PreguntasCincoComponent])
+      );
     } else {
       //console.log("no avanza");
     }
@@ -211,28 +215,28 @@ export class PreguntasCincoComponent implements AfterViewInit {
   play = false;
   //cronometro
   time: string = '00';
-  min: string ='00';
+  min: string = '00';
 
   interval;
 
   startTimer() {
     this.play = true;
     this.interval = setInterval(() => {
-      let seg=Number.parseInt(this.time);
+      let seg = Number.parseInt(this.time);
       seg++;
-      if(seg<10){
-        this.time='0'+seg;
-      }else{
-        this.time=seg.toString();
+      if (seg < 10) {
+        this.time = '0' + seg;
+      } else {
+        this.time = seg.toString();
       }
-      if(this.time=='60'){
-        this.time='00';
-        let m=Number.parseInt(this.min);
+      if (this.time == '60') {
+        this.time = '00';
+        let m = Number.parseInt(this.min);
         m++;
-        if(m<10){
-          this.min='0'+m;
-        }else{
-          this.min=m.toString();
+        if (m < 10) {
+          this.min = '0' + m;
+        } else {
+          this.min = m.toString();
         }
       }
     }, 1000)

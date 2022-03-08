@@ -22,24 +22,24 @@
             <div>
                 {{linea1}}
             </div>
-            <div (drop)="drop($event)" (touchend)="touchend($event)" (touchmove)="touchmove($event)" [ngStyle]="estilo1" (dragover)="allowDrop($event)" #texto1 id="textoAllenar1">
+            <div (drop)="drop($event)" [ngStyle]="estilo1" (dragover)="allowDrop($event)" #texto1 id="textoAllenar1">
             </div>
             <div>
                 {{linea2}}
             </div>
-            <div (drop)="drop($event)" (touchend)="touchend($event)" (touchmove)="touchmove($event)" [ngStyle]="estilo2" (dragover)="allowDrop($event)" #texto2 id="textoAllenar2">
+            <div (drop)="drop($event)" [ngStyle]="estilo2" (dragover)="allowDrop($event)" #texto2 id="textoAllenar2">
 
             </div>
             <div>
                 {{linea3}}
             </div>
-            <div (drop)="drop($event)" (touchend)="touchend($event)" (touchmove)="touchmove($event)" [ngStyle]="estilo3" (dragover)="allowDrop($event)" #texto3 id="textoAllenar3">
+            <div (drop)="drop($event)" [ngStyle]="estilo3" (dragover)="allowDrop($event)" #texto3 id="textoAllenar3">
 
             </div>
             <div>
                 {{linea4}}
             </div>
-            <div (drop)="drop($event)" (touchend)="touchend($event)" (touchmove)="touchmove($event)" [ngStyle]="estilo4" (dragover)="allowDrop($event)" #texto4 id="textoAllenar4">
+            <div (drop)="drop($event)"  [ngStyle]="estilo4" (dragover)="allowDrop($event)" #texto4 id="textoAllenar4">
 
             </div>
         </div>
@@ -48,7 +48,7 @@
         <!--El draggable="true" es para que me permita arrastrar el span y hacer el drag and drop-->
         <div class="caja-opciones" (drop)="drop($event)" (dragover)="allowDrop($event)" dropzone="true"
             id="caja-opciones">
-            <span #opcion1 id="opc1" (touchstart)="touchstart($event)" class="draggable" (drag)="drag($event)" draggable="true"> {{opcion1.innerText}} </span>
+            <span #opcion1 id="opc1" class="draggable" (drag)="drag($event)" draggable="true"> {{opcion1.innerText}} </span>
             <span #opcion2 id="opc2" (drag)="drag($event)" draggable="true">{{opcion2.innerText}}</span>
             <span #opcion3 id="opc3" (drag)="drag($event)" draggable="true">{{opcion3.innerText}}</span>
             <span #opcion4 id="opc4" (drag)="drag($event)" draggable="true">{{opcion4.innerText}}</span>
