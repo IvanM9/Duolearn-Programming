@@ -92,6 +92,18 @@
     text-align: center;
 }
 
+.opc_correcta::placeholder{
+    color: #fff;
+}
+
+.opc_correcta input{
+    background-color: rgb(5, 196, 88);
+}
+
+.opc_correctadd::placeholder{
+    color: #fff;
+}
+
 .caja-pregunta textarea{
     /*background-color: green;*/
     border-radius: 10px;
