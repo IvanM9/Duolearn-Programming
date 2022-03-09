@@ -79,6 +79,11 @@ export class MapaPreguntasComponent implements AfterViewInit {
           }
           else {
             this.verifica_usadas();
+            setInterval(() => {
+              window.setTimeout(() => {
+                this.verifica_usadas();
+              }, 500);
+            }, 500);
           }
         });
       } else if (sessionStorage.getItem("lenguaje") == "csh") {
@@ -90,6 +95,11 @@ export class MapaPreguntasComponent implements AfterViewInit {
           }
           else {
             this.verifica_usadas();
+            setInterval(() => {
+              window.setTimeout(() => {
+                this.verifica_usadas();
+              }, 500);
+            }, 500);
           }
         });
       }

@@ -115,6 +115,11 @@ export class AdministradorComponent implements AfterViewInit {
   valida_dragandrop():boolean{
     let v=this.pregunta_cuest.nativeElement.value.split("\n");
     if(v.length==4){
+      for (let index = 0; index < v.length; index++) {
+        if(v[index]==""){
+          return false;
+        }
+      }
       return true;
     }else{
       return false;
@@ -234,8 +239,12 @@ export class AdministradorComponent implements AfterViewInit {
       icon: 'success',
       title: mensaje,
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
     })
+  }
+
+  placeholder(){
+    
   }
 
   mensaje_mal(mensaje: any) {
